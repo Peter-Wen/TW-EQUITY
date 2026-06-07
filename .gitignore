@@ -1,0 +1,8 @@
+.DS_Store
+.localized
+finance-python-env/
+twse-limit-up-site/.DS_Store
+twse-limit-up-site/data/
+twse-limit-up-site/logs/
+__pycache__/
+*.pyc
