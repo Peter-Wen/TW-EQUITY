@@ -4,6 +4,7 @@ import datetime as dt
 import html
 import json
 import math
+import os
 import re
 import time
 import warnings
@@ -843,8 +844,12 @@ class Handler(BaseHTTPRequestHandler):
 
 
 def main() -> None:
-    server = ThreadingHTTPServer(("127.0.0.1", 8055), Handler)
-    print("台股漲停追蹤網站：http://127.0.0.1:8055")
+    host = os.environ.get("HOST", "0.0.0.0")
+    port = int(os.environ.get("PORT", 8055))
+    server = ThreadingHTTPServer((host, port), Handler)
+    print(f"台股漲停追蹤網站：http://{host}:{port}")
+    if host == "0.0.0.0":
+        print(f"本機瀏覽：http://127.0.0.1:{port}")
     server.serve_forever()
 
 
