@@ -14,8 +14,8 @@ render.yaml
 
 在 Render 建立 Blueprint 或 Web Service 時，服務會使用：
 
-- Root Directory: `twse-limit-up-site`
+- Root Directory: 留空
 - Build Command: `pip install -r requirements.txt`
-- Start Command: `python -B app.py`
+- Start Command: `python -B twse-limit-up-site/app.py`
 
 詳細本地啟動與雲端部署方式請看 [`twse-limit-up-site/README.md`](twse-limit-up-site/README.md)。

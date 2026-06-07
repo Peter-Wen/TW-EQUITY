@@ -130,7 +130,7 @@ Python
 Root Directory：
 
 ```text
-twse-limit-up-site
+留空
 ```
 
 Build Command：
@@ -142,7 +142,7 @@ pip install -r requirements.txt
 Start Command：
 
 ```bash
-python -B app.py
+python -B twse-limit-up-site/app.py
 ```
 
 環境變數：
@@ -167,4 +167,4 @@ https://tw-equity.onrender.com
 
 - 官方資料來源暫時無法連線：首頁第一次載入或按「更新資料」可能較慢，稍後重試即可。
 - Render Free Plan 休眠：一段時間沒人使用後會休眠，第一次打開會比較慢。
-- `PORT` 沒有正確綁定：確認 start command 是 `python -B app.py`，且程式使用 `0.0.0.0` 與環境變數 `PORT`。
+- `PORT` 沒有正確綁定：確認 start command 是 `python -B twse-limit-up-site/app.py`，且程式使用 `0.0.0.0` 與環境變數 `PORT`。
