@@ -136,7 +136,7 @@ Root Directory：
 Build Command：
 
 ```bash
-pip install -r requirements.txt
+pip install -r requirements.txt && cd twse-limit-up-site && python -B update_report.py
 ```
 
 Start Command：
@@ -165,6 +165,6 @@ https://tw-equity.onrender.com
 
 ## 可能的部署問題
 
-- 官方資料來源暫時無法連線：首頁第一次載入或按「更新資料」可能較慢，稍後重試即可。
+- 官方資料來源暫時無法連線：Build 階段預先產生快取資料可能失敗；稍後重新部署，或暫時把 Build Command 改回 `pip install -r requirements.txt`，讓網站首次載入時再抓資料。
 - Render Free Plan 休眠：一段時間沒人使用後會休眠，第一次打開會比較慢。
 - `PORT` 沒有正確綁定：確認 start command 是 `python -B twse-limit-up-site/app.py`，且程式使用 `0.0.0.0` 與環境變數 `PORT`。

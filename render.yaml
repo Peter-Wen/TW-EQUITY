@@ -2,7 +2,7 @@ services:
   - type: web
     name: tw-equity
     runtime: python
-    buildCommand: pip install -r requirements.txt
+    buildCommand: pip install -r requirements.txt && cd twse-limit-up-site && python -B update_report.py
     startCommand: python -B twse-limit-up-site/app.py
     plan: free
     envVars:
