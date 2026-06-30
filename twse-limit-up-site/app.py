@@ -456,7 +456,13 @@ INDEX_HTML = """<!doctype html>
           <h2 id="page-date"></h2>
           <p id="page-count"></p>
         </div>
-        <input id="filter" type="search" placeholder="搜尋代號或名稱" />
+        <div class="panel-actions">
+          <div class="segmented" aria-label="買賣超顯示單位">
+            <button id="mode-shares" class="mode-toggle active" data-mode="shares" type="button">張數</button>
+            <button id="mode-amount" class="mode-toggle" data-mode="amount" type="button">金額</button>
+          </div>
+          <input id="filter" type="search" placeholder="搜尋代號或名稱" />
+        </div>
       </div>
       <div class="table-wrap">
         <table>
@@ -471,10 +477,10 @@ INDEX_HTML = """<!doctype html>
               <th class="num"><button class="sort-head" data-sort="open" type="button">開盤</button></th>
               <th class="num"><button class="sort-head" data-sort="low" type="button">最低</button></th>
               <th class="num"><button class="sort-head" data-sort="close" type="button">收盤</button></th>
-              <th class="num"><button class="sort-head" data-sort="foreign_net" type="button">外資</button></th>
-              <th class="num"><button class="sort-head" data-sort="investment_trust_net" type="button">投信</button></th>
-              <th class="num"><button class="sort-head" data-sort="dealer_net" type="button">自營商</button></th>
-              <th class="num"><button class="sort-head" data-sort="institutional_net" type="button">三大合計</button></th>
+              <th class="num"><button class="sort-head" data-sort="foreign_net" type="button"><span data-inst-heading="foreign_net">外資(張)</span></button></th>
+              <th class="num"><button class="sort-head" data-sort="investment_trust_net" type="button"><span data-inst-heading="investment_trust_net">投信(張)</span></button></th>
+              <th class="num"><button class="sort-head" data-sort="dealer_net" type="button"><span data-inst-heading="dealer_net">自營商(張)</span></button></th>
+              <th class="num"><button class="sort-head" data-sort="institutional_net" type="button"><span data-inst-heading="institutional_net">三大合計(張)</span></button></th>
               <th class="num"><button class="sort-head" data-sort="consecutive_limit_days" type="button">連續漲停</button></th>
               <th class="num"><button class="sort-head" data-sort="after_1d" type="button">1天後</button></th>
               <th class="num"><button class="sort-head" data-sort="after_3d" type="button">3天後</button></th>
@@ -571,6 +577,33 @@ main { padding: 22px 28px 32px; }
   padding: 18px;
   border-bottom: 1px solid var(--line);
 }
+.panel-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.segmented {
+  display: inline-flex;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+}
+.mode-toggle {
+  min-height: 38px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 0;
+  color: #3b424a;
+  background: #fff;
+}
+.mode-toggle + .mode-toggle {
+  border-left: 1px solid var(--line);
+}
+.mode-toggle.active {
+  color: var(--accent-ink);
+  background: #2f3a45;
+}
 #filter {
   width: min(300px, 45vw);
   min-height: 40px;
@@ -634,7 +667,7 @@ th {
   color: var(--muted);
 }
 @media (max-width: 720px) {
-  .topbar, .panel-head { align-items: stretch; flex-direction: column; }
+  .topbar, .panel-head, .panel-actions { align-items: stretch; flex-direction: column; }
   main, .topbar { padding-left: 16px; padding-right: 16px; }
   #filter { width: 100%; }
 }
@@ -645,6 +678,7 @@ APP_JS = """
 let report = null;
 let activeIndex = 0;
 let sortState = { key: "consecutive_limit_days", direction: "desc" };
+let institutionalMode = "shares";
 
 const fmt = new Intl.NumberFormat("zh-TW");
 const tabs = document.querySelector("#tabs");
@@ -654,6 +688,13 @@ const pageDate = document.querySelector("#page-date");
 const pageCount = document.querySelector("#page-count");
 const filter = document.querySelector("#filter");
 const refresh = document.querySelector("#refresh");
+const institutionalKeys = ["foreign_net", "investment_trust_net", "dealer_net", "institutional_net"];
+const institutionalLabels = {
+  foreign_net: "外資",
+  investment_trust_net: "投信",
+  dealer_net: "自營商",
+  institutional_net: "三大合計",
+};
 
 function perfCell(perf) {
   if (!perf) return '<span class="muted">尚無資料</span>';
@@ -677,9 +718,34 @@ function signedCell(value) {
   return `<span class="${cls}">${sign}${fmt.format(number)}</span>`;
 }
 
+function decimalText(value) {
+  return Number(value || 0).toLocaleString("zh-TW", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  });
+}
+
+function institutionalValue(stock, key) {
+  const shares = Number(stock[key] || 0);
+  if (institutionalMode === "amount") {
+    return (shares * Number(stock.close || 0)) / 100000000;
+  }
+  return shares / 1000;
+}
+
+function institutionalCell(stock, key) {
+  const value = institutionalValue(stock, key);
+  const cls = value >= 0 ? "gain" : "loss";
+  const sign = value > 0 ? "+" : "";
+  return `<span class="${cls}">${sign}${decimalText(value)}</span>`;
+}
+
 function sortValue(stock, key) {
   if (key === "after_1d" || key === "after_3d" || key === "after_1w") {
     return stock[key] ? stock[key].change_pct : Number.NEGATIVE_INFINITY;
+  }
+  if (institutionalKeys.includes(key)) {
+    return institutionalValue(stock, key);
   }
   const value = stock[key];
   return value == null ? Number.NEGATIVE_INFINITY : value;
@@ -704,6 +770,17 @@ function updateSortHeaders() {
     button.classList.toggle("active", active);
     button.classList.toggle("asc", active && sortState.direction === "asc");
     button.classList.toggle("desc", active && sortState.direction === "desc");
+  });
+}
+
+function updateInstitutionalMode() {
+  const unit = institutionalMode === "amount" ? "億" : "張";
+  document.querySelectorAll("[data-inst-heading]").forEach((label) => {
+    const key = label.dataset.instHeading;
+    label.textContent = `${institutionalLabels[key]}(${unit})`;
+  });
+  document.querySelectorAll(".mode-toggle").forEach((button) => {
+    button.classList.toggle("active", button.dataset.mode === institutionalMode);
   });
 }
 
@@ -743,10 +820,10 @@ function renderRows() {
       <td class="num">${priceCell(stock.open)}</td>
       <td class="num">${priceCell(stock.low)}</td>
       <td class="num">${priceCell(stock.close)}</td>
-      <td class="num">${signedCell(stock.foreign_net)}</td>
-      <td class="num">${signedCell(stock.investment_trust_net)}</td>
-      <td class="num">${signedCell(stock.dealer_net)}</td>
-      <td class="num">${signedCell(stock.institutional_net)}</td>
+      <td class="num">${institutionalCell(stock, "foreign_net")}</td>
+      <td class="num">${institutionalCell(stock, "investment_trust_net")}</td>
+      <td class="num">${institutionalCell(stock, "dealer_net")}</td>
+      <td class="num">${institutionalCell(stock, "institutional_net")}</td>
       <td class="num">${stock.consecutive_limit_days}</td>
       <td class="num">${perfCell(stock.after_1d)}</td>
       <td class="num">${perfCell(stock.after_3d)}</td>
@@ -762,6 +839,7 @@ function render() {
   pageDate.textContent = page.date;
   pageCount.textContent = `共 ${page.count} 檔上市上櫃普通股漲停`;
   renderTabs();
+  updateInstitutionalMode();
   updateSortHeaders();
   renderRows();
 }
@@ -788,6 +866,13 @@ document.querySelectorAll(".sort-head").forEach((button) => {
       sortState = { key, direction: "desc" };
     }
     updateSortHeaders();
+    renderRows();
+  });
+});
+document.querySelectorAll(".mode-toggle").forEach((button) => {
+  button.addEventListener("click", () => {
+    institutionalMode = button.dataset.mode;
+    updateInstitutionalMode();
     renderRows();
   });
 });
