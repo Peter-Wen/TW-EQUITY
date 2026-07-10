@@ -394,6 +394,7 @@ def build_report(today: Optional[dt.date] = None) -> Dict[str, Any]:
                     "code": row["code"],
                     "name": row["name"],
                     "volume": row["volume"],
+                    "amount": row["amount"],
                     "margin_usage_rate": round_optional(row.get("margin_usage_rate")),
                     "average": round_optional(row.get("average")),
                     "open": round_optional(row.get("open")),
@@ -457,25 +458,26 @@ INDEX_HTML = """<!doctype html>
           <p id="page-count"></p>
         </div>
         <div class="panel-actions">
-          <div class="segmented" aria-label="買賣超顯示單位">
-            <button id="mode-shares" class="mode-toggle active" data-mode="shares" type="button">張數</button>
+          <div class="segmented" aria-label="成交與買賣超顯示單位">
+            <button id="mode-shares" class="mode-toggle active" data-mode="shares" type="button">量</button>
             <button id="mode-amount" class="mode-toggle" data-mode="amount" type="button">金額</button>
           </div>
+          <button id="price-details-toggle" class="details-toggle active" type="button" aria-pressed="true">價格明細：顯示</button>
           <input id="filter" type="search" placeholder="搜尋代號或名稱" />
         </div>
       </div>
       <div class="table-wrap">
-        <table>
+        <table id="stock-table">
           <thead>
             <tr>
               <th><button class="sort-head" data-sort="code" type="button">代號</button></th>
               <th><button class="sort-head" data-sort="market" type="button">市場</button></th>
               <th><button class="sort-head" data-sort="name" type="button">名稱</button></th>
-              <th class="num"><button class="sort-head" data-sort="volume" type="button">成交量</button></th>
+              <th class="num"><button class="sort-head" data-sort="trade_metric" type="button"><span id="trade-heading">成交量(張)</span></button></th>
               <th class="num"><button class="sort-head" data-sort="margin_usage_rate" type="button">融資使用率</button></th>
-              <th class="num"><button class="sort-head" data-sort="average" type="button">均價</button></th>
-              <th class="num"><button class="sort-head" data-sort="open" type="button">開盤</button></th>
-              <th class="num"><button class="sort-head" data-sort="low" type="button">最低</button></th>
+              <th class="num optional-price"><button class="sort-head" data-sort="average" type="button">均價</button></th>
+              <th class="num optional-price"><button class="sort-head" data-sort="open" type="button">開盤</button></th>
+              <th class="num optional-price"><button class="sort-head" data-sort="low" type="button">最低</button></th>
               <th class="num"><button class="sort-head" data-sort="close" type="button">收盤</button></th>
               <th class="num"><button class="sort-head" data-sort="foreign_net" type="button"><span data-inst-heading="foreign_net">外資(張)</span></button></th>
               <th class="num"><button class="sort-head" data-sort="investment_trust_net" type="button"><span data-inst-heading="investment_trust_net">投信(張)</span></button></th>
@@ -604,6 +606,18 @@ main { padding: 22px 28px 32px; }
   color: var(--accent-ink);
   background: #2f3a45;
 }
+.details-toggle {
+  min-height: 38px;
+  padding: 0 12px;
+  color: #3b424a;
+  background: #fff;
+  border-color: var(--line);
+}
+.details-toggle.active {
+  color: #fff;
+  background: #52606d;
+  border-color: #52606d;
+}
 #filter {
   width: min(300px, 45vw);
   min-height: 40px;
@@ -614,6 +628,12 @@ table {
   width: 100%;
   min-width: 1580px;
   border-collapse: collapse;
+}
+table.hide-price-details {
+  min-width: 1280px;
+}
+table.hide-price-details .optional-price {
+  display: none;
 }
 th, td {
   padding: 12px 14px;
@@ -678,7 +698,8 @@ APP_JS = """
 let report = null;
 let activeIndex = 0;
 let sortState = { key: "consecutive_limit_days", direction: "desc" };
-let institutionalMode = "shares";
+let metricMode = "shares";
+let priceDetailsVisible = true;
 
 const fmt = new Intl.NumberFormat("zh-TW");
 const tabs = document.querySelector("#tabs");
@@ -688,6 +709,9 @@ const pageDate = document.querySelector("#page-date");
 const pageCount = document.querySelector("#page-count");
 const filter = document.querySelector("#filter");
 const refresh = document.querySelector("#refresh");
+const stockTable = document.querySelector("#stock-table");
+const tradeHeading = document.querySelector("#trade-heading");
+const priceDetailsToggle = document.querySelector("#price-details-toggle");
 const institutionalKeys = ["foreign_net", "investment_trust_net", "dealer_net", "institutional_net"];
 const institutionalLabels = {
   foreign_net: "外資",
@@ -727,7 +751,7 @@ function decimalText(value) {
 
 function institutionalValue(stock, key) {
   const shares = Number(stock[key] || 0);
-  if (institutionalMode === "amount") {
+  if (metricMode === "amount") {
     return (shares * Number(stock.close || 0)) / 100000000;
   }
   return shares / 1000;
@@ -740,12 +764,29 @@ function institutionalCell(stock, key) {
   return `<span class="${cls}">${sign}${decimalText(value)}</span>`;
 }
 
+function tradeValue(stock) {
+  if (metricMode === "amount") {
+    const amount = stock.amount == null
+      ? Number(stock.average || 0) * Number(stock.volume || 0)
+      : Number(stock.amount);
+    return amount / 100000000;
+  }
+  return Number(stock.volume || 0) / 1000;
+}
+
+function tradeCell(stock) {
+  return decimalText(tradeValue(stock));
+}
+
 function sortValue(stock, key) {
   if (key === "after_1d" || key === "after_3d" || key === "after_1w") {
     return stock[key] ? stock[key].change_pct : Number.NEGATIVE_INFINITY;
   }
   if (institutionalKeys.includes(key)) {
     return institutionalValue(stock, key);
+  }
+  if (key === "trade_metric") {
+    return tradeValue(stock);
   }
   const value = stock[key];
   return value == null ? Number.NEGATIVE_INFINITY : value;
@@ -773,15 +814,23 @@ function updateSortHeaders() {
   });
 }
 
-function updateInstitutionalMode() {
-  const unit = institutionalMode === "amount" ? "億" : "張";
+function updateMetricMode() {
+  const unit = metricMode === "amount" ? "億" : "張";
+  tradeHeading.textContent = metricMode === "amount" ? "成交金額(億)" : "成交量(張)";
   document.querySelectorAll("[data-inst-heading]").forEach((label) => {
     const key = label.dataset.instHeading;
     label.textContent = `${institutionalLabels[key]}(${unit})`;
   });
   document.querySelectorAll(".mode-toggle").forEach((button) => {
-    button.classList.toggle("active", button.dataset.mode === institutionalMode);
+    button.classList.toggle("active", button.dataset.mode === metricMode);
   });
+}
+
+function updatePriceDetails() {
+  stockTable.classList.toggle("hide-price-details", !priceDetailsVisible);
+  priceDetailsToggle.classList.toggle("active", priceDetailsVisible);
+  priceDetailsToggle.setAttribute("aria-pressed", String(priceDetailsVisible));
+  priceDetailsToggle.textContent = priceDetailsVisible ? "價格明細：顯示" : "價格明細：隱藏";
 }
 
 function renderTabs() {
@@ -814,11 +863,11 @@ function renderRows() {
       <td><strong>${stock.code}</strong></td>
       <td><span class="badge">${stock.market}</span></td>
       <td>${stock.name}</td>
-      <td class="num">${fmt.format(stock.volume)}</td>
+      <td class="num">${tradeCell(stock)}</td>
       <td class="num">${percentCell(stock.margin_usage_rate)}</td>
-      <td class="num">${priceCell(stock.average)}</td>
-      <td class="num">${priceCell(stock.open)}</td>
-      <td class="num">${priceCell(stock.low)}</td>
+      <td class="num optional-price">${priceCell(stock.average)}</td>
+      <td class="num optional-price">${priceCell(stock.open)}</td>
+      <td class="num optional-price">${priceCell(stock.low)}</td>
       <td class="num">${priceCell(stock.close)}</td>
       <td class="num">${institutionalCell(stock, "foreign_net")}</td>
       <td class="num">${institutionalCell(stock, "investment_trust_net")}</td>
@@ -839,7 +888,8 @@ function render() {
   pageDate.textContent = page.date;
   pageCount.textContent = `共 ${page.count} 檔上市上櫃普通股漲停`;
   renderTabs();
-  updateInstitutionalMode();
+  updateMetricMode();
+  updatePriceDetails();
   updateSortHeaders();
   renderRows();
 }
@@ -871,10 +921,14 @@ document.querySelectorAll(".sort-head").forEach((button) => {
 });
 document.querySelectorAll(".mode-toggle").forEach((button) => {
   button.addEventListener("click", () => {
-    institutionalMode = button.dataset.mode;
-    updateInstitutionalMode();
+    metricMode = button.dataset.mode;
+    updateMetricMode();
     renderRows();
   });
+});
+priceDetailsToggle.addEventListener("click", () => {
+  priceDetailsVisible = !priceDetailsVisible;
+  updatePriceDetails();
 });
 refresh.addEventListener("click", () => loadReport(true).catch((error) => {
   refresh.disabled = false;
