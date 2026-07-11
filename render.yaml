@@ -1,10 +1,10 @@
 services:
   - type: web
-    name: tw-equity
-    runtime: python
-    buildCommand: pip install -r requirements.txt && cd twse-limit-up-site && python -B update_report.py
-    startCommand: python -B twse-limit-up-site/app.py
-    plan: free
-    envVars:
-      - key: PYTHON_VERSION
-        value: 3.11.9
+    name: tw-equity-static
+    runtime: static
+    buildCommand: pip install -r requirements.txt && python -B twse-limit-up-site/export_static.py
+    staticPublishPath: twse-limit-up-site/public
+    headers:
+      - path: /data/*
+        name: Cache-Control
+        value: no-cache, no-store, must-revalidate

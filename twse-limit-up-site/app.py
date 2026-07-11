@@ -709,6 +709,7 @@ const pageDate = document.querySelector("#page-date");
 const pageCount = document.querySelector("#page-count");
 const filter = document.querySelector("#filter");
 const refresh = document.querySelector("#refresh");
+const staticMode = Boolean(window.TW_EQUITY_STATIC);
 const stockTable = document.querySelector("#stock-table");
 const tradeHeading = document.querySelector("#trade-heading");
 const priceDetailsToggle = document.querySelector("#price-details-toggle");
@@ -896,14 +897,17 @@ function render() {
 
 async function loadReport(force = false) {
   refresh.disabled = true;
-  refresh.textContent = force ? "更新中..." : "載入中...";
-  const response = await fetch(`/api/report${force ? "?refresh=1" : ""}`);
+  refresh.textContent = force ? (staticMode ? "重新載入中..." : "更新中...") : "載入中...";
+  const reportUrl = staticMode
+    ? `./data/report.json${force ? `?t=${Date.now()}` : ""}`
+    : `/api/report${force ? "?refresh=1" : ""}`;
+  const response = await fetch(reportUrl);
   if (!response.ok) throw new Error(await response.text());
   report = await response.json();
   activeIndex = Math.max(0, report.pages.length - 1);
   render();
   refresh.disabled = false;
-  refresh.textContent = "更新資料";
+  refresh.textContent = staticMode ? "重新載入" : "更新資料";
 }
 
 filter.addEventListener("input", renderRows);
@@ -932,14 +936,14 @@ priceDetailsToggle.addEventListener("click", () => {
 });
 refresh.addEventListener("click", () => loadReport(true).catch((error) => {
   refresh.disabled = false;
-  refresh.textContent = "更新資料";
+  refresh.textContent = staticMode ? "重新載入" : "更新資料";
   alert(error.message);
 }));
 
 loadReport(false).catch((error) => {
   meta.textContent = `載入失敗：${error.message}`;
   refresh.disabled = false;
-  refresh.textContent = "更新資料";
+  refresh.textContent = staticMode ? "重新載入" : "更新資料";
 });
 """
 

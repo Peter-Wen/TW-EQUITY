@@ -2,12 +2,13 @@
 
 這是一個 Python Web App，資料來源使用台灣證券交易所與櫃買中心官方公開資料。
 
-本專案不是 Dash、Flask、FastAPI、Streamlit、React/Vite；目前使用 Python 標準庫 `http.server.ThreadingHTTPServer` 提供 HTML/CSS/JS 與 `/api/report` JSON API。
+本專案不是 Dash、Flask、FastAPI、Streamlit、React/Vite。本機模式使用 Python 標準庫 `http.server.ThreadingHTTPServer` 提供 HTML/CSS/JS 與 `/api/report` JSON API；Render 雲端模式則匯出成純靜態 HTML/CSS/JS/JSON，由 CDN 提供，不需要常駐 Python server。
 
-入口檔案是：
+本機入口與靜態匯出器是：
 
 ```text
 app.py
+export_static.py
 ```
 
 本機原本會跑在 `http://127.0.0.1:8055/`，原因是 `app.py` 啟動 HTTP server 並使用預設 port `8055`。目前已改成支援雲端部署：
@@ -15,7 +16,7 @@ app.py
 - `HOST` 環境變數，預設 `0.0.0.0`
 - `PORT` 環境變數，預設 `8055`
 
-所以本地仍可用 `http://127.0.0.1:8055/` 開啟，Render 則會自動使用平台提供的 `PORT`。
+所以本地仍可用 `http://127.0.0.1:8055/` 開啟。Render Static Site 不使用 `HOST` 或 `PORT`。
 
 ## 本地端啟動
 
@@ -101,13 +102,7 @@ launchctl load ~/Library/LaunchAgents/com.peterwen.twse-limit-up.update.plist
 
 ## Render 雲端部署
 
-建議平台：Render。
-
-原因：
-
-- 這是長時間執行的 Python HTTP server，適合 Render Web Service。
-- 不是純靜態站，因此不適合 Netlify/Vercel 靜態部署。
-- 不是 Streamlit app，因此不適合 Streamlit Community Cloud。
+雲端版採用 Render Static Site。HTML、CSS、JavaScript 與每日報表 JSON 都是靜態檔，由 CDN 直接提供，不會因閒置休眠，也不需要等待 Python server 冷啟動。
 
 repo root 已提供：
 
@@ -115,7 +110,7 @@ repo root 已提供：
 render.yaml
 ```
 
-Render 可以用 Blueprint 自動讀取設定；也可以手動建立 Web Service。
+Render 可以用 Blueprint 自動讀取設定；也可以手動建立 Static Site。
 
 ### Render Blueprint
 
@@ -123,20 +118,17 @@ Render 可以用 Blueprint 自動讀取設定；也可以手動建立 Web Servic
 2. 選 New -> Blueprint
 3. 連接 GitHub repo `Peter-Wen/TW-EQUITY`
 4. Render 會讀取 repo root 的 `render.yaml`
-5. 部署完成後，Render 會提供公開網址
+5. Blueprint 會建立 `tw-equity-static` Static Site
+6. 部署完成後，Render 會提供新的公開網址
 
-### Render 手動 Web Service 設定
+既有的 `tw-equity-1` 是 Python Web Service，Render 無法原地轉換服務類型。請先建立並驗證新的 Static Site，再刪除或停用舊 Web Service。
+
+### Render 手動 Static Site 設定
 
 服務類型：
 
 ```text
-Web Service
-```
-
-Runtime：
-
-```text
-Python
+Static Site
 ```
 
 Root Directory：
@@ -148,35 +140,71 @@ Root Directory：
 Build Command：
 
 ```bash
-pip install -r requirements.txt && cd twse-limit-up-site && python -B update_report.py
+pip install -r requirements.txt && python -B twse-limit-up-site/export_static.py
+```
+
+Publish Directory：
+
+```text
+twse-limit-up-site/public
 ```
 
 Start Command：
 
-```bash
-python -B twse-limit-up-site/app.py
+```text
+不需要
 ```
 
 環境變數：
 
 ```text
-PORT
-```
-
-Render 會自動提供 `PORT`，通常不需要手動設定。可選環境變數：
-
-```text
-HOST=0.0.0.0
+不需要
 ```
 
 部署成功後，Render 服務頁面會顯示公開網址，例如：
 
 ```text
-https://tw-equity.onrender.com
+https://tw-equity-static.onrender.com
 ```
+
+## 雲端每日資料更新
+
+GitHub Actions 工作流程位於：
+
+```text
+.github/workflows/update-static-report.yml
+```
+
+它會在台灣時間週一至週五 19:30：
+
+1. 從證交所與櫃買中心抓最新資料
+2. 更新 `static_report.json`
+3. 自動 commit 並 push 到 `main`
+4. 觸發 Render Static Site 自動部署
+
+也可以到 GitHub repo 的 Actions -> Update static market report -> Run workflow 手動更新。
+
+如果 GitHub Actions 無法 push，請在 repo Settings -> Actions -> General -> Workflow permissions 選擇 `Read and write permissions`。
+
+## 靜態匯出測試
+
+使用目前已提交的資料快照：
+
+```bash
+cd /Users/peterwen/Public/twse-limit-up-site
+/Users/peterwen/Public/finance-python-env/bin/python -B export_static.py
+```
+
+抓最新資料並更新快照：
+
+```bash
+/Users/peterwen/Public/finance-python-env/bin/python -B export_static.py --refresh
+```
+
+輸出目錄是 `twse-limit-up-site/public/`。
 
 ## 可能的部署問題
 
-- 官方資料來源暫時無法連線：Build 階段預先產生快取資料可能失敗；稍後重新部署，或暫時把 Build Command 改回 `pip install -r requirements.txt`，讓網站首次載入時再抓資料。
-- Render Free Plan 休眠：一段時間沒人使用後會休眠，第一次打開會比較慢。
-- `PORT` 沒有正確綁定：確認 start command 是 `python -B twse-limit-up-site/app.py`，且程式使用 `0.0.0.0` 與環境變數 `PORT`。
+- Static Site 建立後網址會與舊 Web Service 不同，請使用新服務頁面顯示的網址。
+- GitHub Actions 無法 push：確認 Workflow permissions 允許寫入，且 `main` branch protection 允許 GitHub Actions bot 更新。
+- 官方資料來源暫時無法連線：排程會失敗但目前靜態網站仍維持上一份成功資料，不會因此無法開啟。
