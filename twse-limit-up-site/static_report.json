@@ -8,804 +8,15 @@
     "https://www.twse.com.tw/rwd/zh/marginTrading/MI_MARGN",
     "https://www.tpex.org.tw/www/zh-tw/margin/balance"
   ],
-  "generated_at": "2026-07-22T13:05:12",
+  "generated_at": "2026-07-23T13:04:09",
   "trading_days": [
-    "2026-07-16",
     "2026-07-17",
     "2026-07-20",
     "2026-07-21",
-    "2026-07-22"
+    "2026-07-22",
+    "2026-07-23"
   ],
   "pages": [
-    {
-      "date": "2026-07-16",
-      "count": 27,
-      "stocks": [
-        {
-          "market": "上市",
-          "code": "2434",
-          "name": "統懋",
-          "volume": 1091972,
-          "amount": 95329576,
-          "margin_usage_rate": 8.79,
-          "average": 87.3,
-          "open": 82.6,
-          "low": 82.6,
-          "close": 90.8,
-          "limit_up_price": 90.8,
-          "foreign_net": 36100,
-          "investment_trust_net": 0,
-          "dealer_net": 0,
-          "institutional_net": 36100,
-          "consecutive_limit_days": 6,
-          "after_1d": {
-            "date": "2026-07-17",
-            "close": 81.8,
-            "change_pct": -9.91
-          },
-          "after_3d": {
-            "date": "2026-07-21",
-            "close": 70.1,
-            "change_pct": -22.8
-          },
-          "after_1w": null
-        },
-        {
-          "market": "上市",
-          "code": "6243",
-          "name": "迅杰",
-          "volume": 4214723,
-          "amount": 201674724,
-          "margin_usage_rate": 1.4,
-          "average": 47.85,
-          "open": 47.95,
-          "low": 47.05,
-          "close": 47.95,
-          "limit_up_price": 47.95,
-          "foreign_net": 687000,
-          "investment_trust_net": 0,
-          "dealer_net": -46012,
-          "institutional_net": 640988,
-          "consecutive_limit_days": 3,
-          "after_1d": {
-            "date": "2026-07-17",
-            "close": 51.6,
-            "change_pct": 7.61
-          },
-          "after_3d": {
-            "date": "2026-07-21",
-            "close": 51.0,
-            "change_pct": 6.36
-          },
-          "after_1w": null
-        },
-        {
-          "market": "上櫃",
-          "code": "3288",
-          "name": "點晶",
-          "volume": 147883,
-          "amount": 3586151,
-          "margin_usage_rate": 0.0,
-          "average": 24.25,
-          "open": 24.25,
-          "low": 24.25,
-          "close": 24.25,
-          "limit_up_price": 24.25,
-          "foreign_net": 0,
-          "investment_trust_net": 0,
-          "dealer_net": 41000,
-          "institutional_net": 41000,
-          "consecutive_limit_days": 3,
-          "after_1d": {
-            "date": "2026-07-17",
-            "close": 26.65,
-            "change_pct": 9.9
-          },
-          "after_3d": {
-            "date": "2026-07-21",
-            "close": 26.45,
-            "change_pct": 9.07
-          },
-          "after_1w": null
-        },
-        {
-          "market": "上櫃",
-          "code": "4139",
-          "name": "馬光-KY",
-          "volume": 43238,
-          "amount": 1493869,
-          "margin_usage_rate": 0.0,
-          "average": 34.55,
-          "open": 34.55,
-          "low": 34.55,
-          "close": 34.55,
-          "limit_up_price": 34.55,
-          "foreign_net": 0,
-          "investment_trust_net": 0,
-          "dealer_net": 0,
-          "institutional_net": 0,
-          "consecutive_limit_days": 3,
-          "after_1d": {
-            "date": "2026-07-17",
-            "close": 38.0,
-            "change_pct": 9.99
-          },
-          "after_3d": {
-            "date": "2026-07-21",
-            "close": 39.95,
-            "change_pct": 15.63
-          },
-          "after_1w": null
-        },
-        {
-          "market": "上市",
-          "code": "6505",
-          "name": "台塑化",
-          "volume": 101601924,
-          "amount": 7894483748,
-          "margin_usage_rate": 0.03,
-          "average": 77.7,
-          "open": 74.5,
-          "low": 73.2,
-          "close": 80.0,
-          "limit_up_price": 80.0,
-          "foreign_net": 3891520,
-          "investment_trust_net": 2519000,
-          "dealer_net": 3145457,
-          "institutional_net": 9555977,
-          "consecutive_limit_days": 2,
-          "after_1d": {
-            "date": "2026-07-17",
-            "close": 81.3,
-            "change_pct": 1.62
-          },
-          "after_3d": {
-            "date": "2026-07-21",
-            "close": 85.4,
-            "change_pct": 6.75
-          },
-          "after_1w": null
-        },
-        {
-          "market": "上櫃",
-          "code": "4939",
-          "name": "亞電",
-          "volume": 31705308,
-          "amount": 2039733819,
-          "margin_usage_rate": 27.31,
-          "average": 64.33,
-          "open": 60.3,
-          "low": 60.3,
-          "close": 66.8,
-          "limit_up_price": 66.8,
-          "foreign_net": -105048,
-          "investment_trust_net": 0,
-          "dealer_net": 196731,
-          "institutional_net": 91683,
-          "consecutive_limit_days": 2,
-          "after_1d": {
-            "date": "2026-07-17",
-            "close": 60.2,
-            "change_pct": -9.88
-          },
-          "after_3d": {
-            "date": "2026-07-21",
-            "close": 72.8,
-            "change_pct": 8.98
-          },
-          "after_1w": null
-        },
-        {
-          "market": "上市",
-          "code": "6141",
-          "name": "柏承",
-          "volume": 7322123,
-          "amount": 314961641,
-          "margin_usage_rate": null,
-          "average": 43.02,
-          "open": 39.6,
-          "low": 38.5,
-          "close": 43.75,
-          "limit_up_price": 43.75,
-          "foreign_net": 2543466,
-          "investment_trust_net": 0,
-          "dealer_net": 18328,
-          "institutional_net": 2561794,
-          "consecutive_limit_days": 2,
-          "after_1d": {
-            "date": "2026-07-17",
-            "close": 40.7,
-            "change_pct": -6.97
-          },
-          "after_3d": {
-            "date": "2026-07-21",
-            "close": 38.55,
-            "change_pct": -11.89
-          },
-          "after_1w": null
-        },
-        {
-          "market": "上櫃",
-          "code": "4534",
-          "name": "慶騰",
-          "volume": 4516264,
-          "amount": 185691899,
-          "margin_usage_rate": 0.0,
-          "average": 41.12,
-          "open": 38.6,
-          "low": 37.75,
-          "close": 42.35,
-          "limit_up_price": 42.35,
-          "foreign_net": 39976,
-          "investment_trust_net": 0,
-          "dealer_net": 85834,
-          "institutional_net": 125810,
-          "consecutive_limit_days": 2,
-          "after_1d": {
-            "date": "2026-07-17",
-            "close": 41.7,
-            "change_pct": -1.53
-          },
-          "after_3d": {
-            "date": "2026-07-21",
-            "close": 36.5,
-            "change_pct": -13.81
-          },
-          "after_1w": null
-        },
-        {
-          "market": "上櫃",
-          "code": "2221",
-          "name": "大甲",
-          "volume": 2525703,
-          "amount": 140263178,
-          "margin_usage_rate": 7.56,
-          "average": 55.53,
-          "open": 55.1,
-          "low": 52.0,
-          "close": 58.4,
-          "limit_up_price": 58.4,
-          "foreign_net": -117948,
-          "investment_trust_net": 0,
-          "dealer_net": -7699,
-          "institutional_net": -125647,
-          "consecutive_limit_days": 2,
-          "after_1d": {
-            "date": "2026-07-17",
-            "close": 52.6,
-            "change_pct": -9.93
-          },
-          "after_3d": {
-            "date": "2026-07-21",
-            "close": 50.6,
-            "change_pct": -13.36
-          },
-          "after_1w": null
-        },
-        {
-          "market": "上櫃",
-          "code": "2719",
-          "name": "燦星旅",
-          "volume": 194768,
-          "amount": 5074323,
-          "margin_usage_rate": 6.09,
-          "average": 26.05,
-          "open": 26.1,
-          "low": 25.15,
-          "close": 26.1,
-          "limit_up_price": 26.1,
-          "foreign_net": 14000,
-          "investment_trust_net": 0,
-          "dealer_net": 0,
-          "institutional_net": 14000,
-          "consecutive_limit_days": 2,
-          "after_1d": {
-            "date": "2026-07-17",
-            "close": 23.85,
-            "change_pct": -8.62
-          },
-          "after_3d": {
-            "date": "2026-07-21",
-            "close": 23.4,
-            "change_pct": -10.34
-          },
-          "after_1w": null
-        },
-        {
-          "market": "上市",
-          "code": "2484",
-          "name": "希華",
-          "volume": 44330696,
-          "amount": 3848769489,
-          "margin_usage_rate": 3.39,
-          "average": 86.82,
-          "open": 80.0,
-          "low": 80.0,
-          "close": 89.6,
-          "limit_up_price": 89.6,
-          "foreign_net": -2170333,
-          "investment_trust_net": 0,
-          "dealer_net": 88013,
-          "institutional_net": -2082320,
-          "consecutive_limit_days": 1,
-          "after_1d": {
-            "date": "2026-07-17",
-            "close": 80.7,
-            "change_pct": -9.93
-          },
-          "after_3d": {
-            "date": "2026-07-21",
-            "close": 71.5,
-            "change_pct": -20.2
-          },
-          "after_1w": null
-        },
-        {
-          "market": "上市",
-          "code": "1710",
-          "name": "東聯",
-          "volume": 20506724,
-          "amount": 348408258,
-          "margin_usage_rate": 0.06,
-          "average": 16.99,
-          "open": 15.8,
-          "low": 15.65,
-          "close": 17.5,
-          "limit_up_price": 17.5,
-          "foreign_net": -2329165,
-          "investment_trust_net": 0,
-          "dealer_net": -20254,
-          "institutional_net": -2349419,
-          "consecutive_limit_days": 1,
-          "after_1d": {
-            "date": "2026-07-17",
-            "close": 16.4,
-            "change_pct": -6.29
-          },
-          "after_3d": {
-            "date": "2026-07-21",
-            "close": 16.95,
-            "change_pct": -3.14
-          },
-          "after_1w": null
-        },
-        {
-          "market": "上市",
-          "code": "8028",
-          "name": "昇陽半導體",
-          "volume": 17375934,
-          "amount": 6014662810,
-          "margin_usage_rate": 0.51,
-          "average": 346.15,
-          "open": 317.5,
-          "low": 316.0,
-          "close": 350.0,
-          "limit_up_price": 350.0,
-          "foreign_net": 4185755,
-          "investment_trust_net": -59000,
-          "dealer_net": -52512,
-          "institutional_net": 4074243,
-          "consecutive_limit_days": 1,
-          "after_1d": {
-            "date": "2026-07-17",
-            "close": 315.0,
-            "change_pct": -10.0
-          },
-          "after_3d": {
-            "date": "2026-07-21",
-            "close": 305.0,
-            "change_pct": -12.86
-          },
-          "after_1w": null
-        },
-        {
-          "market": "上市",
-          "code": "8039",
-          "name": "台虹",
-          "volume": 14171335,
-          "amount": 2799595872,
-          "margin_usage_rate": 1.59,
-          "average": 197.55,
-          "open": 189.0,
-          "low": 189.0,
-          "close": 199.5,
-          "limit_up_price": 199.5,
-          "foreign_net": 678004,
-          "investment_trust_net": 0,
-          "dealer_net": 334804,
-          "institutional_net": 1012808,
-          "consecutive_limit_days": 1,
-          "after_1d": {
-            "date": "2026-07-17",
-            "close": 192.5,
-            "change_pct": -3.51
-          },
-          "after_3d": {
-            "date": "2026-07-21",
-            "close": 212.0,
-            "change_pct": 6.27
-          },
-          "after_1w": null
-        },
-        {
-          "market": "上市",
-          "code": "9914",
-          "name": "美利達",
-          "volume": 13074086,
-          "amount": 1096444437,
-          "margin_usage_rate": 0.09,
-          "average": 83.86,
-          "open": 81.6,
-          "low": 80.1,
-          "close": 84.2,
-          "limit_up_price": 84.2,
-          "foreign_net": -250965,
-          "investment_trust_net": -1000,
-          "dealer_net": 117475,
-          "institutional_net": -134490,
-          "consecutive_limit_days": 1,
-          "after_1d": {
-            "date": "2026-07-17",
-            "close": 84.0,
-            "change_pct": -0.24
-          },
-          "after_3d": {
-            "date": "2026-07-21",
-            "close": 80.4,
-            "change_pct": -4.51
-          },
-          "after_1w": null
-        },
-        {
-          "market": "上市",
-          "code": "2527",
-          "name": "宏璟",
-          "volume": 5300151,
-          "amount": 260862231,
-          "margin_usage_rate": 0.03,
-          "average": 49.22,
-          "open": 45.85,
-          "low": 45.85,
-          "close": 49.55,
-          "limit_up_price": 49.55,
-          "foreign_net": 1652102,
-          "investment_trust_net": 0,
-          "dealer_net": 37018,
-          "institutional_net": 1689120,
-          "consecutive_limit_days": 1,
-          "after_1d": {
-            "date": "2026-07-17",
-            "close": 48.1,
-            "change_pct": -2.93
-          },
-          "after_3d": {
-            "date": "2026-07-21",
-            "close": 50.5,
-            "change_pct": 1.92
-          },
-          "after_1w": null
-        },
-        {
-          "market": "上市",
-          "code": "1517",
-          "name": "利奇",
-          "volume": 4157864,
-          "amount": 49578806,
-          "margin_usage_rate": 0.01,
-          "average": 11.92,
-          "open": 11.1,
-          "low": 11.05,
-          "close": 12.1,
-          "limit_up_price": 12.1,
-          "foreign_net": 264000,
-          "investment_trust_net": 0,
-          "dealer_net": 7160,
-          "institutional_net": 271160,
-          "consecutive_limit_days": 1,
-          "after_1d": {
-            "date": "2026-07-17",
-            "close": 12.15,
-            "change_pct": 0.41
-          },
-          "after_3d": {
-            "date": "2026-07-21",
-            "close": 11.5,
-            "change_pct": -4.96
-          },
-          "after_1w": null
-        },
-        {
-          "market": "上市",
-          "code": "9921",
-          "name": "巨大",
-          "volume": 3299453,
-          "amount": 288636064,
-          "margin_usage_rate": 0.1,
-          "average": 87.48,
-          "open": 85.5,
-          "low": 84.8,
-          "close": 88.0,
-          "limit_up_price": 88.0,
-          "foreign_net": 5000,
-          "investment_trust_net": -1000,
-          "dealer_net": 69089,
-          "institutional_net": 73089,
-          "consecutive_limit_days": 1,
-          "after_1d": {
-            "date": "2026-07-17",
-            "close": 86.6,
-            "change_pct": -1.59
-          },
-          "after_3d": {
-            "date": "2026-07-21",
-            "close": 84.6,
-            "change_pct": -3.86
-          },
-          "after_1w": null
-        },
-        {
-          "market": "上市",
-          "code": "6937",
-          "name": "天虹",
-          "volume": 1074970,
-          "amount": 298079969,
-          "margin_usage_rate": 0.03,
-          "average": 277.29,
-          "open": 261.5,
-          "low": 253.0,
-          "close": 288.5,
-          "limit_up_price": 288.5,
-          "foreign_net": 90027,
-          "investment_trust_net": 0,
-          "dealer_net": 86102,
-          "institutional_net": 176129,
-          "consecutive_limit_days": 1,
-          "after_1d": {
-            "date": "2026-07-17",
-            "close": 269.0,
-            "change_pct": -6.76
-          },
-          "after_3d": {
-            "date": "2026-07-21",
-            "close": 268.5,
-            "change_pct": -6.93
-          },
-          "after_1w": null
-        },
-        {
-          "market": "上市",
-          "code": "1526",
-          "name": "日馳",
-          "volume": 1023793,
-          "amount": 16012160,
-          "margin_usage_rate": 0.0,
-          "average": 15.64,
-          "open": 14.65,
-          "low": 14.65,
-          "close": 15.7,
-          "limit_up_price": 15.7,
-          "foreign_net": 96000,
-          "investment_trust_net": 0,
-          "dealer_net": 3691,
-          "institutional_net": 99691,
-          "consecutive_limit_days": 1,
-          "after_1d": {
-            "date": "2026-07-17",
-            "close": 17.25,
-            "change_pct": 9.87
-          },
-          "after_3d": {
-            "date": "2026-07-21",
-            "close": 16.8,
-            "change_pct": 7.01
-          },
-          "after_1w": null
-        },
-        {
-          "market": "上櫃",
-          "code": "3577",
-          "name": "泓格",
-          "volume": 762795,
-          "amount": 103212775,
-          "margin_usage_rate": 9.33,
-          "average": 135.31,
-          "open": 126.5,
-          "low": 124.0,
-          "close": 138.5,
-          "limit_up_price": 138.5,
-          "foreign_net": 15730,
-          "investment_trust_net": 0,
-          "dealer_net": 3595,
-          "institutional_net": 19325,
-          "consecutive_limit_days": 1,
-          "after_1d": {
-            "date": "2026-07-17",
-            "close": 130.0,
-            "change_pct": -6.14
-          },
-          "after_3d": {
-            "date": "2026-07-21",
-            "close": 157.0,
-            "change_pct": 13.36
-          },
-          "after_1w": null
-        },
-        {
-          "market": "上櫃",
-          "code": "3178",
-          "name": "公準",
-          "volume": 703166,
-          "amount": 49415673,
-          "margin_usage_rate": 11.52,
-          "average": 70.28,
-          "open": 64.3,
-          "low": 64.3,
-          "close": 70.7,
-          "limit_up_price": 70.7,
-          "foreign_net": 161700,
-          "investment_trust_net": 0,
-          "dealer_net": 3471,
-          "institutional_net": 165171,
-          "consecutive_limit_days": 1,
-          "after_1d": {
-            "date": "2026-07-17",
-            "close": 70.7,
-            "change_pct": 0.0
-          },
-          "after_3d": {
-            "date": "2026-07-21",
-            "close": 66.3,
-            "change_pct": -6.22
-          },
-          "after_1w": null
-        },
-        {
-          "market": "上櫃",
-          "code": "8933",
-          "name": "愛地雅",
-          "volume": 693646,
-          "amount": 3296192,
-          "margin_usage_rate": 0.0,
-          "average": 4.75,
-          "open": 4.36,
-          "low": 4.35,
-          "close": 4.81,
-          "limit_up_price": 4.81,
-          "foreign_net": 129000,
-          "investment_trust_net": 0,
-          "dealer_net": 0,
-          "institutional_net": 129000,
-          "consecutive_limit_days": 1,
-          "after_1d": {
-            "date": "2026-07-17",
-            "close": 4.45,
-            "change_pct": -7.48
-          },
-          "after_3d": {
-            "date": "2026-07-21",
-            "close": 4.69,
-            "change_pct": -2.49
-          },
-          "after_1w": null
-        },
-        {
-          "market": "上市",
-          "code": "6715",
-          "name": "嘉基",
-          "volume": 478571,
-          "amount": 187911608,
-          "margin_usage_rate": 0.04,
-          "average": 392.65,
-          "open": 372.0,
-          "low": 358.5,
-          "close": 411.0,
-          "limit_up_price": 411.0,
-          "foreign_net": -103000,
-          "investment_trust_net": -1000,
-          "dealer_net": 13852,
-          "institutional_net": -90148,
-          "consecutive_limit_days": 1,
-          "after_1d": {
-            "date": "2026-07-17",
-            "close": 391.0,
-            "change_pct": -4.87
-          },
-          "after_3d": {
-            "date": "2026-07-21",
-            "close": 386.5,
-            "change_pct": -5.96
-          },
-          "after_1w": null
-        },
-        {
-          "market": "上櫃",
-          "code": "6739",
-          "name": "竹陞科技",
-          "volume": 336914,
-          "amount": 397583135,
-          "margin_usage_rate": 17.71,
-          "average": 1180.07,
-          "open": 1115.0,
-          "low": 1090.0,
-          "close": 1215.0,
-          "limit_up_price": 1215.0,
-          "foreign_net": 86871,
-          "investment_trust_net": 0,
-          "dealer_net": 10701,
-          "institutional_net": 97572,
-          "consecutive_limit_days": 1,
-          "after_1d": {
-            "date": "2026-07-17",
-            "close": 1120.0,
-            "change_pct": -7.82
-          },
-          "after_3d": {
-            "date": "2026-07-21",
-            "close": 1200.0,
-            "change_pct": -1.23
-          },
-          "after_1w": null
-        },
-        {
-          "market": "上市",
-          "code": "3229",
-          "name": "晟鈦",
-          "volume": 295473,
-          "amount": 11492384,
-          "margin_usage_rate": null,
-          "average": 38.89,
-          "open": 35.8,
-          "low": 35.8,
-          "close": 40.45,
-          "limit_up_price": 40.45,
-          "foreign_net": 26000,
-          "investment_trust_net": 0,
-          "dealer_net": 11122,
-          "institutional_net": 37122,
-          "consecutive_limit_days": 1,
-          "after_1d": {
-            "date": "2026-07-17",
-            "close": 40.9,
-            "change_pct": 1.11
-          },
-          "after_3d": {
-            "date": "2026-07-21",
-            "close": 40.85,
-            "change_pct": 0.99
-          },
-          "after_1w": null
-        },
-        {
-          "market": "上櫃",
-          "code": "8291",
-          "name": "尚茂",
-          "volume": 28476,
-          "amount": 773492,
-          "margin_usage_rate": null,
-          "average": 27.16,
-          "open": 26.3,
-          "low": 26.3,
-          "close": 27.35,
-          "limit_up_price": 27.35,
-          "foreign_net": -2000,
-          "investment_trust_net": 0,
-          "dealer_net": 0,
-          "institutional_net": -2000,
-          "consecutive_limit_days": 1,
-          "after_1d": {
-            "date": "2026-07-17",
-            "close": 30.05,
-            "change_pct": 9.87
-          },
-          "after_3d": {
-            "date": "2026-07-21",
-            "close": 36.35,
-            "change_pct": 32.91
-          },
-          "after_1w": null
-        }
-      ]
-    },
     {
       "date": "2026-07-17",
       "count": 8,
@@ -1070,7 +281,11 @@
             "close": 26.45,
             "change_pct": -9.73
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-23",
+            "close": 24.15,
+            "change_pct": -17.58
+          },
           "after_1w": null
         },
         {
@@ -1095,7 +310,11 @@
             "close": 36.35,
             "change_pct": 9.98
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-23",
+            "close": 43.9,
+            "change_pct": 32.83
+          },
           "after_1w": null
         },
         {
@@ -1120,7 +339,11 @@
             "close": 17.95,
             "change_pct": -4.27
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-23",
+            "close": 16.1,
+            "change_pct": -14.13
+          },
           "after_1w": null
         },
         {
@@ -1145,7 +368,11 @@
             "close": 72.8,
             "change_pct": 9.97
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-23",
+            "close": 69.6,
+            "change_pct": 5.14
+          },
           "after_1w": null
         },
         {
@@ -1170,7 +397,11 @@
             "close": 433.5,
             "change_pct": -6.97
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-23",
+            "close": 421.5,
+            "change_pct": -9.55
+          },
           "after_1w": null
         },
         {
@@ -1195,7 +426,11 @@
             "close": 72.2,
             "change_pct": -0.28
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-23",
+            "close": 73.4,
+            "change_pct": 1.38
+          },
           "after_1w": null
         },
         {
@@ -1220,7 +455,11 @@
             "close": 69.0,
             "change_pct": 3.6
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-23",
+            "close": 69.4,
+            "change_pct": 4.2
+          },
           "after_1w": null
         },
         {
@@ -1245,7 +484,11 @@
             "close": 157.0,
             "change_pct": 9.79
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-23",
+            "close": 160.0,
+            "change_pct": 11.89
+          },
           "after_1w": null
         },
         {
@@ -1270,7 +513,11 @@
             "close": 29.0,
             "change_pct": 9.85
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-23",
+            "close": 35.05,
+            "change_pct": 32.77
+          },
           "after_1w": null
         },
         {
@@ -1295,7 +542,11 @@
             "close": 234.5,
             "change_pct": 1.52
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-23",
+            "close": 214.0,
+            "change_pct": -7.36
+          },
           "after_1w": null
         },
         {
@@ -1320,7 +571,11 @@
             "close": 419.5,
             "change_pct": -2.56
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-23",
+            "close": 420.0,
+            "change_pct": -2.44
+          },
           "after_1w": null
         },
         {
@@ -1345,7 +600,11 @@
             "close": 19.0,
             "change_pct": 3.54
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-23",
+            "close": 17.85,
+            "change_pct": -2.72
+          },
           "after_1w": null
         },
         {
@@ -1370,7 +629,11 @@
             "close": 10.5,
             "change_pct": 9.72
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-23",
+            "close": 10.3,
+            "change_pct": 7.63
+          },
           "after_1w": null
         },
         {
@@ -1395,7 +658,11 @@
             "close": 57.7,
             "change_pct": 6.85
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-23",
+            "close": 52.7,
+            "change_pct": -2.41
+          },
           "after_1w": null
         },
         {
@@ -1420,7 +687,11 @@
             "close": 66.5,
             "change_pct": 8.48
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-23",
+            "close": 63.8,
+            "change_pct": 4.08
+          },
           "after_1w": null
         },
         {
@@ -1445,7 +716,11 @@
             "close": 14.1,
             "change_pct": -5.69
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-23",
+            "close": 13.4,
+            "change_pct": -10.37
+          },
           "after_1w": null
         },
         {
@@ -1470,7 +745,11 @@
             "close": 28.3,
             "change_pct": 9.9
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-23",
+            "close": 24.0,
+            "change_pct": -6.8
+          },
           "after_1w": null
         },
         {
@@ -1495,7 +774,11 @@
             "close": 15.4,
             "change_pct": -0.65
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-23",
+            "close": 15.2,
+            "change_pct": -1.94
+          },
           "after_1w": null
         },
         {
@@ -1520,7 +803,11 @@
             "close": 12.25,
             "change_pct": 4.7
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-23",
+            "close": 11.55,
+            "change_pct": -1.28
+          },
           "after_1w": null
         }
       ]
@@ -3352,7 +2639,11 @@
           "dealer_net": 0,
           "institutional_net": -1000,
           "consecutive_limit_days": 5,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-07-23",
+            "close": 43.9,
+            "change_pct": 9.89
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -3373,7 +2664,11 @@
           "dealer_net": -17761,
           "institutional_net": -17761,
           "consecutive_limit_days": 3,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-07-23",
+            "close": 35.05,
+            "change_pct": 9.87
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -3394,7 +2689,11 @@
           "dealer_net": 24526,
           "institutional_net": 7179956,
           "consecutive_limit_days": 2,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-07-23",
+            "close": 30.75,
+            "change_pct": -9.96
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -3415,7 +2714,11 @@
           "dealer_net": 367343,
           "institutional_net": 1806665,
           "consecutive_limit_days": 2,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-07-23",
+            "close": 403.0,
+            "change_pct": -3.59
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -3436,7 +2739,11 @@
           "dealer_net": -21062,
           "institutional_net": -1643294,
           "consecutive_limit_days": 2,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-07-23",
+            "close": 256.0,
+            "change_pct": 9.87
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -3457,7 +2764,11 @@
           "dealer_net": 128047,
           "institutional_net": 3237323,
           "consecutive_limit_days": 2,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-07-23",
+            "close": 896.0,
+            "change_pct": -1.21
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -3478,7 +2789,11 @@
           "dealer_net": 409279,
           "institutional_net": 5115670,
           "consecutive_limit_days": 2,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-07-23",
+            "close": 94.5,
+            "change_pct": 1.83
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -3499,7 +2814,11 @@
           "dealer_net": 44791,
           "institutional_net": 1099791,
           "consecutive_limit_days": 2,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-07-23",
+            "close": 67.0,
+            "change_pct": 1.06
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -3520,7 +2839,11 @@
           "dealer_net": 4561,
           "institutional_net": 751988,
           "consecutive_limit_days": 2,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-07-23",
+            "close": 503.0,
+            "change_pct": 2.65
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -3541,7 +2864,11 @@
           "dealer_net": 18292,
           "institutional_net": -454708,
           "consecutive_limit_days": 2,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-07-23",
+            "close": 436.0,
+            "change_pct": 3.69
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -3562,7 +2889,11 @@
           "dealer_net": 2029,
           "institutional_net": 622585,
           "consecutive_limit_days": 2,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-07-23",
+            "close": 159.5,
+            "change_pct": 10.0
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -3583,7 +2914,11 @@
           "dealer_net": 34612,
           "institutional_net": 660927,
           "consecutive_limit_days": 2,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-07-23",
+            "close": 232.0,
+            "change_pct": 4.98
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -3604,7 +2939,11 @@
           "dealer_net": -4311,
           "institutional_net": -130311,
           "consecutive_limit_days": 2,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-07-23",
+            "close": 236.0,
+            "change_pct": -9.92
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -3625,7 +2964,11 @@
           "dealer_net": 21016,
           "institutional_net": -64984,
           "consecutive_limit_days": 2,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-07-23",
+            "close": 40.4,
+            "change_pct": 3.86
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -3646,7 +2989,11 @@
           "dealer_net": -2387,
           "institutional_net": -40267,
           "consecutive_limit_days": 2,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-07-23",
+            "close": 1335.0,
+            "change_pct": -1.48
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -3667,7 +3014,11 @@
           "dealer_net": 2799,
           "institutional_net": 3799,
           "consecutive_limit_days": 2,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-07-23",
+            "close": 73.1,
+            "change_pct": -7.93
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -3688,7 +3039,11 @@
           "dealer_net": 0,
           "institutional_net": 0,
           "consecutive_limit_days": 2,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-07-23",
+            "close": 25.2,
+            "change_pct": 9.8
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -3709,7 +3064,11 @@
           "dealer_net": 1028802,
           "institutional_net": -6635748,
           "consecutive_limit_days": 1,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-07-23",
+            "close": 161.0,
+            "change_pct": -5.85
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -3730,7 +3089,11 @@
           "dealer_net": 659700,
           "institutional_net": 23093094,
           "consecutive_limit_days": 1,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-07-23",
+            "close": 173.5,
+            "change_pct": 5.79
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -3751,7 +3114,11 @@
           "dealer_net": 388822,
           "institutional_net": 10493498,
           "consecutive_limit_days": 1,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-07-23",
+            "close": 426.0,
+            "change_pct": -4.38
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -3772,7 +3139,11 @@
           "dealer_net": 49026,
           "institutional_net": 10413296,
           "consecutive_limit_days": 1,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-07-23",
+            "close": 129.5,
+            "change_pct": -4.07
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -3793,7 +3164,11 @@
           "dealer_net": -16244,
           "institutional_net": 779699,
           "consecutive_limit_days": 1,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-07-23",
+            "close": 506.0,
+            "change_pct": -9.48
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -3814,7 +3189,11 @@
           "dealer_net": -50580,
           "institutional_net": 7286700,
           "consecutive_limit_days": 1,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-07-23",
+            "close": 168.5,
+            "change_pct": -1.46
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -3835,7 +3214,11 @@
           "dealer_net": 392675,
           "institutional_net": -1489785,
           "consecutive_limit_days": 1,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-07-23",
+            "close": 175.5,
+            "change_pct": -7.63
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -3856,7 +3239,11 @@
           "dealer_net": -13177,
           "institutional_net": -5961029,
           "consecutive_limit_days": 1,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-07-23",
+            "close": 144.5,
+            "change_pct": -8.25
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -3877,7 +3264,11 @@
           "dealer_net": -68868,
           "institutional_net": -1223116,
           "consecutive_limit_days": 1,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-07-23",
+            "close": 1230.0,
+            "change_pct": -5.75
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -3898,7 +3289,11 @@
           "dealer_net": 38582,
           "institutional_net": 1281582,
           "consecutive_limit_days": 1,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-07-23",
+            "close": 33.35,
+            "change_pct": -5.52
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -3919,7 +3314,11 @@
           "dealer_net": 52698,
           "institutional_net": -165312,
           "consecutive_limit_days": 1,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-07-23",
+            "close": 138.0,
+            "change_pct": -8.0
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -3940,7 +3339,11 @@
           "dealer_net": 70965,
           "institutional_net": 341321,
           "consecutive_limit_days": 1,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-07-23",
+            "close": 345.0,
+            "change_pct": 6.32
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -3961,7 +3364,11 @@
           "dealer_net": -7624,
           "institutional_net": 584546,
           "consecutive_limit_days": 1,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-07-23",
+            "close": 42.45,
+            "change_pct": -2.53
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -3982,7 +3389,11 @@
           "dealer_net": -87887,
           "institutional_net": 287892,
           "consecutive_limit_days": 1,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-07-23",
+            "close": 406.5,
+            "change_pct": -2.87
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -4003,7 +3414,11 @@
           "dealer_net": 69053,
           "institutional_net": 2038464,
           "consecutive_limit_days": 1,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-07-23",
+            "close": 67.4,
+            "change_pct": -1.89
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -4024,7 +3439,11 @@
           "dealer_net": 48692,
           "institutional_net": 353455,
           "consecutive_limit_days": 1,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-07-23",
+            "close": 5470.0,
+            "change_pct": -0.55
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -4045,7 +3464,11 @@
           "dealer_net": 378795,
           "institutional_net": -632815,
           "consecutive_limit_days": 1,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-07-23",
+            "close": 300.0,
+            "change_pct": 0.0
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -4066,7 +3489,11 @@
           "dealer_net": -350,
           "institutional_net": 100893,
           "consecutive_limit_days": 1,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-07-23",
+            "close": 40.1,
+            "change_pct": -0.12
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -4087,7 +3514,11 @@
           "dealer_net": 53836,
           "institutional_net": 152858,
           "consecutive_limit_days": 1,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-07-23",
+            "close": 761.0,
+            "change_pct": 4.25
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -4108,7 +3539,11 @@
           "dealer_net": 55860,
           "institutional_net": 111420,
           "consecutive_limit_days": 1,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-07-23",
+            "close": 1075.0,
+            "change_pct": -0.46
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -4129,7 +3564,11 @@
           "dealer_net": 1108,
           "institutional_net": 295108,
           "consecutive_limit_days": 1,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-07-23",
+            "close": 56.8,
+            "change_pct": 9.86
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -4150,7 +3589,11 @@
           "dealer_net": -1745,
           "institutional_net": 358382,
           "consecutive_limit_days": 1,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-07-23",
+            "close": 34.75,
+            "change_pct": -4.53
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -4171,7 +3614,11 @@
           "dealer_net": 2592,
           "institutional_net": 384964,
           "consecutive_limit_days": 1,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-07-23",
+            "close": 56.8,
+            "change_pct": 5.77
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -4192,7 +3639,11 @@
           "dealer_net": 2466,
           "institutional_net": 54278,
           "consecutive_limit_days": 1,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-07-23",
+            "close": 1300.0,
+            "change_pct": 0.0
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -4213,7 +3664,11 @@
           "dealer_net": 49883,
           "institutional_net": 434883,
           "consecutive_limit_days": 1,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-07-23",
+            "close": 503.0,
+            "change_pct": -3.08
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -4234,7 +3689,11 @@
           "dealer_net": 44158,
           "institutional_net": 124969,
           "consecutive_limit_days": 1,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-07-23",
+            "close": 1390.0,
+            "change_pct": 0.36
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -4255,7 +3714,11 @@
           "dealer_net": -137932,
           "institutional_net": -119047,
           "consecutive_limit_days": 1,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-07-23",
+            "close": 107.5,
+            "change_pct": -0.92
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -4276,7 +3739,11 @@
           "dealer_net": 4428,
           "institutional_net": -77572,
           "consecutive_limit_days": 1,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-07-23",
+            "close": 26.9,
+            "change_pct": -6.43
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -4297,7 +3764,11 @@
           "dealer_net": 48021,
           "institutional_net": 15701,
           "consecutive_limit_days": 1,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-07-23",
+            "close": 1830.0,
+            "change_pct": 9.91
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -4318,7 +3789,11 @@
           "dealer_net": 4397,
           "institutional_net": 39399,
           "consecutive_limit_days": 1,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-07-23",
+            "close": 2505.0,
+            "change_pct": -3.65
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -4339,7 +3814,11 @@
           "dealer_net": 4895,
           "institutional_net": 12895,
           "consecutive_limit_days": 1,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-07-23",
+            "close": 20.15,
+            "change_pct": -7.14
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -4360,7 +3839,11 @@
           "dealer_net": 6260,
           "institutional_net": 16260,
           "consecutive_limit_days": 1,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-07-23",
+            "close": 253.0,
+            "change_pct": -6.12
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -4381,7 +3864,11 @@
           "dealer_net": 7473,
           "institutional_net": -2861,
           "consecutive_limit_days": 1,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-07-23",
+            "close": 15540.0,
+            "change_pct": 0.19
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -4402,7 +3889,11 @@
           "dealer_net": 3386,
           "institutional_net": -564,
           "consecutive_limit_days": 1,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-07-23",
+            "close": 375.0,
+            "change_pct": 2.6
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -4423,7 +3914,11 @@
           "dealer_net": 0,
           "institutional_net": -50000,
           "consecutive_limit_days": 1,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-07-23",
+            "close": 56.4,
+            "change_pct": 9.94
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -4444,7 +3939,11 @@
           "dealer_net": -7926,
           "institutional_net": 5074,
           "consecutive_limit_days": 1,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-07-23",
+            "close": 22.4,
+            "change_pct": -4.68
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -4464,6 +3963,373 @@
           "investment_trust_net": 0,
           "dealer_net": 0,
           "institutional_net": 3000,
+          "consecutive_limit_days": 1,
+          "after_1d": {
+            "date": "2026-07-23",
+            "close": 16.9,
+            "change_pct": 9.74
+          },
+          "after_3d": null,
+          "after_1w": null
+        }
+      ]
+    },
+    {
+      "date": "2026-07-23",
+      "count": 17,
+      "stocks": [
+        {
+          "market": "上櫃",
+          "code": "8291",
+          "name": "尚茂",
+          "volume": 109252,
+          "amount": 4796150,
+          "margin_usage_rate": null,
+          "average": 43.9,
+          "open": 43.9,
+          "low": 43.9,
+          "close": 43.9,
+          "limit_up_price": 43.9,
+          "foreign_net": -1000,
+          "investment_trust_net": 0,
+          "dealer_net": 0,
+          "institutional_net": -1000,
+          "consecutive_limit_days": 6,
+          "after_1d": null,
+          "after_3d": null,
+          "after_1w": null
+        },
+        {
+          "market": "上市",
+          "code": "6969",
+          "name": "成信實業*-創",
+          "volume": 710445,
+          "amount": 24901090,
+          "margin_usage_rate": null,
+          "average": 35.05,
+          "open": 35.05,
+          "low": 35.05,
+          "close": 35.05,
+          "limit_up_price": 35.05,
+          "foreign_net": 0,
+          "investment_trust_net": 0,
+          "dealer_net": 55000,
+          "institutional_net": 55000,
+          "consecutive_limit_days": 4,
+          "after_1d": null,
+          "after_3d": null,
+          "after_1w": null
+        },
+        {
+          "market": "上市",
+          "code": "8039",
+          "name": "台虹",
+          "volume": 47776123,
+          "amount": 11689852980,
+          "margin_usage_rate": 5.64,
+          "average": 244.68,
+          "open": 242.0,
+          "low": 231.0,
+          "close": 256.0,
+          "limit_up_price": 256.0,
+          "foreign_net": -1871018,
+          "investment_trust_net": 142000,
+          "dealer_net": 407747,
+          "institutional_net": -1321271,
+          "consecutive_limit_days": 3,
+          "after_1d": null,
+          "after_3d": null,
+          "after_1w": null
+        },
+        {
+          "market": "上市",
+          "code": "6166",
+          "name": "凌華",
+          "volume": 7006594,
+          "amount": 1096264515,
+          "margin_usage_rate": 0.39,
+          "average": 156.46,
+          "open": 145.0,
+          "low": 144.0,
+          "close": 159.5,
+          "limit_up_price": 159.5,
+          "foreign_net": 2394899,
+          "investment_trust_net": 0,
+          "dealer_net": 16488,
+          "institutional_net": 2411387,
+          "consecutive_limit_days": 3,
+          "after_1d": null,
+          "after_3d": null,
+          "after_1w": null
+        },
+        {
+          "market": "上櫃",
+          "code": "5345",
+          "name": "馥鴻",
+          "volume": 50339,
+          "amount": 1268539,
+          "margin_usage_rate": 0.0,
+          "average": 25.2,
+          "open": 25.2,
+          "low": 25.2,
+          "close": 25.2,
+          "limit_up_price": 25.2,
+          "foreign_net": 0,
+          "investment_trust_net": 0,
+          "dealer_net": 0,
+          "institutional_net": 0,
+          "consecutive_limit_days": 3,
+          "after_1d": null,
+          "after_3d": null,
+          "after_1w": null
+        },
+        {
+          "market": "上櫃",
+          "code": "8111",
+          "name": "立碁",
+          "volume": 8359460,
+          "amount": 465536163,
+          "margin_usage_rate": 36.27,
+          "average": 55.69,
+          "open": 56.5,
+          "low": 53.0,
+          "close": 56.8,
+          "limit_up_price": 56.8,
+          "foreign_net": -369000,
+          "investment_trust_net": 0,
+          "dealer_net": 92671,
+          "institutional_net": -276329,
+          "consecutive_limit_days": 2,
+          "after_1d": null,
+          "after_3d": null,
+          "after_1w": null
+        },
+        {
+          "market": "上櫃",
+          "code": "3081",
+          "name": "聯亞",
+          "volume": 2508622,
+          "amount": 4441776895,
+          "margin_usage_rate": 19.07,
+          "average": 1770.6,
+          "open": 1720.0,
+          "low": 1645.0,
+          "close": 1830.0,
+          "limit_up_price": 1830.0,
+          "foreign_net": -419288,
+          "investment_trust_net": 8000,
+          "dealer_net": 21581,
+          "institutional_net": -389707,
+          "consecutive_limit_days": 2,
+          "after_1d": null,
+          "after_3d": null,
+          "after_1w": null
+        },
+        {
+          "market": "上櫃",
+          "code": "4442",
+          "name": "竣邦-KY",
+          "volume": 752645,
+          "amount": 40653220,
+          "margin_usage_rate": 0.11,
+          "average": 54.01,
+          "open": 51.5,
+          "low": 51.2,
+          "close": 56.4,
+          "limit_up_price": 56.4,
+          "foreign_net": -21000,
+          "investment_trust_net": 0,
+          "dealer_net": 237,
+          "institutional_net": -20763,
+          "consecutive_limit_days": 2,
+          "after_1d": null,
+          "after_3d": null,
+          "after_1w": null
+        },
+        {
+          "market": "上櫃",
+          "code": "3523",
+          "name": "迎輝",
+          "volume": 65849,
+          "amount": 1108541,
+          "margin_usage_rate": 0.0,
+          "average": 16.83,
+          "open": 16.4,
+          "low": 16.4,
+          "close": 16.9,
+          "limit_up_price": 16.9,
+          "foreign_net": 0,
+          "investment_trust_net": 0,
+          "dealer_net": 0,
+          "institutional_net": 0,
+          "consecutive_limit_days": 2,
+          "after_1d": null,
+          "after_3d": null,
+          "after_1w": null
+        },
+        {
+          "market": "上市",
+          "code": "6579",
+          "name": "研揚",
+          "volume": 2422586,
+          "amount": 436008169,
+          "margin_usage_rate": 0.04,
+          "average": 179.98,
+          "open": 170.0,
+          "low": 165.0,
+          "close": 183.5,
+          "limit_up_price": 183.5,
+          "foreign_net": 43056,
+          "investment_trust_net": 0,
+          "dealer_net": 48200,
+          "institutional_net": 91256,
+          "consecutive_limit_days": 1,
+          "after_1d": null,
+          "after_3d": null,
+          "after_1w": null
+        },
+        {
+          "market": "上市",
+          "code": "6715",
+          "name": "嘉基",
+          "volume": 1185470,
+          "amount": 498988089,
+          "margin_usage_rate": 0.0,
+          "average": 420.92,
+          "open": 399.0,
+          "low": 380.5,
+          "close": 425.5,
+          "limit_up_price": 425.5,
+          "foreign_net": 156000,
+          "investment_trust_net": -10000,
+          "dealer_net": 10977,
+          "institutional_net": 156977,
+          "consecutive_limit_days": 1,
+          "after_1d": null,
+          "after_3d": null,
+          "after_1w": null
+        },
+        {
+          "market": "上櫃",
+          "code": "6577",
+          "name": "勁豐",
+          "volume": 630728,
+          "amount": 53760585,
+          "margin_usage_rate": 1.2,
+          "average": 85.24,
+          "open": 78.5,
+          "low": 78.3,
+          "close": 85.9,
+          "limit_up_price": 85.9,
+          "foreign_net": -20000,
+          "investment_trust_net": -2892,
+          "dealer_net": 0,
+          "institutional_net": -22892,
+          "consecutive_limit_days": 1,
+          "after_1d": null,
+          "after_3d": null,
+          "after_1w": null
+        },
+        {
+          "market": "上市",
+          "code": "3652",
+          "name": "精聯",
+          "volume": 446298,
+          "amount": 15508847,
+          "margin_usage_rate": 0.0,
+          "average": 34.75,
+          "open": 34.75,
+          "low": 34.75,
+          "close": 34.75,
+          "limit_up_price": 34.75,
+          "foreign_net": 43000,
+          "investment_trust_net": 0,
+          "dealer_net": 1998,
+          "institutional_net": 44998,
+          "consecutive_limit_days": 1,
+          "after_1d": null,
+          "after_3d": null,
+          "after_1w": null
+        },
+        {
+          "market": "上櫃",
+          "code": "4995",
+          "name": "晶達",
+          "volume": 434414,
+          "amount": 21360374,
+          "margin_usage_rate": 22.42,
+          "average": 49.17,
+          "open": 45.9,
+          "low": 45.9,
+          "close": 50.3,
+          "limit_up_price": 50.3,
+          "foreign_net": 82000,
+          "investment_trust_net": 0,
+          "dealer_net": -6000,
+          "institutional_net": 76000,
+          "consecutive_limit_days": 1,
+          "after_1d": null,
+          "after_3d": null,
+          "after_1w": null
+        },
+        {
+          "market": "上櫃",
+          "code": "1591",
+          "name": "駿吉-KY",
+          "volume": 281285,
+          "amount": 10590369,
+          "margin_usage_rate": 12.41,
+          "average": 37.65,
+          "open": 37.65,
+          "low": 37.65,
+          "close": 37.65,
+          "limit_up_price": 37.65,
+          "foreign_net": -161000,
+          "investment_trust_net": 0,
+          "dealer_net": 2000,
+          "institutional_net": -159000,
+          "consecutive_limit_days": 1,
+          "after_1d": null,
+          "after_3d": null,
+          "after_1w": null
+        },
+        {
+          "market": "上櫃",
+          "code": "3555",
+          "name": "博士旺",
+          "volume": 119233,
+          "amount": 18862391,
+          "margin_usage_rate": 12.6,
+          "average": 158.2,
+          "open": 151.5,
+          "low": 151.5,
+          "close": 160.5,
+          "limit_up_price": 160.5,
+          "foreign_net": -13000,
+          "investment_trust_net": 0,
+          "dealer_net": 9233,
+          "institutional_net": -3767,
+          "consecutive_limit_days": 1,
+          "after_1d": null,
+          "after_3d": null,
+          "after_1w": null
+        },
+        {
+          "market": "上市",
+          "code": "1435",
+          "name": "中福",
+          "volume": 34639,
+          "amount": 697188,
+          "margin_usage_rate": null,
+          "average": 20.13,
+          "open": 19.05,
+          "low": 19.0,
+          "close": 21.1,
+          "limit_up_price": 21.1,
+          "foreign_net": 5000,
+          "investment_trust_net": 0,
+          "dealer_net": 0,
+          "institutional_net": 5000,
           "consecutive_limit_days": 1,
           "after_1d": null,
           "after_3d": null,
