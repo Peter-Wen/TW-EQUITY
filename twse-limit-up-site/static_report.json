@@ -8,253 +8,15 @@
     "https://www.twse.com.tw/rwd/zh/marginTrading/MI_MARGN",
     "https://www.tpex.org.tw/www/zh-tw/margin/balance"
   ],
-  "generated_at": "2026-07-23T13:04:09",
+  "generated_at": "2026-07-24T13:01:49",
   "trading_days": [
-    "2026-07-17",
     "2026-07-20",
     "2026-07-21",
     "2026-07-22",
-    "2026-07-23"
+    "2026-07-23",
+    "2026-07-24"
   ],
   "pages": [
-    {
-      "date": "2026-07-17",
-      "count": 8,
-      "stocks": [
-        {
-          "market": "上櫃",
-          "code": "4139",
-          "name": "馬光-KY",
-          "volume": 589275,
-          "amount": 22209246,
-          "margin_usage_rate": 0.0,
-          "average": 37.69,
-          "open": 38.0,
-          "low": 34.55,
-          "close": 38.0,
-          "limit_up_price": 38.0,
-          "foreign_net": 0,
-          "investment_trust_net": 0,
-          "dealer_net": 17170,
-          "institutional_net": 17170,
-          "consecutive_limit_days": 4,
-          "after_1d": {
-            "date": "2026-07-20",
-            "close": 37.5,
-            "change_pct": -1.32
-          },
-          "after_3d": {
-            "date": "2026-07-22",
-            "close": 42.0,
-            "change_pct": 10.53
-          },
-          "after_1w": null
-        },
-        {
-          "market": "上櫃",
-          "code": "3288",
-          "name": "點晶",
-          "volume": 319956,
-          "amount": 8526806,
-          "margin_usage_rate": 0.0,
-          "average": 26.65,
-          "open": 26.65,
-          "low": 26.65,
-          "close": 26.65,
-          "limit_up_price": 26.65,
-          "foreign_net": -3000,
-          "investment_trust_net": 0,
-          "dealer_net": -39355,
-          "institutional_net": -42355,
-          "consecutive_limit_days": 4,
-          "after_1d": {
-            "date": "2026-07-20",
-            "close": 29.3,
-            "change_pct": 9.94
-          },
-          "after_3d": {
-            "date": "2026-07-22",
-            "close": 24.5,
-            "change_pct": -8.07
-          },
-          "after_1w": null
-        },
-        {
-          "market": "上市",
-          "code": "1526",
-          "name": "日馳",
-          "volume": 4027433,
-          "amount": 67854952,
-          "margin_usage_rate": 0.15,
-          "average": 16.85,
-          "open": 15.1,
-          "low": 15.05,
-          "close": 17.25,
-          "limit_up_price": 17.25,
-          "foreign_net": -172000,
-          "investment_trust_net": 0,
-          "dealer_net": -194,
-          "institutional_net": -172194,
-          "consecutive_limit_days": 2,
-          "after_1d": {
-            "date": "2026-07-20",
-            "close": 17.35,
-            "change_pct": 0.58
-          },
-          "after_3d": {
-            "date": "2026-07-22",
-            "close": 16.25,
-            "change_pct": -5.8
-          },
-          "after_1w": null
-        },
-        {
-          "market": "上櫃",
-          "code": "8291",
-          "name": "尚茂",
-          "volume": 10074,
-          "amount": 302719,
-          "margin_usage_rate": null,
-          "average": 30.05,
-          "open": 30.05,
-          "low": 30.05,
-          "close": 30.05,
-          "limit_up_price": 30.05,
-          "foreign_net": 0,
-          "investment_trust_net": 0,
-          "dealer_net": 0,
-          "institutional_net": 0,
-          "consecutive_limit_days": 2,
-          "after_1d": {
-            "date": "2026-07-20",
-            "close": 33.05,
-            "change_pct": 9.98
-          },
-          "after_3d": {
-            "date": "2026-07-22",
-            "close": 39.95,
-            "change_pct": 32.95
-          },
-          "after_1w": null
-        },
-        {
-          "market": "上市",
-          "code": "4133",
-          "name": "亞諾法",
-          "volume": 1530488,
-          "amount": 33705140,
-          "margin_usage_rate": 0.05,
-          "average": 22.02,
-          "open": 20.35,
-          "low": 20.35,
-          "close": 22.35,
-          "limit_up_price": 22.35,
-          "foreign_net": 78000,
-          "investment_trust_net": 0,
-          "dealer_net": 12935,
-          "institutional_net": 90935,
-          "consecutive_limit_days": 1,
-          "after_1d": {
-            "date": "2026-07-20",
-            "close": 22.4,
-            "change_pct": 0.22
-          },
-          "after_3d": {
-            "date": "2026-07-22",
-            "close": 21.65,
-            "change_pct": -3.13
-          },
-          "after_1w": null
-        },
-        {
-          "market": "上櫃",
-          "code": "5450",
-          "name": "南良",
-          "volume": 1363959,
-          "amount": 22970299,
-          "margin_usage_rate": 3.91,
-          "average": 16.84,
-          "open": 15.3,
-          "low": 15.05,
-          "close": 17.05,
-          "limit_up_price": 17.05,
-          "foreign_net": 12000,
-          "investment_trust_net": 0,
-          "dealer_net": -12,
-          "institutional_net": 11988,
-          "consecutive_limit_days": 1,
-          "after_1d": {
-            "date": "2026-07-20",
-            "close": 18.75,
-            "change_pct": 9.97
-          },
-          "after_3d": {
-            "date": "2026-07-22",
-            "close": 16.2,
-            "change_pct": -4.99
-          },
-          "after_1w": null
-        },
-        {
-          "market": "上櫃",
-          "code": "3297",
-          "name": "杭特",
-          "volume": 723892,
-          "amount": 23142824,
-          "margin_usage_rate": 12.23,
-          "average": 31.97,
-          "open": 29.3,
-          "low": 29.1,
-          "close": 32.35,
-          "limit_up_price": 32.35,
-          "foreign_net": 1000,
-          "investment_trust_net": 0,
-          "dealer_net": 2253,
-          "institutional_net": 3253,
-          "consecutive_limit_days": 1,
-          "after_1d": {
-            "date": "2026-07-20",
-            "close": 29.15,
-            "change_pct": -9.89
-          },
-          "after_3d": {
-            "date": "2026-07-22",
-            "close": 29.9,
-            "change_pct": -7.57
-          },
-          "after_1w": null
-        },
-        {
-          "market": "上櫃",
-          "code": "4171",
-          "name": "瑞基",
-          "volume": 529602,
-          "amount": 9608465,
-          "margin_usage_rate": 5.2,
-          "average": 18.14,
-          "open": 16.6,
-          "low": 16.55,
-          "close": 18.4,
-          "limit_up_price": 18.4,
-          "foreign_net": 20000,
-          "investment_trust_net": 0,
-          "dealer_net": 494,
-          "institutional_net": 20494,
-          "consecutive_limit_days": 1,
-          "after_1d": {
-            "date": "2026-07-20",
-            "close": 19.6,
-            "change_pct": 6.52
-          },
-          "after_3d": {
-            "date": "2026-07-22",
-            "close": 19.2,
-            "change_pct": 4.35
-          },
-          "after_1w": null
-        }
-      ]
-    },
     {
       "date": "2026-07-20",
       "count": 19,
@@ -838,7 +600,11 @@
             "close": 39.95,
             "change_pct": 9.9
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-24",
+            "close": 39.95,
+            "change_pct": 9.9
+          },
           "after_1w": null
         },
         {
@@ -863,7 +629,11 @@
             "close": 70.9,
             "change_pct": -2.61
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-24",
+            "close": 62.7,
+            "change_pct": -13.87
+          },
           "after_1w": null
         },
         {
@@ -888,7 +658,11 @@
             "close": 152.0,
             "change_pct": -3.18
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-24",
+            "close": 146.5,
+            "change_pct": -6.69
+          },
           "after_1w": null
         },
         {
@@ -913,7 +687,11 @@
             "close": 10.0,
             "change_pct": -4.76
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-24",
+            "close": 10.0,
+            "change_pct": -4.76
+          },
           "after_1w": null
         },
         {
@@ -938,7 +716,11 @@
             "close": 31.9,
             "change_pct": 10.0
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-24",
+            "close": 38.55,
+            "change_pct": 32.93
+          },
           "after_1w": null
         },
         {
@@ -963,7 +745,11 @@
             "close": 25.75,
             "change_pct": -9.01
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-24",
+            "close": 23.55,
+            "change_pct": -16.78
+          },
           "after_1w": null
         },
         {
@@ -988,7 +774,11 @@
             "close": 64.4,
             "change_pct": -9.93
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-24",
+            "close": 65.4,
+            "change_pct": -8.53
+          },
           "after_1w": null
         },
         {
@@ -1013,7 +803,11 @@
             "close": 85.1,
             "change_pct": -0.35
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-24",
+            "close": 85.8,
+            "change_pct": 0.47
+          },
           "after_1w": null
         },
         {
@@ -1038,7 +832,11 @@
             "close": 34.15,
             "change_pct": 9.98
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-24",
+            "close": 28.6,
+            "change_pct": -7.89
+          },
           "after_1w": null
         },
         {
@@ -1063,7 +861,11 @@
             "close": 33.0,
             "change_pct": -0.3
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-24",
+            "close": 31.85,
+            "change_pct": -3.78
+          },
           "after_1w": null
         },
         {
@@ -1088,7 +890,11 @@
             "close": 418.0,
             "change_pct": 10.0
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-24",
+            "close": 365.0,
+            "change_pct": -3.95
+          },
           "after_1w": null
         },
         {
@@ -1113,7 +919,11 @@
             "close": 907.0,
             "change_pct": 9.94
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-24",
+            "close": 839.0,
+            "change_pct": 1.7
+          },
           "after_1w": null
         },
         {
@@ -1138,7 +948,11 @@
             "close": 17.55,
             "change_pct": 3.54
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-24",
+            "close": 15.75,
+            "change_pct": -7.08
+          },
           "after_1w": null
         },
         {
@@ -1163,7 +977,11 @@
             "close": 233.0,
             "change_pct": 9.91
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-24",
+            "close": 240.0,
+            "change_pct": 13.21
+          },
           "after_1w": null
         },
         {
@@ -1188,7 +1006,11 @@
             "close": 367.0,
             "change_pct": 3.53
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-24",
+            "close": 309.5,
+            "change_pct": -12.69
+          },
           "after_1w": null
         },
         {
@@ -1213,7 +1035,11 @@
             "close": 70.6,
             "change_pct": -6.74
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-24",
+            "close": 71.4,
+            "change_pct": -5.68
+          },
           "after_1w": null
         },
         {
@@ -1238,7 +1064,11 @@
             "close": 53.2,
             "change_pct": -9.68
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-24",
+            "close": 53.9,
+            "change_pct": -8.49
+          },
           "after_1w": null
         },
         {
@@ -1263,7 +1093,11 @@
             "close": 3850.0,
             "change_pct": 4.9
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-24",
+            "close": 3750.0,
+            "change_pct": 2.18
+          },
           "after_1w": null
         },
         {
@@ -1288,7 +1122,11 @@
             "close": 92.8,
             "change_pct": 9.95
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-24",
+            "close": 91.0,
+            "change_pct": 7.82
+          },
           "after_1w": null
         },
         {
@@ -1313,7 +1151,11 @@
             "close": 796.0,
             "change_pct": 6.7
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-24",
+            "close": 711.0,
+            "change_pct": -4.69
+          },
           "after_1w": null
         },
         {
@@ -1338,7 +1180,11 @@
             "close": 66.3,
             "change_pct": 9.95
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-24",
+            "close": 61.1,
+            "change_pct": 1.33
+          },
           "after_1w": null
         },
         {
@@ -1363,7 +1209,11 @@
             "close": 194.5,
             "change_pct": 0.78
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-24",
+            "close": 191.0,
+            "change_pct": -1.04
+          },
           "after_1w": null
         },
         {
@@ -1388,7 +1238,11 @@
             "close": 458.5,
             "change_pct": 7.25
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-24",
+            "close": 427.0,
+            "change_pct": -0.12
+          },
           "after_1w": null
         },
         {
@@ -1413,7 +1267,11 @@
             "close": 490.0,
             "change_pct": 9.99
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-24",
+            "close": 500.0,
+            "change_pct": 12.23
+          },
           "after_1w": null
         },
         {
@@ -1438,7 +1296,11 @@
             "close": 17.8,
             "change_pct": 0.85
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-24",
+            "close": 16.9,
+            "change_pct": -4.25
+          },
           "after_1w": null
         },
         {
@@ -1463,7 +1325,11 @@
             "close": 50.1,
             "change_pct": -1.76
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-24",
+            "close": 52.2,
+            "change_pct": 2.35
+          },
           "after_1w": null
         },
         {
@@ -1488,7 +1354,11 @@
             "close": 106.5,
             "change_pct": -0.47
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-24",
+            "close": 103.0,
+            "change_pct": -3.74
+          },
           "after_1w": null
         },
         {
@@ -1513,7 +1383,11 @@
             "close": 596.0,
             "change_pct": 5.11
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-24",
+            "close": 581.0,
+            "change_pct": 2.47
+          },
           "after_1w": null
         },
         {
@@ -1538,7 +1412,11 @@
             "close": 144.5,
             "change_pct": -5.56
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-24",
+            "close": 140.0,
+            "change_pct": -8.5
+          },
           "after_1w": null
         },
         {
@@ -1563,7 +1441,11 @@
             "close": 64.0,
             "change_pct": -3.47
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-24",
+            "close": 60.5,
+            "change_pct": -8.75
+          },
           "after_1w": null
         },
         {
@@ -1588,7 +1470,11 @@
             "close": 2125.0,
             "change_pct": 5.46
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-24",
+            "close": 2080.0,
+            "change_pct": 3.23
+          },
           "after_1w": null
         },
         {
@@ -1613,7 +1499,11 @@
             "close": 420.5,
             "change_pct": 9.93
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-24",
+            "close": 417.0,
+            "change_pct": 9.02
+          },
           "after_1w": null
         },
         {
@@ -1638,7 +1528,11 @@
             "close": 150.0,
             "change_pct": 1.01
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-24",
+            "close": 156.5,
+            "change_pct": 5.39
+          },
           "after_1w": null
         },
         {
@@ -1663,7 +1557,11 @@
             "close": 5125.0,
             "change_pct": 6.11
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-24",
+            "close": 4755.0,
+            "change_pct": -1.55
+          },
           "after_1w": null
         },
         {
@@ -1688,7 +1586,11 @@
             "close": 2115.0,
             "change_pct": 5.75
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-24",
+            "close": 2205.0,
+            "change_pct": 10.25
+          },
           "after_1w": null
         },
         {
@@ -1713,7 +1615,11 @@
             "close": 908.0,
             "change_pct": 5.83
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-24",
+            "close": 858.0,
+            "change_pct": 0.0
+          },
           "after_1w": null
         },
         {
@@ -1738,7 +1644,11 @@
             "close": 1355.0,
             "change_pct": 9.72
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-24",
+            "close": 1250.0,
+            "change_pct": 1.21
+          },
           "after_1w": null
         },
         {
@@ -1763,7 +1673,11 @@
             "close": 444.0,
             "change_pct": 2.07
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-24",
+            "close": 437.5,
+            "change_pct": 0.57
+          },
           "after_1w": null
         },
         {
@@ -1788,7 +1702,11 @@
             "close": 290.5,
             "change_pct": -0.85
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-24",
+            "close": 279.5,
+            "change_pct": -4.61
+          },
           "after_1w": null
         },
         {
@@ -1813,7 +1731,11 @@
             "close": 494.0,
             "change_pct": 2.7
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-24",
+            "close": 460.0,
+            "change_pct": -4.37
+          },
           "after_1w": null
         },
         {
@@ -1838,7 +1760,11 @@
             "close": 3500.0,
             "change_pct": -0.57
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-24",
+            "close": 3430.0,
+            "change_pct": -2.56
+          },
           "after_1w": null
         },
         {
@@ -1863,7 +1789,11 @@
             "close": 90.9,
             "change_pct": 5.57
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-24",
+            "close": 94.0,
+            "change_pct": 9.18
+          },
           "after_1w": null
         },
         {
@@ -1888,7 +1818,11 @@
             "close": 39.9,
             "change_pct": -3.97
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-24",
+            "close": 38.9,
+            "change_pct": -6.38
+          },
           "after_1w": null
         },
         {
@@ -1913,7 +1847,11 @@
             "close": 4370.0,
             "change_pct": 6.2
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-24",
+            "close": 4070.0,
+            "change_pct": -1.09
+          },
           "after_1w": null
         },
         {
@@ -1938,7 +1876,11 @@
             "close": 340.0,
             "change_pct": 6.92
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-24",
+            "close": 333.0,
+            "change_pct": 4.72
+          },
           "after_1w": null
         },
         {
@@ -1963,7 +1905,11 @@
             "close": 262.0,
             "change_pct": 9.85
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-24",
+            "close": 212.5,
+            "change_pct": -10.9
+          },
           "after_1w": null
         },
         {
@@ -1988,7 +1934,11 @@
             "close": 106.0,
             "change_pct": 6.64
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-24",
+            "close": 103.5,
+            "change_pct": 4.12
+          },
           "after_1w": null
         },
         {
@@ -2013,7 +1963,11 @@
             "close": 67.4,
             "change_pct": -2.46
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-24",
+            "close": 64.1,
+            "change_pct": -7.24
+          },
           "after_1w": null
         },
         {
@@ -2038,7 +1992,11 @@
             "close": 145.0,
             "change_pct": 9.85
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-24",
+            "close": 166.5,
+            "change_pct": 26.14
+          },
           "after_1w": null
         },
         {
@@ -2063,7 +2021,11 @@
             "close": 147.5,
             "change_pct": 6.5
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-24",
+            "close": 150.5,
+            "change_pct": 8.66
+          },
           "after_1w": null
         },
         {
@@ -2088,7 +2050,11 @@
             "close": 230.0,
             "change_pct": 0.66
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-24",
+            "close": 225.0,
+            "change_pct": -1.53
+          },
           "after_1w": null
         },
         {
@@ -2113,7 +2079,11 @@
             "close": 265.5,
             "change_pct": 2.71
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-24",
+            "close": 254.5,
+            "change_pct": -1.55
+          },
           "after_1w": null
         },
         {
@@ -2138,7 +2108,11 @@
             "close": 22.8,
             "change_pct": 6.29
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-24",
+            "close": 20.55,
+            "change_pct": -4.2
+          },
           "after_1w": null
         },
         {
@@ -2163,7 +2137,11 @@
             "close": 55.9,
             "change_pct": -2.78
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-24",
+            "close": 52.0,
+            "change_pct": -9.57
+          },
           "after_1w": null
         },
         {
@@ -2188,7 +2166,11 @@
             "close": 167.0,
             "change_pct": 2.14
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-24",
+            "close": 180.5,
+            "change_pct": 10.4
+          },
           "after_1w": null
         },
         {
@@ -2213,7 +2195,11 @@
             "close": 419.0,
             "change_pct": 3.84
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-24",
+            "close": 402.0,
+            "change_pct": -0.37
+          },
           "after_1w": null
         },
         {
@@ -2238,7 +2224,11 @@
             "close": 179.5,
             "change_pct": 2.57
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-24",
+            "close": 183.5,
+            "change_pct": 4.86
+          },
           "after_1w": null
         },
         {
@@ -2263,7 +2253,11 @@
             "close": 221.0,
             "change_pct": 9.95
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-24",
+            "close": 230.0,
+            "change_pct": 14.43
+          },
           "after_1w": null
         },
         {
@@ -2288,7 +2282,11 @@
             "close": 14.75,
             "change_pct": -5.75
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-24",
+            "close": 15.3,
+            "change_pct": -2.24
+          },
           "after_1w": null
         },
         {
@@ -2313,7 +2311,11 @@
             "close": 275.0,
             "change_pct": -1.96
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-24",
+            "close": 247.5,
+            "change_pct": -11.76
+          },
           "after_1w": null
         },
         {
@@ -2338,7 +2340,11 @@
             "close": 6500.0,
             "change_pct": -2.33
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-24",
+            "close": 6295.0,
+            "change_pct": -5.41
+          },
           "after_1w": null
         },
         {
@@ -2363,7 +2369,11 @@
             "close": 38.9,
             "change_pct": 9.89
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-24",
+            "close": 40.1,
+            "change_pct": 13.28
+          },
           "after_1w": null
         },
         {
@@ -2388,7 +2398,11 @@
             "close": 16.0,
             "change_pct": -3.9
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-24",
+            "close": 15.6,
+            "change_pct": -6.31
+          },
           "after_1w": null
         },
         {
@@ -2413,7 +2427,11 @@
             "close": 3130.0,
             "change_pct": 0.48
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-24",
+            "close": 3460.0,
+            "change_pct": 11.08
+          },
           "after_1w": null
         },
         {
@@ -2438,7 +2456,11 @@
             "close": 184.0,
             "change_pct": -8.46
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-24",
+            "close": 174.0,
+            "change_pct": -13.43
+          },
           "after_1w": null
         },
         {
@@ -2463,7 +2485,11 @@
             "close": 193.5,
             "change_pct": 6.03
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-24",
+            "close": 188.5,
+            "change_pct": 3.29
+          },
           "after_1w": null
         },
         {
@@ -2488,7 +2514,11 @@
             "close": 132.5,
             "change_pct": 5.58
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-24",
+            "close": 128.0,
+            "change_pct": 1.99
+          },
           "after_1w": null
         },
         {
@@ -2513,7 +2543,11 @@
             "close": 25.8,
             "change_pct": 2.79
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-24",
+            "close": 24.3,
+            "change_pct": -3.19
+          },
           "after_1w": null
         },
         {
@@ -2538,7 +2572,11 @@
             "close": 335.0,
             "change_pct": 3.24
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-24",
+            "close": 316.0,
+            "change_pct": -2.62
+          },
           "after_1w": null
         },
         {
@@ -2563,7 +2601,11 @@
             "close": 13.3,
             "change_pct": -3.97
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-24",
+            "close": 12.85,
+            "change_pct": -7.22
+          },
           "after_1w": null
         },
         {
@@ -2588,7 +2630,11 @@
             "close": 79.4,
             "change_pct": 9.97
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-24",
+            "close": 71.2,
+            "change_pct": -1.39
+          },
           "after_1w": null
         },
         {
@@ -2613,7 +2659,11 @@
             "close": 22.95,
             "change_pct": 9.81
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-07-24",
+            "close": 27.7,
+            "change_pct": 32.54
+          },
           "after_1w": null
         }
       ]
@@ -3995,7 +4045,11 @@
           "dealer_net": 0,
           "institutional_net": -1000,
           "consecutive_limit_days": 6,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-07-24",
+            "close": 39.95,
+            "change_pct": -9.0
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -4016,7 +4070,11 @@
           "dealer_net": 55000,
           "institutional_net": 55000,
           "consecutive_limit_days": 4,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-07-24",
+            "close": 38.55,
+            "change_pct": 9.99
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -4037,7 +4095,11 @@
           "dealer_net": 407747,
           "institutional_net": -1321271,
           "consecutive_limit_days": 3,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-07-24",
+            "close": 240.0,
+            "change_pct": -6.25
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -4058,7 +4120,11 @@
           "dealer_net": 16488,
           "institutional_net": 2411387,
           "consecutive_limit_days": 3,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-07-24",
+            "close": 166.5,
+            "change_pct": 4.39
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -4079,7 +4145,11 @@
           "dealer_net": 0,
           "institutional_net": 0,
           "consecutive_limit_days": 3,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-07-24",
+            "close": 27.7,
+            "change_pct": 9.92
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -4100,7 +4170,11 @@
           "dealer_net": 92671,
           "institutional_net": -276329,
           "consecutive_limit_days": 2,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-07-24",
+            "close": 60.6,
+            "change_pct": 6.69
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -4121,7 +4195,11 @@
           "dealer_net": 21581,
           "institutional_net": -389707,
           "consecutive_limit_days": 2,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-07-24",
+            "close": 1760.0,
+            "change_pct": -3.83
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -4142,7 +4220,11 @@
           "dealer_net": 237,
           "institutional_net": -20763,
           "consecutive_limit_days": 2,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-07-24",
+            "close": 59.7,
+            "change_pct": 5.85
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -4163,7 +4245,11 @@
           "dealer_net": 0,
           "institutional_net": 0,
           "consecutive_limit_days": 2,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-07-24",
+            "close": 18.55,
+            "change_pct": 9.76
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -4184,7 +4270,11 @@
           "dealer_net": 48200,
           "institutional_net": 91256,
           "consecutive_limit_days": 1,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-07-24",
+            "close": 180.5,
+            "change_pct": -1.63
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -4205,7 +4295,11 @@
           "dealer_net": 10977,
           "institutional_net": 156977,
           "consecutive_limit_days": 1,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-07-24",
+            "close": 424.5,
+            "change_pct": -0.24
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -4226,7 +4320,11 @@
           "dealer_net": 0,
           "institutional_net": -22892,
           "consecutive_limit_days": 1,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-07-24",
+            "close": 94.4,
+            "change_pct": 9.9
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -4247,7 +4345,11 @@
           "dealer_net": 1998,
           "institutional_net": 44998,
           "consecutive_limit_days": 1,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-07-24",
+            "close": 32.35,
+            "change_pct": -6.91
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -4268,7 +4370,11 @@
           "dealer_net": -6000,
           "institutional_net": 76000,
           "consecutive_limit_days": 1,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-07-24",
+            "close": 50.3,
+            "change_pct": 0.0
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -4289,7 +4395,11 @@
           "dealer_net": 2000,
           "institutional_net": -159000,
           "consecutive_limit_days": 1,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-07-24",
+            "close": 41.4,
+            "change_pct": 9.96
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -4310,7 +4420,11 @@
           "dealer_net": 9233,
           "institutional_net": -3767,
           "consecutive_limit_days": 1,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-07-24",
+            "close": 159.0,
+            "change_pct": -0.93
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -4330,6 +4444,310 @@
           "investment_trust_net": 0,
           "dealer_net": 0,
           "institutional_net": 5000,
+          "consecutive_limit_days": 1,
+          "after_1d": {
+            "date": "2026-07-24",
+            "close": 23.2,
+            "change_pct": 9.95
+          },
+          "after_3d": null,
+          "after_1w": null
+        }
+      ]
+    },
+    {
+      "date": "2026-07-24",
+      "count": 14,
+      "stocks": [
+        {
+          "market": "上市",
+          "code": "6969",
+          "name": "成信實業*-創",
+          "volume": 1417973,
+          "amount": 54662848,
+          "margin_usage_rate": null,
+          "average": 38.55,
+          "open": 38.55,
+          "low": 38.55,
+          "close": 38.55,
+          "limit_up_price": 38.55,
+          "foreign_net": 0,
+          "investment_trust_net": 0,
+          "dealer_net": -64105,
+          "institutional_net": -64105,
+          "consecutive_limit_days": 5,
+          "after_1d": null,
+          "after_3d": null,
+          "after_1w": null
+        },
+        {
+          "market": "上櫃",
+          "code": "5345",
+          "name": "馥鴻",
+          "volume": 213290,
+          "amount": 5884600,
+          "margin_usage_rate": 0.0,
+          "average": 27.59,
+          "open": 27.7,
+          "low": 27.0,
+          "close": 27.7,
+          "limit_up_price": 27.7,
+          "foreign_net": -14000,
+          "investment_trust_net": 0,
+          "dealer_net": 31,
+          "institutional_net": -13969,
+          "consecutive_limit_days": 4,
+          "after_1d": null,
+          "after_3d": null,
+          "after_1w": null
+        },
+        {
+          "market": "上櫃",
+          "code": "3523",
+          "name": "迎輝",
+          "volume": 367696,
+          "amount": 6773434,
+          "margin_usage_rate": 0.0,
+          "average": 18.42,
+          "open": 17.95,
+          "low": 17.65,
+          "close": 18.55,
+          "limit_up_price": 18.55,
+          "foreign_net": 3000,
+          "investment_trust_net": 0,
+          "dealer_net": 0,
+          "institutional_net": 3000,
+          "consecutive_limit_days": 3,
+          "after_1d": null,
+          "after_3d": null,
+          "after_1w": null
+        },
+        {
+          "market": "上櫃",
+          "code": "6577",
+          "name": "勁豐",
+          "volume": 2006509,
+          "amount": 187064345,
+          "margin_usage_rate": 2.71,
+          "average": 93.23,
+          "open": 89.0,
+          "low": 88.8,
+          "close": 94.4,
+          "limit_up_price": 94.4,
+          "foreign_net": 98000,
+          "investment_trust_net": 0,
+          "dealer_net": 16282,
+          "institutional_net": 114282,
+          "consecutive_limit_days": 2,
+          "after_1d": null,
+          "after_3d": null,
+          "after_1w": null
+        },
+        {
+          "market": "上櫃",
+          "code": "1591",
+          "name": "駿吉-KY",
+          "volume": 181374,
+          "amount": 7508876,
+          "margin_usage_rate": 12.46,
+          "average": 41.4,
+          "open": 41.4,
+          "low": 41.4,
+          "close": 41.4,
+          "limit_up_price": 41.4,
+          "foreign_net": 0,
+          "investment_trust_net": 0,
+          "dealer_net": 0,
+          "institutional_net": 0,
+          "consecutive_limit_days": 2,
+          "after_1d": null,
+          "after_3d": null,
+          "after_1w": null
+        },
+        {
+          "market": "上市",
+          "code": "1435",
+          "name": "中福",
+          "volume": 47087,
+          "amount": 1085063,
+          "margin_usage_rate": null,
+          "average": 23.04,
+          "open": 22.0,
+          "low": 22.0,
+          "close": 23.2,
+          "limit_up_price": 23.2,
+          "foreign_net": 0,
+          "investment_trust_net": 0,
+          "dealer_net": 1083,
+          "institutional_net": 1083,
+          "consecutive_limit_days": 2,
+          "after_1d": null,
+          "after_3d": null,
+          "after_1w": null
+        },
+        {
+          "market": "上櫃",
+          "code": "4707",
+          "name": "磐亞",
+          "volume": 8093957,
+          "amount": 277775680,
+          "margin_usage_rate": 12.74,
+          "average": 34.32,
+          "open": 31.1,
+          "low": 31.1,
+          "close": 35.3,
+          "limit_up_price": 35.3,
+          "foreign_net": 885648,
+          "investment_trust_net": 0,
+          "dealer_net": 23297,
+          "institutional_net": 908945,
+          "consecutive_limit_days": 1,
+          "after_1d": null,
+          "after_3d": null,
+          "after_1w": null
+        },
+        {
+          "market": "上市",
+          "code": "6243",
+          "name": "迅杰",
+          "volume": 6751053,
+          "amount": 348001580,
+          "margin_usage_rate": 1.75,
+          "average": 51.55,
+          "open": 46.9,
+          "low": 46.4,
+          "close": 52.2,
+          "limit_up_price": 52.2,
+          "foreign_net": 583018,
+          "investment_trust_net": 0,
+          "dealer_net": -524,
+          "institutional_net": 582494,
+          "consecutive_limit_days": 1,
+          "after_1d": null,
+          "after_3d": null,
+          "after_1w": null
+        },
+        {
+          "market": "上市",
+          "code": "3669",
+          "name": "圓展",
+          "volume": 2735032,
+          "amount": 109339010,
+          "margin_usage_rate": 0.06,
+          "average": 39.98,
+          "open": 37.1,
+          "low": 37.0,
+          "close": 40.7,
+          "limit_up_price": 40.7,
+          "foreign_net": 301800,
+          "investment_trust_net": 0,
+          "dealer_net": 24912,
+          "institutional_net": 326712,
+          "consecutive_limit_days": 1,
+          "after_1d": null,
+          "after_3d": null,
+          "after_1w": null
+        },
+        {
+          "market": "上櫃",
+          "code": "6588",
+          "name": "東典光電",
+          "volume": 1614770,
+          "amount": 129604908,
+          "margin_usage_rate": 21.67,
+          "average": 80.26,
+          "open": 72.7,
+          "low": 71.6,
+          "close": 81.5,
+          "limit_up_price": 81.5,
+          "foreign_net": 108000,
+          "investment_trust_net": 0,
+          "dealer_net": 2199,
+          "institutional_net": 110199,
+          "consecutive_limit_days": 1,
+          "after_1d": null,
+          "after_3d": null,
+          "after_1w": null
+        },
+        {
+          "market": "上市",
+          "code": "1413",
+          "name": "宏洲",
+          "volume": 441165,
+          "amount": 4517932,
+          "margin_usage_rate": null,
+          "average": 10.24,
+          "open": 9.99,
+          "low": 9.97,
+          "close": 10.3,
+          "limit_up_price": 10.3,
+          "foreign_net": -14000,
+          "investment_trust_net": 0,
+          "dealer_net": 0,
+          "institutional_net": -14000,
+          "consecutive_limit_days": 1,
+          "after_1d": null,
+          "after_3d": null,
+          "after_1w": null
+        },
+        {
+          "market": "上櫃",
+          "code": "1799",
+          "name": "易威",
+          "volume": 366729,
+          "amount": 12812319,
+          "margin_usage_rate": 0.0,
+          "average": 34.94,
+          "open": 32.5,
+          "low": 32.4,
+          "close": 35.75,
+          "limit_up_price": 35.75,
+          "foreign_net": 66000,
+          "investment_trust_net": 0,
+          "dealer_net": 820,
+          "institutional_net": 66820,
+          "consecutive_limit_days": 1,
+          "after_1d": null,
+          "after_3d": null,
+          "after_1w": null
+        },
+        {
+          "market": "上市",
+          "code": "2923",
+          "name": "鼎固-KY",
+          "volume": 235068,
+          "amount": 7257132,
+          "margin_usage_rate": null,
+          "average": 30.87,
+          "open": 30.15,
+          "low": 29.1,
+          "close": 33.2,
+          "limit_up_price": 33.2,
+          "foreign_net": 29000,
+          "investment_trust_net": 0,
+          "dealer_net": 21000,
+          "institutional_net": 50000,
+          "consecutive_limit_days": 1,
+          "after_1d": null,
+          "after_3d": null,
+          "after_1w": null
+        },
+        {
+          "market": "上市",
+          "code": "3018",
+          "name": "隆銘綠能",
+          "volume": 94017,
+          "amount": 1222221,
+          "margin_usage_rate": null,
+          "average": 13.0,
+          "open": 13.0,
+          "low": 13.0,
+          "close": 13.0,
+          "limit_up_price": 13.0,
+          "foreign_net": 0,
+          "investment_trust_net": 0,
+          "dealer_net": 0,
+          "institutional_net": 0,
           "consecutive_limit_days": 1,
           "after_1d": null,
           "after_3d": null,
