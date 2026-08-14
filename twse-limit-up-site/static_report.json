@@ -8,804 +8,15 @@
     "https://www.twse.com.tw/rwd/zh/marginTrading/MI_MARGN",
     "https://www.tpex.org.tw/www/zh-tw/margin/balance"
   ],
-  "generated_at": "2026-08-13T12:12:52",
+  "generated_at": "2026-08-14T12:12:10",
   "trading_days": [
-    "2026-08-07",
     "2026-08-10",
     "2026-08-11",
     "2026-08-12",
-    "2026-08-13"
+    "2026-08-13",
+    "2026-08-14"
   ],
   "pages": [
-    {
-      "date": "2026-08-07",
-      "count": 27,
-      "stocks": [
-        {
-          "market": "上市",
-          "code": "6426",
-          "name": "統新",
-          "volume": 2777687,
-          "amount": 557107633,
-          "margin_usage_rate": 1.09,
-          "average": 200.57,
-          "open": 191.5,
-          "low": 189.5,
-          "close": 205.5,
-          "limit_up_price": 205.5,
-          "foreign_net": 259000,
-          "investment_trust_net": 0,
-          "dealer_net": 9955,
-          "institutional_net": 268955,
-          "consecutive_limit_days": 2,
-          "after_1d": {
-            "date": "2026-08-10",
-            "close": 217.5,
-            "change_pct": 5.84
-          },
-          "after_3d": {
-            "date": "2026-08-12",
-            "close": 222.0,
-            "change_pct": 8.03
-          },
-          "after_1w": null
-        },
-        {
-          "market": "上櫃",
-          "code": "6617",
-          "name": "共信-KY",
-          "volume": 1519348,
-          "amount": 142485720,
-          "margin_usage_rate": 2.08,
-          "average": 93.78,
-          "open": 88.6,
-          "low": 86.1,
-          "close": 96.3,
-          "limit_up_price": 96.3,
-          "foreign_net": -375000,
-          "investment_trust_net": 0,
-          "dealer_net": -1275,
-          "institutional_net": -376275,
-          "consecutive_limit_days": 2,
-          "after_1d": {
-            "date": "2026-08-10",
-            "close": 105.5,
-            "change_pct": 9.55
-          },
-          "after_3d": {
-            "date": "2026-08-12",
-            "close": 102.0,
-            "change_pct": 5.92
-          },
-          "after_1w": null
-        },
-        {
-          "market": "上櫃",
-          "code": "4561",
-          "name": "健椿",
-          "volume": 762578,
-          "amount": 33280926,
-          "margin_usage_rate": 6.19,
-          "average": 43.64,
-          "open": 43.2,
-          "low": 42.65,
-          "close": 43.85,
-          "limit_up_price": 43.85,
-          "foreign_net": -61000,
-          "investment_trust_net": 0,
-          "dealer_net": 1321,
-          "institutional_net": -59679,
-          "consecutive_limit_days": 2,
-          "after_1d": {
-            "date": "2026-08-10",
-            "close": 42.85,
-            "change_pct": -2.28
-          },
-          "after_3d": {
-            "date": "2026-08-12",
-            "close": 46.05,
-            "change_pct": 5.02
-          },
-          "after_1w": null
-        },
-        {
-          "market": "上櫃",
-          "code": "6441",
-          "name": "廣錠",
-          "volume": 306164,
-          "amount": 7150783,
-          "margin_usage_rate": 5.79,
-          "average": 23.36,
-          "open": 23.05,
-          "low": 22.8,
-          "close": 23.45,
-          "limit_up_price": 23.45,
-          "foreign_net": 2000,
-          "investment_trust_net": 0,
-          "dealer_net": 3164,
-          "institutional_net": 5164,
-          "consecutive_limit_days": 2,
-          "after_1d": {
-            "date": "2026-08-10",
-            "close": 23.5,
-            "change_pct": 0.21
-          },
-          "after_3d": {
-            "date": "2026-08-12",
-            "close": 22.6,
-            "change_pct": -3.62
-          },
-          "after_1w": null
-        },
-        {
-          "market": "上市",
-          "code": "2425",
-          "name": "承啟",
-          "volume": 14481029,
-          "amount": 749641705,
-          "margin_usage_rate": 0.53,
-          "average": 51.77,
-          "open": 48.2,
-          "low": 47.55,
-          "close": 52.9,
-          "limit_up_price": 52.9,
-          "foreign_net": -453862,
-          "investment_trust_net": 0,
-          "dealer_net": 33149,
-          "institutional_net": -420713,
-          "consecutive_limit_days": 1,
-          "after_1d": {
-            "date": "2026-08-10",
-            "close": 49.55,
-            "change_pct": -6.33
-          },
-          "after_3d": {
-            "date": "2026-08-12",
-            "close": 41.9,
-            "change_pct": -20.79
-          },
-          "after_1w": null
-        },
-        {
-          "market": "上市",
-          "code": "2031",
-          "name": "新光鋼",
-          "volume": 10470044,
-          "amount": 465006540,
-          "margin_usage_rate": 0.04,
-          "average": 44.41,
-          "open": 42.8,
-          "low": 42.5,
-          "close": 45.0,
-          "limit_up_price": 45.0,
-          "foreign_net": 4147307,
-          "investment_trust_net": -1000,
-          "dealer_net": 116902,
-          "institutional_net": 4263209,
-          "consecutive_limit_days": 1,
-          "after_1d": {
-            "date": "2026-08-10",
-            "close": 46.5,
-            "change_pct": 3.33
-          },
-          "after_3d": {
-            "date": "2026-08-12",
-            "close": 45.35,
-            "change_pct": 0.78
-          },
-          "after_1w": null
-        },
-        {
-          "market": "上市",
-          "code": "4566",
-          "name": "時碩工業",
-          "volume": 9812354,
-          "amount": 743755645,
-          "margin_usage_rate": 0.32,
-          "average": 75.8,
-          "open": 69.8,
-          "low": 69.8,
-          "close": 76.3,
-          "limit_up_price": 76.3,
-          "foreign_net": 1801000,
-          "investment_trust_net": 0,
-          "dealer_net": 17282,
-          "institutional_net": 1818282,
-          "consecutive_limit_days": 1,
-          "after_1d": {
-            "date": "2026-08-10",
-            "close": 74.8,
-            "change_pct": -1.97
-          },
-          "after_3d": {
-            "date": "2026-08-12",
-            "close": 72.4,
-            "change_pct": -5.11
-          },
-          "after_1w": null
-        },
-        {
-          "market": "上市",
-          "code": "8039",
-          "name": "台虹",
-          "volume": 7221614,
-          "amount": 1710160647,
-          "margin_usage_rate": 2.74,
-          "average": 236.81,
-          "open": 230.5,
-          "low": 230.5,
-          "close": 237.5,
-          "limit_up_price": 237.5,
-          "foreign_net": -102000,
-          "investment_trust_net": 0,
-          "dealer_net": 63907,
-          "institutional_net": -38093,
-          "consecutive_limit_days": 1,
-          "after_1d": {
-            "date": "2026-08-10",
-            "close": 226.0,
-            "change_pct": -4.84
-          },
-          "after_3d": {
-            "date": "2026-08-12",
-            "close": 227.0,
-            "change_pct": -4.42
-          },
-          "after_1w": null
-        },
-        {
-          "market": "上市",
-          "code": "6533",
-          "name": "晶心科",
-          "volume": 4496904,
-          "amount": 1118965825,
-          "margin_usage_rate": 0.62,
-          "average": 248.83,
-          "open": 228.0,
-          "low": 227.5,
-          "close": 256.0,
-          "limit_up_price": 256.0,
-          "foreign_net": -398954,
-          "investment_trust_net": -20000,
-          "dealer_net": 40942,
-          "institutional_net": -378012,
-          "consecutive_limit_days": 1,
-          "after_1d": {
-            "date": "2026-08-10",
-            "close": 250.0,
-            "change_pct": -2.34
-          },
-          "after_3d": {
-            "date": "2026-08-12",
-            "close": 254.5,
-            "change_pct": -0.59
-          },
-          "after_1w": null
-        },
-        {
-          "market": "上市",
-          "code": "2103",
-          "name": "台橡",
-          "volume": 4122539,
-          "amount": 103063475,
-          "margin_usage_rate": 0.08,
-          "average": 25.0,
-          "open": 25.0,
-          "low": 25.0,
-          "close": 25.0,
-          "limit_up_price": 25.0,
-          "foreign_net": -170000,
-          "investment_trust_net": 0,
-          "dealer_net": 543995,
-          "institutional_net": 373995,
-          "consecutive_limit_days": 1,
-          "after_1d": {
-            "date": "2026-08-10",
-            "close": 27.5,
-            "change_pct": 10.0
-          },
-          "after_3d": {
-            "date": "2026-08-12",
-            "close": 27.35,
-            "change_pct": 9.4
-          },
-          "after_1w": null
-        },
-        {
-          "market": "上市",
-          "code": "8454",
-          "name": "富邦媒",
-          "volume": 1055068,
-          "amount": 294691576,
-          "margin_usage_rate": 0.09,
-          "average": 279.31,
-          "open": 262.0,
-          "low": 261.0,
-          "close": 283.5,
-          "limit_up_price": 283.5,
-          "foreign_net": 234140,
-          "investment_trust_net": 0,
-          "dealer_net": 32000,
-          "institutional_net": 266140,
-          "consecutive_limit_days": 1,
-          "after_1d": {
-            "date": "2026-08-10",
-            "close": 274.5,
-            "change_pct": -3.17
-          },
-          "after_3d": {
-            "date": "2026-08-12",
-            "close": 267.5,
-            "change_pct": -5.64
-          },
-          "after_1w": null
-        },
-        {
-          "market": "上市",
-          "code": "6152",
-          "name": "百一",
-          "volume": 859205,
-          "amount": 11212612,
-          "margin_usage_rate": null,
-          "average": 13.05,
-          "open": 13.05,
-          "low": 13.05,
-          "close": 13.05,
-          "limit_up_price": 13.05,
-          "foreign_net": -7000,
-          "investment_trust_net": 0,
-          "dealer_net": 2997,
-          "institutional_net": -4003,
-          "consecutive_limit_days": 1,
-          "after_1d": {
-            "date": "2026-08-10",
-            "close": 14.35,
-            "change_pct": 9.96
-          },
-          "after_3d": {
-            "date": "2026-08-12",
-            "close": 16.1,
-            "change_pct": 23.37
-          },
-          "after_1w": null
-        },
-        {
-          "market": "上市",
-          "code": "1762",
-          "name": "中化生",
-          "volume": 727224,
-          "amount": 25688955,
-          "margin_usage_rate": 0.02,
-          "average": 35.32,
-          "open": 34.5,
-          "low": 34.5,
-          "close": 35.75,
-          "limit_up_price": 35.75,
-          "foreign_net": 175000,
-          "investment_trust_net": 0,
-          "dealer_net": -4840,
-          "institutional_net": 170160,
-          "consecutive_limit_days": 1,
-          "after_1d": {
-            "date": "2026-08-10",
-            "close": 36.6,
-            "change_pct": 2.38
-          },
-          "after_3d": {
-            "date": "2026-08-12",
-            "close": 35.45,
-            "change_pct": -0.84
-          },
-          "after_1w": null
-        },
-        {
-          "market": "上市",
-          "code": "3518",
-          "name": "柏騰",
-          "volume": 723570,
-          "amount": 19830250,
-          "margin_usage_rate": 0.24,
-          "average": 27.41,
-          "open": 26.05,
-          "low": 25.9,
-          "close": 28.15,
-          "limit_up_price": 28.15,
-          "foreign_net": 29000,
-          "investment_trust_net": 0,
-          "dealer_net": 12380,
-          "institutional_net": 41380,
-          "consecutive_limit_days": 1,
-          "after_1d": {
-            "date": "2026-08-10",
-            "close": 28.25,
-            "change_pct": 0.36
-          },
-          "after_3d": {
-            "date": "2026-08-12",
-            "close": 28.3,
-            "change_pct": 0.53
-          },
-          "after_1w": null
-        },
-        {
-          "market": "上櫃",
-          "code": "3379",
-          "name": "彬台",
-          "volume": 645561,
-          "amount": 18978190,
-          "margin_usage_rate": 18.59,
-          "average": 29.4,
-          "open": 27.5,
-          "low": 27.3,
-          "close": 29.95,
-          "limit_up_price": 29.95,
-          "foreign_net": -1000,
-          "investment_trust_net": 0,
-          "dealer_net": 671,
-          "institutional_net": -329,
-          "consecutive_limit_days": 1,
-          "after_1d": {
-            "date": "2026-08-10",
-            "close": 30.4,
-            "change_pct": 1.5
-          },
-          "after_3d": {
-            "date": "2026-08-12",
-            "close": 29.55,
-            "change_pct": -1.34
-          },
-          "after_1w": null
-        },
-        {
-          "market": "上櫃",
-          "code": "5291",
-          "name": "邑昇",
-          "volume": 639484,
-          "amount": 35875042,
-          "margin_usage_rate": 41.78,
-          "average": 56.1,
-          "open": 56.1,
-          "low": 56.1,
-          "close": 56.1,
-          "limit_up_price": 56.1,
-          "foreign_net": 0,
-          "investment_trust_net": 0,
-          "dealer_net": 94571,
-          "institutional_net": 94571,
-          "consecutive_limit_days": 1,
-          "after_1d": {
-            "date": "2026-08-10",
-            "close": 56.2,
-            "change_pct": 0.18
-          },
-          "after_3d": {
-            "date": "2026-08-12",
-            "close": 56.9,
-            "change_pct": 1.43
-          },
-          "after_1w": null
-        },
-        {
-          "market": "上櫃",
-          "code": "6693",
-          "name": "廣閎科",
-          "volume": 611922,
-          "amount": 108685604,
-          "margin_usage_rate": 32.25,
-          "average": 177.61,
-          "open": 171.0,
-          "low": 168.5,
-          "close": 185.5,
-          "limit_up_price": 185.5,
-          "foreign_net": -28000,
-          "investment_trust_net": 0,
-          "dealer_net": 16703,
-          "institutional_net": -11297,
-          "consecutive_limit_days": 1,
-          "after_1d": {
-            "date": "2026-08-10",
-            "close": 184.0,
-            "change_pct": -0.81
-          },
-          "after_3d": {
-            "date": "2026-08-12",
-            "close": 184.5,
-            "change_pct": -0.54
-          },
-          "after_1w": null
-        },
-        {
-          "market": "上市",
-          "code": "2059",
-          "name": "川湖",
-          "volume": 361895,
-          "amount": 4020653450,
-          "margin_usage_rate": 0.16,
-          "average": 11110.0,
-          "open": 11110.0,
-          "low": 11110.0,
-          "close": 11110.0,
-          "limit_up_price": 11110.0,
-          "foreign_net": -42651,
-          "investment_trust_net": -68000,
-          "dealer_net": 36977,
-          "institutional_net": -73674,
-          "consecutive_limit_days": 1,
-          "after_1d": {
-            "date": "2026-08-10",
-            "close": 11905.0,
-            "change_pct": 7.16
-          },
-          "after_3d": {
-            "date": "2026-08-12",
-            "close": 12045.0,
-            "change_pct": 8.42
-          },
-          "after_1w": null
-        },
-        {
-          "market": "上市",
-          "code": "7722",
-          "name": "LINEPAY",
-          "volume": 340970,
-          "amount": 101206103,
-          "margin_usage_rate": 0.01,
-          "average": 296.82,
-          "open": 276.5,
-          "low": 275.0,
-          "close": 301.5,
-          "limit_up_price": 301.5,
-          "foreign_net": 28803,
-          "investment_trust_net": 0,
-          "dealer_net": 22727,
-          "institutional_net": 51530,
-          "consecutive_limit_days": 1,
-          "after_1d": {
-            "date": "2026-08-10",
-            "close": 293.5,
-            "change_pct": -2.65
-          },
-          "after_3d": {
-            "date": "2026-08-12",
-            "close": 291.5,
-            "change_pct": -3.32
-          },
-          "after_1w": null
-        },
-        {
-          "market": "上櫃",
-          "code": "6584",
-          "name": "南俊國際",
-          "volume": 275363,
-          "amount": 150315650,
-          "margin_usage_rate": 8.68,
-          "average": 545.88,
-          "open": 531.0,
-          "low": 529.0,
-          "close": 550.0,
-          "limit_up_price": 550.0,
-          "foreign_net": -31000,
-          "investment_trust_net": 0,
-          "dealer_net": 17815,
-          "institutional_net": -13185,
-          "consecutive_limit_days": 1,
-          "after_1d": {
-            "date": "2026-08-10",
-            "close": 522.0,
-            "change_pct": -5.09
-          },
-          "after_3d": {
-            "date": "2026-08-12",
-            "close": 543.0,
-            "change_pct": -1.27
-          },
-          "after_1w": null
-        },
-        {
-          "market": "上櫃",
-          "code": "6716",
-          "name": "應廣",
-          "volume": 219305,
-          "amount": 20987471,
-          "margin_usage_rate": 14.04,
-          "average": 95.7,
-          "open": 95.7,
-          "low": 95.7,
-          "close": 95.7,
-          "limit_up_price": 95.7,
-          "foreign_net": -4000,
-          "investment_trust_net": 0,
-          "dealer_net": 999,
-          "institutional_net": -3001,
-          "consecutive_limit_days": 1,
-          "after_1d": {
-            "date": "2026-08-10",
-            "close": 105.0,
-            "change_pct": 9.72
-          },
-          "after_3d": {
-            "date": "2026-08-12",
-            "close": 109.0,
-            "change_pct": 13.9
-          },
-          "after_1w": null
-        },
-        {
-          "market": "上櫃",
-          "code": "7723",
-          "name": "築間",
-          "volume": 211458,
-          "amount": 4238513,
-          "margin_usage_rate": 1.37,
-          "average": 20.04,
-          "open": 18.5,
-          "low": 18.5,
-          "close": 20.35,
-          "limit_up_price": 20.35,
-          "foreign_net": 49000,
-          "investment_trust_net": 0,
-          "dealer_net": 2181,
-          "institutional_net": 51181,
-          "consecutive_limit_days": 1,
-          "after_1d": {
-            "date": "2026-08-10",
-            "close": 21.95,
-            "change_pct": 7.86
-          },
-          "after_3d": {
-            "date": "2026-08-12",
-            "close": 20.55,
-            "change_pct": 0.98
-          },
-          "after_1w": null
-        },
-        {
-          "market": "上櫃",
-          "code": "6651",
-          "name": "全宇昕",
-          "volume": 141389,
-          "amount": 18734035,
-          "margin_usage_rate": 16.31,
-          "average": 132.5,
-          "open": 132.5,
-          "low": 132.5,
-          "close": 132.5,
-          "limit_up_price": 132.5,
-          "foreign_net": -5000,
-          "investment_trust_net": 0,
-          "dealer_net": 4385,
-          "institutional_net": -615,
-          "consecutive_limit_days": 1,
-          "after_1d": {
-            "date": "2026-08-10",
-            "close": 135.0,
-            "change_pct": 1.89
-          },
-          "after_3d": {
-            "date": "2026-08-12",
-            "close": 138.0,
-            "change_pct": 4.15
-          },
-          "after_1w": null
-        },
-        {
-          "market": "上市",
-          "code": "1435",
-          "name": "中福",
-          "volume": 78985,
-          "amount": 1828506,
-          "margin_usage_rate": null,
-          "average": 23.15,
-          "open": 21.75,
-          "low": 21.55,
-          "close": 23.3,
-          "limit_up_price": 23.3,
-          "foreign_net": 12000,
-          "investment_trust_net": 0,
-          "dealer_net": 0,
-          "institutional_net": 12000,
-          "consecutive_limit_days": 1,
-          "after_1d": {
-            "date": "2026-08-10",
-            "close": 24.65,
-            "change_pct": 5.79
-          },
-          "after_3d": {
-            "date": "2026-08-12",
-            "close": 23.7,
-            "change_pct": 1.72
-          },
-          "after_1w": null
-        },
-        {
-          "market": "上櫃",
-          "code": "7547",
-          "name": "碩網",
-          "volume": 65524,
-          "amount": 3555949,
-          "margin_usage_rate": 3.61,
-          "average": 54.27,
-          "open": 54.2,
-          "low": 54.1,
-          "close": 54.3,
-          "limit_up_price": 54.3,
-          "foreign_net": 9000,
-          "investment_trust_net": 0,
-          "dealer_net": 0,
-          "institutional_net": 9000,
-          "consecutive_limit_days": 1,
-          "after_1d": {
-            "date": "2026-08-10",
-            "close": 57.1,
-            "change_pct": 5.16
-          },
-          "after_3d": {
-            "date": "2026-08-12",
-            "close": 54.4,
-            "change_pct": 0.18
-          },
-          "after_1w": null
-        },
-        {
-          "market": "上櫃",
-          "code": "7842",
-          "name": "天能綠電",
-          "volume": 54788,
-          "amount": 4526537,
-          "margin_usage_rate": null,
-          "average": 82.62,
-          "open": 81.5,
-          "low": 81.4,
-          "close": 83.3,
-          "limit_up_price": 83.3,
-          "foreign_net": 32000,
-          "investment_trust_net": 0,
-          "dealer_net": 788,
-          "institutional_net": 32788,
-          "consecutive_limit_days": 1,
-          "after_1d": {
-            "date": "2026-08-10",
-            "close": 91.6,
-            "change_pct": 9.96
-          },
-          "after_3d": {
-            "date": "2026-08-12",
-            "close": 90.5,
-            "change_pct": 8.64
-          },
-          "after_1w": null
-        },
-        {
-          "market": "上櫃",
-          "code": "7820",
-          "name": "立盈",
-          "volume": 17060,
-          "amount": 1876600,
-          "margin_usage_rate": null,
-          "average": 110.0,
-          "open": 110.0,
-          "low": 110.0,
-          "close": 110.0,
-          "limit_up_price": 110.0,
-          "foreign_net": 0,
-          "investment_trust_net": 0,
-          "dealer_net": 0,
-          "institutional_net": 0,
-          "consecutive_limit_days": 1,
-          "after_1d": {
-            "date": "2026-08-10",
-            "close": 121.0,
-            "change_pct": 10.0
-          },
-          "after_3d": {
-            "date": "2026-08-12",
-            "close": 121.5,
-            "change_pct": 10.45
-          },
-          "after_1w": null
-        }
-      ]
-    },
     {
       "date": "2026-08-10",
       "count": 75,
@@ -3013,7 +2224,11 @@
             "close": 685.0,
             "change_pct": 6.04
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-08-14",
+            "close": 647.0,
+            "change_pct": 0.15
+          },
           "after_1w": null
         },
         {
@@ -3038,7 +2253,11 @@
             "close": 107.0,
             "change_pct": 0.94
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-08-14",
+            "close": 101.0,
+            "change_pct": -4.72
+          },
           "after_1w": null
         },
         {
@@ -3063,7 +2282,11 @@
             "close": 109.0,
             "change_pct": -2.24
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-08-14",
+            "close": 101.0,
+            "change_pct": -9.42
+          },
           "after_1w": null
         },
         {
@@ -3088,7 +2311,11 @@
             "close": 22.0,
             "change_pct": 7.06
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-08-14",
+            "close": 22.6,
+            "change_pct": 9.98
+          },
           "after_1w": null
         },
         {
@@ -3113,7 +2340,11 @@
             "close": 31.7,
             "change_pct": 3.76
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-08-14",
+            "close": 30.35,
+            "change_pct": -0.65
+          },
           "after_1w": null
         },
         {
@@ -3138,7 +2369,11 @@
             "close": 288.0,
             "change_pct": -4.16
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-08-14",
+            "close": 302.5,
+            "change_pct": 0.67
+          },
           "after_1w": null
         },
         {
@@ -3163,7 +2398,11 @@
             "close": 418.5,
             "change_pct": 9.99
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-08-14",
+            "close": 428.5,
+            "change_pct": 12.61
+          },
           "after_1w": null
         },
         {
@@ -3188,7 +2427,11 @@
             "close": 82.5,
             "change_pct": -5.28
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-08-14",
+            "close": 79.0,
+            "change_pct": -9.3
+          },
           "after_1w": null
         },
         {
@@ -3213,7 +2456,11 @@
             "close": 203.5,
             "change_pct": 10.0
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-08-14",
+            "close": 210.0,
+            "change_pct": 13.51
+          },
           "after_1w": null
         },
         {
@@ -3238,7 +2485,11 @@
             "close": 147.5,
             "change_pct": 0.0
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-08-14",
+            "close": 146.0,
+            "change_pct": -1.02
+          },
           "after_1w": null
         },
         {
@@ -3263,7 +2514,11 @@
             "close": 485.5,
             "change_pct": 9.97
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-08-14",
+            "close": 488.0,
+            "change_pct": 10.53
+          },
           "after_1w": null
         },
         {
@@ -3288,7 +2543,11 @@
             "close": 173.0,
             "change_pct": -8.47
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-08-14",
+            "close": 201.5,
+            "change_pct": 6.61
+          },
           "after_1w": null
         },
         {
@@ -3313,7 +2572,11 @@
             "close": 243.0,
             "change_pct": 1.46
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-08-14",
+            "close": 212.5,
+            "change_pct": -11.27
+          },
           "after_1w": null
         },
         {
@@ -3338,7 +2601,11 @@
             "close": 1440.0,
             "change_pct": -1.37
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-08-14",
+            "close": 1500.0,
+            "change_pct": 2.74
+          },
           "after_1w": null
         },
         {
@@ -3363,7 +2630,11 @@
             "close": 65.3,
             "change_pct": 5.15
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-08-14",
+            "close": 63.5,
+            "change_pct": 2.25
+          },
           "after_1w": null
         },
         {
@@ -3388,7 +2659,11 @@
             "close": 1600.0,
             "change_pct": -0.31
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-08-14",
+            "close": 1675.0,
+            "change_pct": 4.36
+          },
           "after_1w": null
         },
         {
@@ -3413,7 +2688,11 @@
             "close": 29.85,
             "change_pct": -3.08
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-08-14",
+            "close": 28.0,
+            "change_pct": -9.09
+          },
           "after_1w": null
         },
         {
@@ -3438,7 +2717,11 @@
             "close": 431.5,
             "change_pct": -0.69
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-08-14",
+            "close": 412.0,
+            "change_pct": -5.18
+          },
           "after_1w": null
         },
         {
@@ -3463,7 +2746,11 @@
             "close": 56.1,
             "change_pct": -1.58
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-08-14",
+            "close": 56.5,
+            "change_pct": -0.88
+          },
           "after_1w": null
         },
         {
@@ -3488,7 +2775,11 @@
             "close": 159.0,
             "change_pct": 0.63
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-08-14",
+            "close": 151.5,
+            "change_pct": -4.11
+          },
           "after_1w": null
         },
         {
@@ -3513,7 +2804,11 @@
             "close": 54.3,
             "change_pct": 2.84
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-08-14",
+            "close": 52.0,
+            "change_pct": -1.52
+          },
           "after_1w": null
         },
         {
@@ -3538,7 +2833,11 @@
             "close": 16.2,
             "change_pct": 0.0
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-08-14",
+            "close": 17.65,
+            "change_pct": 8.95
+          },
           "after_1w": null
         },
         {
@@ -3563,7 +2862,11 @@
             "close": 18.8,
             "change_pct": -2.34
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-08-14",
+            "close": 18.45,
+            "change_pct": -4.16
+          },
           "after_1w": null
         },
         {
@@ -3588,7 +2891,11 @@
             "close": 101.0,
             "change_pct": 9.66
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-08-14",
+            "close": 85.4,
+            "change_pct": -7.27
+          },
           "after_1w": null
         },
         {
@@ -3613,7 +2920,11 @@
             "close": 14.8,
             "change_pct": 1.72
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-08-14",
+            "close": 13.8,
+            "change_pct": -5.15
+          },
           "after_1w": null
         },
         {
@@ -3638,7 +2949,11 @@
             "close": 33.45,
             "change_pct": 9.85
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-08-14",
+            "close": 40.4,
+            "change_pct": 32.68
+          },
           "after_1w": null
         },
         {
@@ -3663,7 +2978,11 @@
             "close": 116.0,
             "change_pct": -2.93
           },
-          "after_3d": null,
+          "after_3d": {
+            "date": "2026-08-14",
+            "close": 115.5,
+            "change_pct": -3.35
+          },
           "after_1w": null
         }
       ]
@@ -5009,7 +4328,7 @@
           "name": "信昌電",
           "volume": 36722965,
           "amount": 7915535621,
-          "margin_usage_rate": null,
+          "margin_usage_rate": 25.27,
           "average": 215.55,
           "open": 207.5,
           "low": 203.5,
@@ -5020,7 +4339,11 @@
           "dealer_net": -785511,
           "institutional_net": -3167032,
           "consecutive_limit_days": 3,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-08-14",
+            "close": 210.0,
+            "change_pct": -6.04
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -5041,7 +4364,11 @@
           "dealer_net": 29000,
           "institutional_net": 29000,
           "consecutive_limit_days": 3,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-08-14",
+            "close": 40.4,
+            "change_pct": 9.93
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -5051,7 +4378,7 @@
           "name": "合晶",
           "volume": 32174191,
           "amount": 3543546083,
-          "margin_usage_rate": null,
+          "margin_usage_rate": 39.45,
           "average": 110.14,
           "open": 107.5,
           "low": 105.5,
@@ -5062,7 +4389,11 @@
           "dealer_net": -45358,
           "institutional_net": -517526,
           "consecutive_limit_days": 2,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-08-14",
+            "close": 111.5,
+            "change_pct": -1.33
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -5072,7 +4403,7 @@
           "name": "德宏",
           "volume": 24391639,
           "amount": 3786750294,
-          "margin_usage_rate": null,
+          "margin_usage_rate": 0.0,
           "average": 155.25,
           "open": 157.5,
           "low": 148.5,
@@ -5083,7 +4414,11 @@
           "dealer_net": 69396,
           "institutional_net": -2287037,
           "consecutive_limit_days": 2,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-08-14",
+            "close": 170.5,
+            "change_pct": 4.6
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -5093,7 +4428,7 @@
           "name": "麗臺",
           "volume": 12841286,
           "amount": 1303675477,
-          "margin_usage_rate": null,
+          "margin_usage_rate": 0.91,
           "average": 101.52,
           "open": 99.1,
           "low": 95.7,
@@ -5104,7 +4439,11 @@
           "dealer_net": 24466,
           "institutional_net": 1182538,
           "consecutive_limit_days": 2,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-08-14",
+            "close": 95.9,
+            "change_pct": -8.67
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -5114,7 +4453,7 @@
           "name": "環球晶",
           "volume": 9989818,
           "amount": 9953510047,
-          "margin_usage_rate": null,
+          "margin_usage_rate": 9.06,
           "average": 996.37,
           "open": 970.0,
           "low": 950.0,
@@ -5125,7 +4464,11 @@
           "dealer_net": 31423,
           "institutional_net": 825651,
           "consecutive_limit_days": 2,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-08-14",
+            "close": 1010.0,
+            "change_pct": -1.46
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -5135,7 +4478,7 @@
           "name": "萬潤",
           "volume": 6275405,
           "amount": 7793921930,
-          "margin_usage_rate": null,
+          "margin_usage_rate": 12.0,
           "average": 1241.98,
           "open": 1190.0,
           "low": 1185.0,
@@ -5146,7 +4489,11 @@
           "dealer_net": 184547,
           "institutional_net": 1671803,
           "consecutive_limit_days": 2,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-08-14",
+            "close": 1275.0,
+            "change_pct": 0.39
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -5156,7 +4503,7 @@
           "name": "台勝科",
           "volume": 5508061,
           "amount": 1856081014,
-          "margin_usage_rate": null,
+          "margin_usage_rate": 0.14,
           "average": 336.98,
           "open": 334.5,
           "low": 320.5,
@@ -5167,7 +4514,11 @@
           "dealer_net": -83892,
           "institutional_net": -461961,
           "consecutive_limit_days": 2,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-08-14",
+            "close": 356.0,
+            "change_pct": 3.79
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -5177,7 +4528,7 @@
           "name": "倉和",
           "volume": 4062613,
           "amount": 720784552,
-          "margin_usage_rate": null,
+          "margin_usage_rate": 81.82,
           "average": 177.42,
           "open": 177.5,
           "low": 174.0,
@@ -5188,7 +4539,11 @@
           "dealer_net": -35575,
           "institutional_net": 228425,
           "consecutive_limit_days": 2,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-08-14",
+            "close": 184.0,
+            "change_pct": 3.66
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -5198,7 +4553,7 @@
           "name": "高力",
           "volume": 3925113,
           "amount": 4913014940,
-          "margin_usage_rate": null,
+          "margin_usage_rate": 0.74,
           "average": 1251.69,
           "open": 1235.0,
           "low": 1195.0,
@@ -5209,7 +4564,11 @@
           "dealer_net": 12021,
           "institutional_net": -258125,
           "consecutive_limit_days": 2,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-08-14",
+            "close": 1280.0,
+            "change_pct": -0.39
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -5219,7 +4578,7 @@
           "name": "長廣",
           "volume": 3594866,
           "amount": 1978715939,
-          "margin_usage_rate": null,
+          "margin_usage_rate": 0.02,
           "average": 550.43,
           "open": 556.0,
           "low": 516.0,
@@ -5230,7 +4589,11 @@
           "dealer_net": 139483,
           "institutional_net": 391449,
           "consecutive_limit_days": 2,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-08-14",
+            "close": 536.0,
+            "change_pct": -3.6
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -5240,7 +4603,7 @@
           "name": "霖宏",
           "volume": 324763,
           "amount": 24097410,
-          "margin_usage_rate": null,
+          "margin_usage_rate": 48.51,
           "average": 74.2,
           "open": 74.2,
           "low": 74.2,
@@ -5251,7 +4614,11 @@
           "dealer_net": 631,
           "institutional_net": -129369,
           "consecutive_limit_days": 2,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-08-14",
+            "close": 75.4,
+            "change_pct": 1.62
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -5261,7 +4628,7 @@
           "name": "飛寶企業",
           "volume": 69274,
           "amount": 1289834,
-          "margin_usage_rate": null,
+          "margin_usage_rate": 16.71,
           "average": 18.62,
           "open": 18.0,
           "low": 18.0,
@@ -5272,7 +4639,11 @@
           "dealer_net": 0,
           "institutional_net": 6000,
           "consecutive_limit_days": 2,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-08-14",
+            "close": 19.2,
+            "change_pct": 2.4
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -5282,7 +4653,7 @@
           "name": "國巨*",
           "volume": 46850905,
           "amount": 30519465391,
-          "margin_usage_rate": null,
+          "margin_usage_rate": 0.19,
           "average": 651.42,
           "open": 631.0,
           "low": 626.0,
@@ -5293,7 +4664,11 @@
           "dealer_net": -373016,
           "institutional_net": 5894016,
           "consecutive_limit_days": 1,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-08-14",
+            "close": 622.0,
+            "change_pct": -6.04
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -5303,7 +4678,7 @@
           "name": "華新科",
           "volume": 26770032,
           "amount": 8282958144,
-          "margin_usage_rate": null,
+          "margin_usage_rate": 0.57,
           "average": 309.41,
           "open": 299.0,
           "low": 298.0,
@@ -5314,7 +4689,11 @@
           "dealer_net": -343146,
           "institutional_net": 1112651,
           "consecutive_limit_days": 1,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-08-14",
+            "close": 302.5,
+            "change_pct": -4.42
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -5324,7 +4703,7 @@
           "name": "台虹",
           "volume": 22824959,
           "amount": 5582557986,
-          "margin_usage_rate": null,
+          "margin_usage_rate": 3.28,
           "average": 244.58,
           "open": 228.0,
           "low": 227.5,
@@ -5335,7 +4714,11 @@
           "dealer_net": 24392,
           "institutional_net": 3614649,
           "consecutive_limit_days": 1,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-08-14",
+            "close": 272.5,
+            "change_pct": 9.22
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -5345,7 +4728,7 @@
           "name": "宏致",
           "volume": 13830861,
           "amount": 1767843805,
-          "margin_usage_rate": null,
+          "margin_usage_rate": 2.29,
           "average": 127.82,
           "open": 124.5,
           "low": 123.0,
@@ -5356,7 +4739,11 @@
           "dealer_net": -46794,
           "institutional_net": 1423205,
           "consecutive_limit_days": 1,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-08-14",
+            "close": 131.5,
+            "change_pct": -0.38
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -5366,7 +4753,7 @@
           "name": "所羅門",
           "volume": 13562769,
           "amount": 2122956936,
-          "margin_usage_rate": null,
+          "margin_usage_rate": 0.87,
           "average": 156.53,
           "open": 151.0,
           "low": 151.0,
@@ -5377,7 +4764,11 @@
           "dealer_net": 127558,
           "institutional_net": 2947546,
           "consecutive_limit_days": 1,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-08-14",
+            "close": 159.5,
+            "change_pct": 1.59
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -5387,7 +4778,7 @@
           "name": "凱美",
           "volume": 12171302,
           "amount": 1674422340,
-          "margin_usage_rate": null,
+          "margin_usage_rate": 2.29,
           "average": 137.57,
           "open": 130.0,
           "low": 130.0,
@@ -5398,7 +4789,11 @@
           "dealer_net": 54391,
           "institutional_net": 385391,
           "consecutive_limit_days": 1,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-08-14",
+            "close": 130.5,
+            "change_pct": -6.45
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -5408,7 +4803,7 @@
           "name": "富鼎",
           "volume": 11082891,
           "amount": 2200060525,
-          "margin_usage_rate": null,
+          "margin_usage_rate": 0.14,
           "average": 198.51,
           "open": 187.0,
           "low": 187.0,
@@ -5419,7 +4814,11 @@
           "dealer_net": 74534,
           "institutional_net": 230222,
           "consecutive_limit_days": 1,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-08-14",
+            "close": 185.0,
+            "change_pct": -8.42
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -5429,7 +4828,7 @@
           "name": "奇鋐",
           "volume": 10569479,
           "amount": 33001664680,
-          "margin_usage_rate": null,
+          "margin_usage_rate": 0.02,
           "average": 3122.35,
           "open": 3030.0,
           "low": 2925.0,
@@ -5440,7 +4839,11 @@
           "dealer_net": 40876,
           "institutional_net": 2599765,
           "consecutive_limit_days": 1,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-08-14",
+            "close": 3235.0,
+            "change_pct": 1.09
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -5450,7 +4853,7 @@
           "name": "全友",
           "volume": 9345048,
           "amount": 278696983,
-          "margin_usage_rate": null,
+          "margin_usage_rate": 0.22,
           "average": 29.82,
           "open": 27.95,
           "low": 27.95,
@@ -5461,7 +4864,11 @@
           "dealer_net": 6047,
           "institutional_net": 2126754,
           "consecutive_limit_days": 1,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-08-14",
+            "close": 29.35,
+            "change_pct": -3.93
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -5471,7 +4878,7 @@
           "name": "光頡",
           "volume": 7677581,
           "amount": 723260005,
-          "margin_usage_rate": null,
+          "margin_usage_rate": 21.1,
           "average": 94.2,
           "open": 88.5,
           "low": 88.5,
@@ -5482,7 +4889,11 @@
           "dealer_net": -57480,
           "institutional_net": 532055,
           "consecutive_limit_days": 1,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-08-14",
+            "close": 89.5,
+            "change_pct": -5.89
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -5492,7 +4903,7 @@
           "name": "臺慶科",
           "volume": 3923799,
           "amount": 967702133,
-          "margin_usage_rate": null,
+          "margin_usage_rate": 13.47,
           "average": 246.62,
           "open": 230.5,
           "low": 229.5,
@@ -5503,7 +4914,11 @@
           "dealer_net": 98565,
           "institutional_net": -173526,
           "consecutive_limit_days": 1,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-08-14",
+            "close": 228.5,
+            "change_pct": -9.86
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -5513,7 +4928,7 @@
           "name": "華碩",
           "volume": 3760190,
           "amount": 3523298030,
-          "margin_usage_rate": null,
+          "margin_usage_rate": 0.04,
           "average": 937.0,
           "open": 937.0,
           "low": 937.0,
@@ -5524,7 +4939,11 @@
           "dealer_net": 43029,
           "institutional_net": -335979,
           "consecutive_limit_days": 1,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-08-14",
+            "close": 996.0,
+            "change_pct": 6.3
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -5534,7 +4953,7 @@
           "name": "單井",
           "volume": 3146521,
           "amount": 115947487,
-          "margin_usage_rate": null,
+          "margin_usage_rate": 21.42,
           "average": 36.85,
           "open": 36.85,
           "low": 36.8,
@@ -5545,7 +4964,11 @@
           "dealer_net": 13030,
           "institutional_net": 218030,
           "consecutive_limit_days": 1,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-08-14",
+            "close": 39.65,
+            "change_pct": 7.6
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -5555,7 +4978,7 @@
           "name": "建國",
           "volume": 2750494,
           "amount": 138160038,
-          "margin_usage_rate": null,
+          "margin_usage_rate": 0.02,
           "average": 50.23,
           "open": 50.2,
           "low": 49.3,
@@ -5566,7 +4989,11 @@
           "dealer_net": 26721,
           "institutional_net": 1238784,
           "consecutive_limit_days": 1,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-08-14",
+            "close": 48.45,
+            "change_pct": -3.87
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -5576,7 +5003,7 @@
           "name": "精誠",
           "volume": 2744322,
           "amount": 402319286,
-          "margin_usage_rate": null,
+          "margin_usage_rate": 0.01,
           "average": 146.6,
           "open": 156.5,
           "low": 156.5,
@@ -5587,7 +5014,11 @@
           "dealer_net": 11988,
           "institutional_net": -4365,
           "consecutive_limit_days": 1,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-08-14",
+            "close": 172.0,
+            "change_pct": 9.9
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -5597,7 +5028,7 @@
           "name": "百容",
           "volume": 2334413,
           "amount": 92094487,
-          "margin_usage_rate": null,
+          "margin_usage_rate": 0.08,
           "average": 39.45,
           "open": 36.9,
           "low": 36.9,
@@ -5608,7 +5039,11 @@
           "dealer_net": 4997,
           "institutional_net": 524655,
           "consecutive_limit_days": 1,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-08-14",
+            "close": 38.1,
+            "change_pct": -4.87
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -5618,7 +5053,7 @@
           "name": "弘憶股",
           "volume": 2175761,
           "amount": 123583174,
-          "margin_usage_rate": null,
+          "margin_usage_rate": 0.11,
           "average": 56.8,
           "open": 56.8,
           "low": 56.8,
@@ -5629,7 +5064,11 @@
           "dealer_net": 35276,
           "institutional_net": -17724,
           "consecutive_limit_days": 1,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-08-14",
+            "close": 55.1,
+            "change_pct": -2.99
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -5639,7 +5078,7 @@
           "name": "陽程",
           "volume": 1762694,
           "amount": 253827936,
-          "margin_usage_rate": null,
+          "margin_usage_rate": 37.9,
           "average": 144.0,
           "open": 144.0,
           "low": 144.0,
@@ -5650,7 +5089,11 @@
           "dealer_net": 40533,
           "institutional_net": -10467,
           "consecutive_limit_days": 1,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-08-14",
+            "close": 158.0,
+            "change_pct": 9.72
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -5660,7 +5103,7 @@
           "name": "上亞科技",
           "volume": 1299952,
           "amount": 37759502,
-          "margin_usage_rate": null,
+          "margin_usage_rate": 46.19,
           "average": 29.05,
           "open": 27.0,
           "low": 27.0,
@@ -5671,7 +5114,11 @@
           "dealer_net": -5000,
           "institutional_net": 198000,
           "consecutive_limit_days": 1,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-08-14",
+            "close": 29.0,
+            "change_pct": -2.36
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -5681,7 +5128,7 @@
           "name": "東研信超",
           "volume": 1189006,
           "amount": 89479132,
-          "margin_usage_rate": null,
+          "margin_usage_rate": 16.55,
           "average": 75.26,
           "open": 72.0,
           "low": 72.0,
@@ -5692,7 +5139,11 @@
           "dealer_net": 12406,
           "institutional_net": 59406,
           "consecutive_limit_days": 1,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-08-14",
+            "close": 81.0,
+            "change_pct": 7.14
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -5702,7 +5153,7 @@
           "name": "營邦",
           "volume": 998937,
           "amount": 547443224,
-          "margin_usage_rate": null,
+          "margin_usage_rate": 34.35,
           "average": 548.03,
           "open": 531.0,
           "low": 531.0,
@@ -5713,7 +5164,11 @@
           "dealer_net": 85508,
           "institutional_net": 210508,
           "consecutive_limit_days": 1,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-08-14",
+            "close": 536.0,
+            "change_pct": -2.9
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -5723,7 +5178,7 @@
           "name": "金雨",
           "volume": 816784,
           "amount": 22735323,
-          "margin_usage_rate": null,
+          "margin_usage_rate": 13.32,
           "average": 27.84,
           "open": 26.95,
           "low": 26.45,
@@ -5734,7 +5189,11 @@
           "dealer_net": 6498,
           "institutional_net": 102498,
           "consecutive_limit_days": 1,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-08-14",
+            "close": 26.15,
+            "change_pct": -9.36
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -5744,7 +5203,7 @@
           "name": "雍智科技",
           "volume": 639205,
           "amount": 881401460,
-          "margin_usage_rate": null,
+          "margin_usage_rate": 29.1,
           "average": 1378.9,
           "open": 1315.0,
           "low": 1315.0,
@@ -5755,7 +5214,11 @@
           "dealer_net": -14593,
           "institutional_net": -82793,
           "consecutive_limit_days": 1,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-08-14",
+            "close": 1370.0,
+            "change_pct": -1.79
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -5765,7 +5228,7 @@
           "name": "南俊國際",
           "volume": 582743,
           "amount": 345133571,
-          "margin_usage_rate": null,
+          "margin_usage_rate": 9.47,
           "average": 592.26,
           "open": 580.0,
           "low": 573.0,
@@ -5776,7 +5239,11 @@
           "dealer_net": 26608,
           "institutional_net": 41608,
           "consecutive_limit_days": 1,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-08-14",
+            "close": 605.0,
+            "change_pct": 1.34
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -5786,7 +5253,7 @@
           "name": "勤凱",
           "volume": 457374,
           "amount": 127140058,
-          "margin_usage_rate": null,
+          "margin_usage_rate": 26.94,
           "average": 277.98,
           "open": 265.0,
           "low": 265.0,
@@ -5797,7 +5264,11 @@
           "dealer_net": -17133,
           "institutional_net": 21867,
           "consecutive_limit_days": 1,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-08-14",
+            "close": 261.0,
+            "change_pct": -7.77
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -5807,7 +5278,7 @@
           "name": "青松健康",
           "volume": 394789,
           "amount": 17084465,
-          "margin_usage_rate": null,
+          "margin_usage_rate": 0.0,
           "average": 43.27,
           "open": 40.1,
           "low": 40.1,
@@ -5818,7 +5289,11 @@
           "dealer_net": 13880,
           "institutional_net": 78880,
           "consecutive_limit_days": 1,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-08-14",
+            "close": 41.8,
+            "change_pct": -4.02
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -5828,7 +5303,7 @@
           "name": "保銳",
           "volume": 136348,
           "amount": 3189638,
-          "margin_usage_rate": null,
+          "margin_usage_rate": 0.0,
           "average": 23.39,
           "open": 21.9,
           "low": 21.9,
@@ -5839,7 +5314,11 @@
           "dealer_net": 0,
           "institutional_net": 0,
           "consecutive_limit_days": 1,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-08-14",
+            "close": 25.4,
+            "change_pct": 5.39
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -5860,7 +5339,11 @@
           "dealer_net": 7020,
           "institutional_net": 23020,
           "consecutive_limit_days": 1,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-08-14",
+            "close": 13.7,
+            "change_pct": 0.37
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -5881,7 +5364,11 @@
           "dealer_net": 0,
           "institutional_net": 0,
           "consecutive_limit_days": 1,
-          "after_1d": null,
+          "after_1d": {
+            "date": "2026-08-14",
+            "close": 38.9,
+            "change_pct": 2.5
+          },
           "after_3d": null,
           "after_1w": null
         },
@@ -5891,7 +5378,7 @@
           "name": "台聯電",
           "volume": 49341,
           "amount": 3799257,
-          "margin_usage_rate": null,
+          "margin_usage_rate": 1.4,
           "average": 77.0,
           "open": 77.0,
           "low": 77.0,
@@ -5901,6 +5388,625 @@
           "investment_trust_net": 0,
           "dealer_net": 0,
           "institutional_net": 0,
+          "consecutive_limit_days": 1,
+          "after_1d": {
+            "date": "2026-08-14",
+            "close": 84.7,
+            "change_pct": 10.0
+          },
+          "after_3d": null,
+          "after_1w": null
+        }
+      ]
+    },
+    {
+      "date": "2026-08-14",
+      "count": 29,
+      "stocks": [
+        {
+          "market": "上市",
+          "code": "6225",
+          "name": "天瀚",
+          "volume": 396961,
+          "amount": 16037206,
+          "margin_usage_rate": null,
+          "average": 40.4,
+          "open": 40.4,
+          "low": 40.4,
+          "close": 40.4,
+          "limit_up_price": 40.4,
+          "foreign_net": 0,
+          "investment_trust_net": 0,
+          "dealer_net": -37000,
+          "institutional_net": -37000,
+          "consecutive_limit_days": 4,
+          "after_1d": null,
+          "after_3d": null,
+          "after_1w": null
+        },
+        {
+          "market": "上櫃",
+          "code": "3498",
+          "name": "陽程",
+          "volume": 6332074,
+          "amount": 997441499,
+          "margin_usage_rate": null,
+          "average": 157.52,
+          "open": 154.0,
+          "low": 154.0,
+          "close": 158.0,
+          "limit_up_price": 158.0,
+          "foreign_net": 2496688,
+          "investment_trust_net": 0,
+          "dealer_net": -108117,
+          "institutional_net": 2388571,
+          "consecutive_limit_days": 2,
+          "after_1d": null,
+          "after_3d": null,
+          "after_1w": null
+        },
+        {
+          "market": "上市",
+          "code": "6214",
+          "name": "精誠",
+          "volume": 1870185,
+          "amount": 321671820,
+          "margin_usage_rate": null,
+          "average": 172.0,
+          "open": 172.0,
+          "low": 172.0,
+          "close": 172.0,
+          "limit_up_price": 172.0,
+          "foreign_net": -23000,
+          "investment_trust_net": 0,
+          "dealer_net": -29003,
+          "institutional_net": -52003,
+          "consecutive_limit_days": 2,
+          "after_1d": null,
+          "after_3d": null,
+          "after_1w": null
+        },
+        {
+          "market": "上櫃",
+          "code": "4905",
+          "name": "台聯電",
+          "volume": 54454,
+          "amount": 4612241,
+          "margin_usage_rate": null,
+          "average": 84.7,
+          "open": 84.7,
+          "low": 84.7,
+          "close": 84.7,
+          "limit_up_price": 84.7,
+          "foreign_net": 0,
+          "investment_trust_net": 0,
+          "dealer_net": 0,
+          "institutional_net": 0,
+          "consecutive_limit_days": 2,
+          "after_1d": null,
+          "after_3d": null,
+          "after_1w": null
+        },
+        {
+          "market": "上市",
+          "code": "2324",
+          "name": "仁寶",
+          "volume": 402245118,
+          "amount": 17309022890,
+          "margin_usage_rate": null,
+          "average": 43.03,
+          "open": 40.3,
+          "low": 40.3,
+          "close": 43.2,
+          "limit_up_price": 43.2,
+          "foreign_net": 47849797,
+          "investment_trust_net": -46924,
+          "dealer_net": 3909022,
+          "institutional_net": 51711895,
+          "consecutive_limit_days": 1,
+          "after_1d": null,
+          "after_3d": null,
+          "after_1w": null
+        },
+        {
+          "market": "上市",
+          "code": "1303",
+          "name": "南亞",
+          "volume": 156580667,
+          "amount": 31684015355,
+          "margin_usage_rate": null,
+          "average": 202.35,
+          "open": 194.0,
+          "low": 189.5,
+          "close": 207.5,
+          "limit_up_price": 207.5,
+          "foreign_net": 10619328,
+          "investment_trust_net": -1592904,
+          "dealer_net": 3232063,
+          "institutional_net": 12258487,
+          "consecutive_limit_days": 1,
+          "after_1d": null,
+          "after_3d": null,
+          "after_1w": null
+        },
+        {
+          "market": "上市",
+          "code": "2634",
+          "name": "漢翔",
+          "volume": 79395321,
+          "amount": 5431765645,
+          "margin_usage_rate": null,
+          "average": 68.41,
+          "open": 64.2,
+          "low": 63.2,
+          "close": 70.6,
+          "limit_up_price": 70.6,
+          "foreign_net": 6343082,
+          "investment_trust_net": 0,
+          "dealer_net": 1390702,
+          "institutional_net": 7733784,
+          "consecutive_limit_days": 1,
+          "after_1d": null,
+          "after_3d": null,
+          "after_1w": null
+        },
+        {
+          "market": "上市",
+          "code": "9945",
+          "name": "潤泰新",
+          "volume": 37276643,
+          "amount": 1096074787,
+          "margin_usage_rate": null,
+          "average": 29.4,
+          "open": 28.1,
+          "low": 28.05,
+          "close": 29.8,
+          "limit_up_price": 29.8,
+          "foreign_net": 15244750,
+          "investment_trust_net": 0,
+          "dealer_net": 451995,
+          "institutional_net": 15696745,
+          "consecutive_limit_days": 1,
+          "after_1d": null,
+          "after_3d": null,
+          "after_1w": null
+        },
+        {
+          "market": "上市",
+          "code": "1810",
+          "name": "和成",
+          "volume": 24344388,
+          "amount": 652072065,
+          "margin_usage_rate": null,
+          "average": 26.79,
+          "open": 25.2,
+          "low": 24.3,
+          "close": 27.55,
+          "limit_up_price": 27.55,
+          "foreign_net": 892792,
+          "investment_trust_net": 14266,
+          "dealer_net": -34991,
+          "institutional_net": 872067,
+          "consecutive_limit_days": 1,
+          "after_1d": null,
+          "after_3d": null,
+          "after_1w": null
+        },
+        {
+          "market": "上市",
+          "code": "2392",
+          "name": "正崴",
+          "volume": 16947397,
+          "amount": 728786243,
+          "margin_usage_rate": null,
+          "average": 43.0,
+          "open": 42.8,
+          "low": 42.15,
+          "close": 43.05,
+          "limit_up_price": 43.05,
+          "foreign_net": 1720402,
+          "investment_trust_net": 0,
+          "dealer_net": -16307,
+          "institutional_net": 1704095,
+          "consecutive_limit_days": 1,
+          "after_1d": null,
+          "after_3d": null,
+          "after_1w": null
+        },
+        {
+          "market": "上市",
+          "code": "8033",
+          "name": "雷虎",
+          "volume": 16897715,
+          "amount": 3267094180,
+          "margin_usage_rate": null,
+          "average": 193.35,
+          "open": 182.0,
+          "low": 182.0,
+          "close": 201.5,
+          "limit_up_price": 201.5,
+          "foreign_net": -1611310,
+          "investment_trust_net": 0,
+          "dealer_net": 189444,
+          "institutional_net": -1421866,
+          "consecutive_limit_days": 1,
+          "after_1d": null,
+          "after_3d": null,
+          "after_1w": null
+        },
+        {
+          "market": "上市",
+          "code": "2323",
+          "name": "中環",
+          "volume": 15103262,
+          "amount": 169562920,
+          "margin_usage_rate": null,
+          "average": 11.23,
+          "open": 11.0,
+          "low": 10.95,
+          "close": 11.3,
+          "limit_up_price": 11.3,
+          "foreign_net": 470000,
+          "investment_trust_net": 0,
+          "dealer_net": 102187,
+          "institutional_net": 572187,
+          "consecutive_limit_days": 1,
+          "after_1d": null,
+          "after_3d": null,
+          "after_1w": null
+        },
+        {
+          "market": "上市",
+          "code": "2915",
+          "name": "潤泰全",
+          "volume": 14058757,
+          "amount": 832993398,
+          "margin_usage_rate": null,
+          "average": 59.25,
+          "open": 57.3,
+          "low": 57.0,
+          "close": 59.5,
+          "limit_up_price": 59.5,
+          "foreign_net": 4436636,
+          "investment_trust_net": -2000,
+          "dealer_net": 53200,
+          "institutional_net": 4487836,
+          "consecutive_limit_days": 1,
+          "after_1d": null,
+          "after_3d": null,
+          "after_1w": null
+        },
+        {
+          "market": "上市",
+          "code": "2645",
+          "name": "長榮航太",
+          "volume": 13325027,
+          "amount": 2577047232,
+          "margin_usage_rate": null,
+          "average": 193.4,
+          "open": 182.5,
+          "low": 178.5,
+          "close": 200.0,
+          "limit_up_price": 200.0,
+          "foreign_net": -3022300,
+          "investment_trust_net": -1000,
+          "dealer_net": 65698,
+          "institutional_net": -2957602,
+          "consecutive_limit_days": 1,
+          "after_1d": null,
+          "after_3d": null,
+          "after_1w": null
+        },
+        {
+          "market": "上市",
+          "code": "6753",
+          "name": "龍德造船",
+          "volume": 8145131,
+          "amount": 1257670725,
+          "margin_usage_rate": null,
+          "average": 154.41,
+          "open": 144.5,
+          "low": 143.5,
+          "close": 158.0,
+          "limit_up_price": 158.0,
+          "foreign_net": 1451193,
+          "investment_trust_net": 0,
+          "dealer_net": 460528,
+          "institutional_net": 1911721,
+          "consecutive_limit_days": 1,
+          "after_1d": null,
+          "after_3d": null,
+          "after_1w": null
+        },
+        {
+          "market": "上市",
+          "code": "2630",
+          "name": "亞航",
+          "volume": 5282246,
+          "amount": 271652271,
+          "margin_usage_rate": null,
+          "average": 51.43,
+          "open": 48.7,
+          "low": 47.75,
+          "close": 53.1,
+          "limit_up_price": 53.1,
+          "foreign_net": 244322,
+          "investment_trust_net": 0,
+          "dealer_net": 95643,
+          "institutional_net": 339965,
+          "consecutive_limit_days": 1,
+          "after_1d": null,
+          "after_3d": null,
+          "after_1w": null
+        },
+        {
+          "market": "上市",
+          "code": "6477",
+          "name": "安集",
+          "volume": 4939016,
+          "amount": 184246154,
+          "margin_usage_rate": null,
+          "average": 37.3,
+          "open": 35.75,
+          "low": 34.05,
+          "close": 38.25,
+          "limit_up_price": 38.25,
+          "foreign_net": 958933,
+          "investment_trust_net": 0,
+          "dealer_net": 4211,
+          "institutional_net": 963144,
+          "consecutive_limit_days": 1,
+          "after_1d": null,
+          "after_3d": null,
+          "after_1w": null
+        },
+        {
+          "market": "上櫃",
+          "code": "1336",
+          "name": "台翰",
+          "volume": 3489176,
+          "amount": 60840754,
+          "margin_usage_rate": null,
+          "average": 17.44,
+          "open": 16.2,
+          "low": 16.05,
+          "close": 17.65,
+          "limit_up_price": 17.65,
+          "foreign_net": 386097,
+          "investment_trust_net": 0,
+          "dealer_net": 2801,
+          "institutional_net": 388898,
+          "consecutive_limit_days": 1,
+          "after_1d": null,
+          "after_3d": null,
+          "after_1w": null
+        },
+        {
+          "market": "上市",
+          "code": "1515",
+          "name": "力山",
+          "volume": 2850121,
+          "amount": 92710634,
+          "margin_usage_rate": null,
+          "average": 32.53,
+          "open": 31.0,
+          "low": 29.85,
+          "close": 33.55,
+          "limit_up_price": 33.55,
+          "foreign_net": 205436,
+          "investment_trust_net": 0,
+          "dealer_net": -50703,
+          "institutional_net": 154733,
+          "consecutive_limit_days": 1,
+          "after_1d": null,
+          "after_3d": null,
+          "after_1w": null
+        },
+        {
+          "market": "上櫃",
+          "code": "6829",
+          "name": "千附精密",
+          "volume": 2814908,
+          "amount": 661171055,
+          "margin_usage_rate": null,
+          "average": 234.88,
+          "open": 225.0,
+          "low": 218.5,
+          "close": 244.0,
+          "limit_up_price": 244.0,
+          "foreign_net": 187003,
+          "investment_trust_net": 0,
+          "dealer_net": 109861,
+          "institutional_net": 296864,
+          "consecutive_limit_days": 1,
+          "after_1d": null,
+          "after_3d": null,
+          "after_1w": null
+        },
+        {
+          "market": "上櫃",
+          "code": "3388",
+          "name": "崇越電",
+          "volume": 2754806,
+          "amount": 226560129,
+          "margin_usage_rate": null,
+          "average": 82.24,
+          "open": 76.7,
+          "low": 76.7,
+          "close": 83.9,
+          "limit_up_price": 83.9,
+          "foreign_net": 141000,
+          "investment_trust_net": 0,
+          "dealer_net": -37412,
+          "institutional_net": 103588,
+          "consecutive_limit_days": 1,
+          "after_1d": null,
+          "after_3d": null,
+          "after_1w": null
+        },
+        {
+          "market": "上櫃",
+          "code": "6727",
+          "name": "亞泰金屬",
+          "volume": 1946633,
+          "amount": 821012482,
+          "margin_usage_rate": null,
+          "average": 421.76,
+          "open": 396.0,
+          "low": 382.0,
+          "close": 432.0,
+          "limit_up_price": 432.0,
+          "foreign_net": 150700,
+          "investment_trust_net": 0,
+          "dealer_net": 13029,
+          "institutional_net": 163729,
+          "consecutive_limit_days": 1,
+          "after_1d": null,
+          "after_3d": null,
+          "after_1w": null
+        },
+        {
+          "market": "上櫃",
+          "code": "3230",
+          "name": "錦明",
+          "volume": 1601769,
+          "amount": 69470300,
+          "margin_usage_rate": null,
+          "average": 43.37,
+          "open": 40.5,
+          "low": 40.0,
+          "close": 44.45,
+          "limit_up_price": 44.45,
+          "foreign_net": 270000,
+          "investment_trust_net": 0,
+          "dealer_net": 4403,
+          "institutional_net": 274403,
+          "consecutive_limit_days": 1,
+          "after_1d": null,
+          "after_3d": null,
+          "after_1w": null
+        },
+        {
+          "market": "上櫃",
+          "code": "7402",
+          "name": "邑錡",
+          "volume": 1410474,
+          "amount": 157857116,
+          "margin_usage_rate": null,
+          "average": 111.92,
+          "open": 107.0,
+          "low": 103.5,
+          "close": 115.5,
+          "limit_up_price": 115.5,
+          "foreign_net": -34010,
+          "investment_trust_net": 0,
+          "dealer_net": 16234,
+          "institutional_net": -17776,
+          "consecutive_limit_days": 1,
+          "after_1d": null,
+          "after_3d": null,
+          "after_1w": null
+        },
+        {
+          "market": "上市",
+          "code": "2429",
+          "name": "銘旺科",
+          "volume": 822170,
+          "amount": 27715648,
+          "margin_usage_rate": null,
+          "average": 33.71,
+          "open": 31.8,
+          "low": 31.05,
+          "close": 34.9,
+          "limit_up_price": 34.9,
+          "foreign_net": 209983,
+          "investment_trust_net": 0,
+          "dealer_net": 7520,
+          "institutional_net": 217503,
+          "consecutive_limit_days": 1,
+          "after_1d": null,
+          "after_3d": null,
+          "after_1w": null
+        },
+        {
+          "market": "上櫃",
+          "code": "7714",
+          "name": "創泓科技",
+          "volume": 466890,
+          "amount": 77856028,
+          "margin_usage_rate": null,
+          "average": 166.75,
+          "open": 159.0,
+          "low": 155.0,
+          "close": 172.5,
+          "limit_up_price": 172.5,
+          "foreign_net": -21953,
+          "investment_trust_net": 0,
+          "dealer_net": 3028,
+          "institutional_net": -18925,
+          "consecutive_limit_days": 1,
+          "after_1d": null,
+          "after_3d": null,
+          "after_1w": null
+        },
+        {
+          "market": "上櫃",
+          "code": "5314",
+          "name": "世紀*",
+          "volume": 370664,
+          "amount": 6004749,
+          "margin_usage_rate": null,
+          "average": 16.2,
+          "open": 16.2,
+          "low": 16.2,
+          "close": 16.2,
+          "limit_up_price": 16.2,
+          "foreign_net": -118000,
+          "investment_trust_net": -9000,
+          "dealer_net": 0,
+          "institutional_net": -127000,
+          "consecutive_limit_days": 1,
+          "after_1d": null,
+          "after_3d": null,
+          "after_1w": null
+        },
+        {
+          "market": "上櫃",
+          "code": "7751",
+          "name": "竑騰",
+          "volume": 248753,
+          "amount": 359198085,
+          "margin_usage_rate": null,
+          "average": 1443.99,
+          "open": 1440.0,
+          "low": 1435.0,
+          "close": 1445.0,
+          "limit_up_price": 1445.0,
+          "foreign_net": 25000,
+          "investment_trust_net": 0,
+          "dealer_net": 26573,
+          "institutional_net": 51573,
+          "consecutive_limit_days": 1,
+          "after_1d": null,
+          "after_3d": null,
+          "after_1w": null
+        },
+        {
+          "market": "上市",
+          "code": "6921",
+          "name": "嘉雨思-創",
+          "volume": 110733,
+          "amount": 8069454,
+          "margin_usage_rate": null,
+          "average": 72.87,
+          "open": 69.1,
+          "low": 69.1,
+          "close": 75.3,
+          "limit_up_price": 75.3,
+          "foreign_net": 17000,
+          "investment_trust_net": 0,
+          "dealer_net": 2541,
+          "institutional_net": 19541,
           "consecutive_limit_days": 1,
           "after_1d": null,
           "after_3d": null,
