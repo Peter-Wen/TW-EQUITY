@@ -14,6 +14,7 @@ def main() -> None:
         "generated_at": report["generated_at"],
         "trading_days": report["trading_days"],
         "counts": [page["count"] for page in report["pages"]],
+        "hot_counts": [page["count"] for page in report["hot_pages"]],
     }
     (log_dir / "last_update.json").write_text(json.dumps(summary, ensure_ascii=False, indent=2), encoding="utf-8")
     print(json.dumps(summary, ensure_ascii=False))

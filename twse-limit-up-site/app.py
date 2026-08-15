@@ -360,6 +360,56 @@ def round_optional(value: Optional[float]) -> Optional[float]:
     return round(value, 2) if value is not None else None
 
 
+def report_stock(
+    indexed: Dict[str, Dict[str, Dict[str, Any]]],
+    days: List[str],
+    day_index: int,
+    row: Dict[str, Any],
+) -> Dict[str, Any]:
+    return {
+        "market": row["market"],
+        "code": row["code"],
+        "name": row["name"],
+        "volume": row["volume"],
+        "amount": row["amount"],
+        "margin_usage_rate": round_optional(row.get("margin_usage_rate")),
+        "average": round_optional(row.get("average")),
+        "open": round_optional(row.get("open")),
+        "low": round_optional(row.get("low")),
+        "close": round(row["close"], 2),
+        "limit_up_price": round_optional(row.get("limit_up_price")),
+        "foreign_net": row.get("foreign_net", 0),
+        "investment_trust_net": row.get("investment_trust_net", 0),
+        "dealer_net": row.get("dealer_net", 0),
+        "institutional_net": row.get("institutional_net", 0),
+        "consecutive_limit_days": consecutive_limit_days(indexed, days, day_index, row["key"]),
+        "after_1d": performance(indexed, days, day_index, row["key"], 1),
+        "after_3d": performance(indexed, days, day_index, row["key"], 3),
+        "after_1w": performance(indexed, days, day_index, row["key"], 5),
+    }
+
+
+def five_day_volume_multiple(
+    indexed: Dict[str, Dict[str, Dict[str, Any]]],
+    days: List[str],
+    day_index: int,
+    key: str,
+) -> Optional[float]:
+    if day_index < 5:
+        return None
+    history = []
+    for prior_day in days[day_index - 5:day_index]:
+        prior = indexed[prior_day].get(key)
+        if not prior:
+            return None
+        history.append(prior["volume"])
+    average_volume = sum(history) / 5
+    current = indexed[days[day_index]].get(key)
+    if not current or average_volume <= 0:
+        return None
+    return round(current["volume"] / average_volume, 2)
+
+
 def build_report(today: Optional[dt.date] = None) -> Dict[str, Any]:
     today = today or dt.date.today()
     market = collect_market(today)
@@ -382,37 +432,45 @@ def build_report(today: Optional[dt.date] = None) -> Dict[str, Any]:
                 indexed[day][key].update(margin_row)
 
     pages = []
+    hot_pages = []
     for day in recent_days:
         day_index = days.index(day)
         stocks = []
         for row in indexed[day].values():
             if not row.get("is_limit_up"):
                 continue
-            stocks.append(
-                {
-                    "market": row["market"],
-                    "code": row["code"],
-                    "name": row["name"],
-                    "volume": row["volume"],
-                    "amount": row["amount"],
-                    "margin_usage_rate": round_optional(row.get("margin_usage_rate")),
-                    "average": round_optional(row.get("average")),
-                    "open": round_optional(row.get("open")),
-                    "low": round_optional(row.get("low")),
-                    "close": round(row["close"], 2),
-                    "limit_up_price": round(row["limit_up_price"], 2),
-                    "foreign_net": row.get("foreign_net", 0),
-                    "investment_trust_net": row.get("investment_trust_net", 0),
-                    "dealer_net": row.get("dealer_net", 0),
-                    "institutional_net": row.get("institutional_net", 0),
-                    "consecutive_limit_days": consecutive_limit_days(indexed, days, day_index, row["key"]),
-                    "after_1d": performance(indexed, days, day_index, row["key"], 1),
-                    "after_3d": performance(indexed, days, day_index, row["key"], 3),
-                    "after_1w": performance(indexed, days, day_index, row["key"], 5),
-                }
-            )
+            stocks.append(report_stock(indexed, days, day_index, row))
         stocks.sort(key=lambda item: (-item["consecutive_limit_days"], -item["volume"], item["market"], item["code"]))
         pages.append({"date": display_date(day), "count": len(stocks), "stocks": stocks})
+
+        amount_ranked = sorted(indexed[day].values(), key=lambda row: (-row["amount"], row["key"]))
+        amount_ranks = {row["key"]: rank for rank, row in enumerate(amount_ranked, start=1)}
+        hot_stocks = []
+        for row in indexed[day].values():
+            amount_rank = amount_ranks[row["key"]]
+            volume_multiple = five_day_volume_multiple(indexed, days, day_index, row["key"])
+            top_amount = amount_rank <= 30
+            volume_surge = volume_multiple is not None and volume_multiple >= 2
+            if not top_amount and not volume_surge:
+                continue
+            stock = report_stock(indexed, days, day_index, row)
+            stock.update(
+                {
+                    "amount_rank": amount_rank,
+                    "volume_multiple_5d": volume_multiple,
+                    "hot_reasons": [
+                        reason
+                        for matched, reason in (
+                            (top_amount, "成交金額前30名"),
+                            (volume_surge, "成交量達5日均量2倍"),
+                        )
+                        if matched
+                    ],
+                }
+            )
+            hot_stocks.append(stock)
+        hot_stocks.sort(key=lambda item: (item["amount_rank"], -item["volume_multiple_5d"] if item["volume_multiple_5d"] is not None else 0))
+        hot_pages.append({"date": display_date(day), "count": len(hot_stocks), "stocks": hot_stocks})
 
     report = {
         "source": "TWSE 台灣證券交易所 + TPEx 櫃買中心官方公開資料",
@@ -420,6 +478,7 @@ def build_report(today: Optional[dt.date] = None) -> Dict[str, Any]:
         "generated_at": dt.datetime.now().isoformat(timespec="seconds"),
         "trading_days": [display_date(day) for day in recent_days],
         "pages": pages,
+        "hot_pages": hot_pages,
     }
     DATA_DIR.mkdir(exist_ok=True)
     CACHE_FILE.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
@@ -437,19 +496,23 @@ INDEX_HTML = """<!doctype html>
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>台股漲停追蹤</title>
+  <title>台股行情追蹤</title>
   <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
   <header class="topbar">
     <div>
-      <h1>上市上櫃漲停追蹤</h1>
+      <h1>上市上櫃行情追蹤</h1>
       <p id="meta">載入中...</p>
     </div>
     <button id="refresh" type="button">更新資料</button>
   </header>
 
   <main>
+    <nav class="view-nav" aria-label="資料頁面">
+      <button class="view-toggle active" data-view="limit_up" type="button">漲停股</button>
+      <button class="view-toggle" data-view="hot" type="button">熱門股</button>
+    </nav>
     <nav id="tabs" class="tabs" aria-label="近五個交易日"></nav>
     <section class="panel">
       <div class="panel-head">
@@ -473,6 +536,9 @@ INDEX_HTML = """<!doctype html>
               <th><button class="sort-head" data-sort="code" type="button">代號</button></th>
               <th><button class="sort-head" data-sort="market" type="button">市場</button></th>
               <th><button class="sort-head" data-sort="name" type="button">名稱</button></th>
+              <th class="hot-only"><button class="sort-head" data-sort="hot_reasons" type="button">入選原因</button></th>
+              <th class="num hot-only"><button class="sort-head" data-sort="amount_rank" type="button">成交額排名</button></th>
+              <th class="num hot-only"><button class="sort-head" data-sort="volume_multiple_5d" type="button">5日量比</button></th>
               <th class="num"><button class="sort-head" data-sort="trade_metric" type="button"><span id="trade-heading">成交量(張)</span></button></th>
               <th class="num"><button class="sort-head" data-sort="margin_usage_rate" type="button">融資使用率</button></th>
               <th class="num optional-price"><button class="sort-head" data-sort="average" type="button">均價</button></th>
@@ -548,6 +614,25 @@ button {
 }
 button:disabled { opacity: .65; cursor: wait; }
 main { padding: 22px 28px 32px; }
+.view-nav {
+  display: inline-flex;
+  overflow: hidden;
+  margin-bottom: 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+}
+.view-toggle {
+  min-height: 42px;
+  padding: 0 20px;
+  border: 0;
+  border-radius: 0;
+  color: #3b424a;
+  background: #fff;
+  font-weight: 700;
+}
+.view-toggle + .view-toggle { border-left: 1px solid var(--line); }
+.view-toggle.active { color: #fff; background: #2f3a45; }
 .tabs {
   display: flex;
   flex-wrap: wrap;
@@ -635,6 +720,9 @@ table.hide-price-details {
 table.hide-price-details .optional-price {
   display: none;
 }
+table:not(.hot-view) .hot-only { display: none; }
+table.hot-view { min-width: 1860px; }
+table.hot-view.hide-price-details { min-width: 1560px; }
 th, td {
   padding: 12px 14px;
   border-bottom: 1px solid var(--line);
@@ -678,6 +766,18 @@ th {
   font-size: 12px;
   font-weight: 700;
 }
+.reason-list { display: flex; gap: 6px; }
+.reason {
+  display: inline-flex;
+  min-height: 24px;
+  align-items: center;
+  padding: 2px 8px;
+  border: 1px solid #ccd3d8;
+  border-radius: 999px;
+  color: #3b424a;
+  background: #f4f6f7;
+  font-size: 12px;
+}
 .gain { color: var(--accent); font-weight: 700; }
 .loss { color: var(--green); font-weight: 700; }
 .muted { color: var(--muted); }
@@ -698,6 +798,7 @@ APP_JS = """
 let report = null;
 let activeIndex = 0;
 let sortState = { key: "consecutive_limit_days", direction: "desc" };
+let activeView = "limit_up";
 let metricMode = "shares";
 let priceDetailsVisible = true;
 
@@ -779,6 +880,14 @@ function tradeCell(stock) {
   return decimalText(tradeValue(stock));
 }
 
+function currentPages() {
+  return activeView === "hot" ? report.hot_pages : report.pages;
+}
+
+function hotReasonCell(stock) {
+  return `<div class="reason-list">${stock.hot_reasons.map((reason) => `<span class="reason">${reason}</span>`).join("")}</div>`;
+}
+
 function sortValue(stock, key) {
   if (key === "after_1d" || key === "after_3d" || key === "after_1w") {
     return stock[key] ? stock[key].change_pct : Number.NEGATIVE_INFINITY;
@@ -788,6 +897,9 @@ function sortValue(stock, key) {
   }
   if (key === "trade_metric") {
     return tradeValue(stock);
+  }
+  if (key === "hot_reasons") {
+    return (stock.hot_reasons || []).join("、");
   }
   const value = stock[key];
   return value == null ? Number.NEGATIVE_INFINITY : value;
@@ -834,9 +946,16 @@ function updatePriceDetails() {
   priceDetailsToggle.textContent = priceDetailsVisible ? "價格明細：顯示" : "價格明細：隱藏";
 }
 
+function updateView() {
+  stockTable.classList.toggle("hot-view", activeView === "hot");
+  document.querySelectorAll(".view-toggle").forEach((button) => {
+    button.classList.toggle("active", button.dataset.view === activeView);
+  });
+}
+
 function renderTabs() {
   tabs.innerHTML = "";
-  report.pages.forEach((page, index) => {
+  currentPages().forEach((page, index) => {
     const button = document.createElement("button");
     button.className = `tab ${index === activeIndex ? "active" : ""}`;
     button.type = "button";
@@ -850,13 +969,14 @@ function renderTabs() {
 }
 
 function renderRows() {
-  const page = report.pages[activeIndex];
+  const page = currentPages()[activeIndex];
   const keyword = filter.value.trim().toLowerCase();
   const filtered = page.stocks.filter((stock) => {
     return !keyword || stock.code.toLowerCase().includes(keyword) || stock.name.toLowerCase().includes(keyword);
   }).sort(compareStocks);
   if (!filtered.length) {
-    rows.innerHTML = `<tr><td colspan="17" class="empty">沒有符合條件的漲停股票</td></tr>`;
+    const label = activeView === "hot" ? "熱門股票" : "漲停股票";
+    rows.innerHTML = `<tr><td colspan="20" class="empty">沒有符合條件的${label}</td></tr>`;
     return;
   }
   rows.innerHTML = filtered.map((stock) => `
@@ -864,6 +984,11 @@ function renderRows() {
       <td><strong>${stock.code}</strong></td>
       <td><span class="badge">${stock.market}</span></td>
       <td>${stock.name}</td>
+      ${activeView === "hot" ? `
+        <td class="hot-only">${hotReasonCell(stock)}</td>
+        <td class="num hot-only">${stock.amount_rank}</td>
+        <td class="num hot-only">${stock.volume_multiple_5d == null ? "-" : `${stock.volume_multiple_5d.toFixed(2)}x`}</td>
+      ` : ""}
       <td class="num">${tradeCell(stock)}</td>
       <td class="num">${percentCell(stock.margin_usage_rate)}</td>
       <td class="num optional-price">${priceCell(stock.average)}</td>
@@ -884,11 +1009,14 @@ function renderRows() {
 
 function render() {
   if (!report) return;
-  const page = report.pages[activeIndex];
+  const page = currentPages()[activeIndex];
   meta.textContent = `${report.source}，更新時間 ${report.generated_at}`;
   pageDate.textContent = page.date;
-  pageCount.textContent = `共 ${page.count} 檔上市上櫃普通股漲停`;
+  pageCount.textContent = activeView === "hot"
+    ? `共 ${page.count} 檔熱門股（成交金額前30名或成交量達5日均量2倍）`
+    : `共 ${page.count} 檔上市上櫃普通股漲停`;
   renderTabs();
+  updateView();
   updateMetricMode();
   updatePriceDetails();
   updateSortHeaders();
@@ -904,6 +1032,9 @@ async function loadReport(force = false) {
   const response = await fetch(reportUrl);
   if (!response.ok) throw new Error(await response.text());
   report = await response.json();
+  if (!Array.isArray(report.hot_pages)) {
+    throw new Error("資料版本過舊，請執行每日更新後再重新載入");
+  }
   activeIndex = Math.max(0, report.pages.length - 1);
   render();
   refresh.disabled = false;
@@ -928,6 +1059,17 @@ document.querySelectorAll(".mode-toggle").forEach((button) => {
     metricMode = button.dataset.mode;
     updateMetricMode();
     renderRows();
+  });
+});
+document.querySelectorAll(".view-toggle").forEach((button) => {
+  button.addEventListener("click", () => {
+    activeView = button.dataset.view;
+    activeIndex = Math.max(0, currentPages().length - 1);
+    sortState = activeView === "hot"
+      ? { key: "amount_rank", direction: "asc" }
+      : { key: "consecutive_limit_days", direction: "desc" };
+    filter.value = "";
+    render();
   });
 });
 priceDetailsToggle.addEventListener("click", () => {
@@ -975,7 +1117,9 @@ class Handler(BaseHTTPRequestHandler):
         if parsed.path == "/api/report":
             params = parse_qs(parsed.query)
             try:
-                report = build_report() if params.get("refresh") == ["1"] else read_cached_report() or build_report()
+                cached = read_cached_report()
+                needs_refresh = params.get("refresh") == ["1"] or not cached or "hot_pages" not in cached
+                report = build_report() if needs_refresh else cached
                 self.send_body(json.dumps(report, ensure_ascii=False).encode("utf-8"), "application/json; charset=utf-8")
             except Exception as exc:
                 self.send_body(str(exc).encode("utf-8"), "text/plain; charset=utf-8", status=500)

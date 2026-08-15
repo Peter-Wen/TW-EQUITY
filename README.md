@@ -1,6 +1,6 @@
 # TW-EQUITY
 
-台股上市上櫃漲停追蹤 Web App。
+台股上市上櫃漲停股與熱門股追蹤 Web App。
 
 主要程式在 [`twse-limit-up-site/`](twse-limit-up-site/)。
 
