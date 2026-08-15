@@ -37,10 +37,6 @@ def static_html() -> str:
             '<script src="/app.js"></script>',
             '<script>window.TW_EQUITY_STATIC = true;</script>\n  <script src="./app.js"></script>',
         )
-        .replace(
-            '<button id="refresh" type="button">更新資料</button>',
-            '<button id="refresh" type="button">重新載入</button>',
-        )
     )
 
 

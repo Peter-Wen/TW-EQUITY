@@ -366,6 +366,10 @@ def report_stock(
     day_index: int,
     row: Dict[str, Any],
 ) -> Dict[str, Any]:
+    previous = indexed[days[day_index - 1]].get(row["key"]) if day_index > 0 else None
+    change_pct = None
+    if previous and previous.get("close"):
+        change_pct = ((row["close"] - previous["close"]) / previous["close"]) * 100
     return {
         "market": row["market"],
         "code": row["code"],
@@ -377,6 +381,7 @@ def report_stock(
         "open": round_optional(row.get("open")),
         "low": round_optional(row.get("low")),
         "close": round(row["close"], 2),
+        "change_pct": round_optional(change_pct),
         "limit_up_price": round_optional(row.get("limit_up_price")),
         "foreign_net": row.get("foreign_net", 0),
         "investment_trust_net": row.get("investment_trust_net", 0),
@@ -389,21 +394,21 @@ def report_stock(
     }
 
 
-def five_day_volume_multiple(
+def ten_day_volume_multiple(
     indexed: Dict[str, Dict[str, Dict[str, Any]]],
     days: List[str],
     day_index: int,
     key: str,
 ) -> Optional[float]:
-    if day_index < 5:
+    if day_index < 10:
         return None
     history = []
-    for prior_day in days[day_index - 5:day_index]:
+    for prior_day in days[day_index - 10:day_index]:
         prior = indexed[prior_day].get(key)
         if not prior:
             return None
         history.append(prior["volume"])
-    average_volume = sum(history) / 5
+    average_volume = sum(history) / 10
     current = indexed[days[day_index]].get(key)
     if not current or average_volume <= 0:
         return None
@@ -418,7 +423,7 @@ def build_report(today: Optional[dt.date] = None) -> Dict[str, Any]:
 
     indexed = attach_limit_flags(market)
     days = sorted(indexed)
-    recent_days = days[-5:]
+    recent_days = days[-10:]
 
     institutional_by_day: Dict[str, Dict[str, Dict[str, int]]] = {}
     for day in recent_days:
@@ -448,31 +453,32 @@ def build_report(today: Optional[dt.date] = None) -> Dict[str, Any]:
         hot_stocks = []
         for row in indexed[day].values():
             amount_rank = amount_ranks[row["key"]]
-            volume_multiple = five_day_volume_multiple(indexed, days, day_index, row["key"])
+            volume_multiple = ten_day_volume_multiple(indexed, days, day_index, row["key"])
             top_amount = amount_rank <= 30
-            volume_surge = volume_multiple is not None and volume_multiple >= 2
+            volume_surge = volume_multiple is not None and volume_multiple >= 3
             if not top_amount and not volume_surge:
                 continue
             stock = report_stock(indexed, days, day_index, row)
             stock.update(
                 {
                     "amount_rank": amount_rank,
-                    "volume_multiple_5d": volume_multiple,
+                    "volume_multiple_10d": volume_multiple,
                     "hot_reasons": [
                         reason
                         for matched, reason in (
                             (top_amount, "成交金額前30名"),
-                            (volume_surge, "成交量達5日均量2倍"),
+                            (volume_surge, "成交量達10日均量3倍"),
                         )
                         if matched
                     ],
                 }
             )
             hot_stocks.append(stock)
-        hot_stocks.sort(key=lambda item: (item["amount_rank"], -item["volume_multiple_5d"] if item["volume_multiple_5d"] is not None else 0))
+        hot_stocks.sort(key=lambda item: (item["amount_rank"], -item["volume_multiple_10d"] if item["volume_multiple_10d"] is not None else 0))
         hot_pages.append({"date": display_date(day), "count": len(hot_stocks), "stocks": hot_stocks})
 
     report = {
+        "report_version": 2,
         "source": "TWSE 台灣證券交易所 + TPEx 櫃買中心官方公開資料",
         "source_urls": [TWSE_QUOTES_URL, TPEX_QUOTES_URL, TWSE_INST_URL, TPEX_INST_URL, TWSE_MARGIN_URL, TPEX_MARGIN_URL],
         "generated_at": dt.datetime.now().isoformat(timespec="seconds"),
@@ -505,7 +511,6 @@ INDEX_HTML = """<!doctype html>
       <h1>上市上櫃行情追蹤</h1>
       <p id="meta">載入中...</p>
     </div>
-    <button id="refresh" type="button">更新資料</button>
   </header>
 
   <main>
@@ -513,7 +518,7 @@ INDEX_HTML = """<!doctype html>
       <button class="view-toggle active" data-view="limit_up" type="button">漲停股</button>
       <button class="view-toggle" data-view="hot" type="button">熱門股</button>
     </nav>
-    <nav id="tabs" class="tabs" aria-label="近五個交易日"></nav>
+    <nav id="tabs" class="tabs" aria-label="近十個交易日"></nav>
     <section class="panel">
       <div class="panel-head">
         <div>
@@ -536,9 +541,10 @@ INDEX_HTML = """<!doctype html>
               <th><button class="sort-head" data-sort="code" type="button">代號</button></th>
               <th><button class="sort-head" data-sort="market" type="button">市場</button></th>
               <th><button class="sort-head" data-sort="name" type="button">名稱</button></th>
+              <th class="num hot-only"><button class="sort-head" data-sort="change_pct" type="button">漲跌幅</button></th>
               <th class="hot-only"><button class="sort-head" data-sort="hot_reasons" type="button">入選原因</button></th>
               <th class="num hot-only"><button class="sort-head" data-sort="amount_rank" type="button">成交額排名</button></th>
-              <th class="num hot-only"><button class="sort-head" data-sort="volume_multiple_5d" type="button">5日量比</button></th>
+              <th class="num hot-only"><button class="sort-head" data-sort="volume_multiple_10d" type="button">10日量比</button></th>
               <th class="num"><button class="sort-head" data-sort="trade_metric" type="button"><span id="trade-heading">成交量(張)</span></button></th>
               <th class="num"><button class="sort-head" data-sort="margin_usage_rate" type="button">融資使用率</button></th>
               <th class="num optional-price"><button class="sort-head" data-sort="average" type="button">均價</button></th>
@@ -569,15 +575,17 @@ INDEX_HTML = """<!doctype html>
 
 STYLE_CSS = """
 :root {
-  color-scheme: light;
-  --bg: #f7f7f4;
-  --ink: #1b1d1f;
-  --muted: #697078;
-  --line: #d9ddd6;
-  --accent: #b42318;
+  color-scheme: dark;
+  --bg: #101214;
+  --ink: #f2f4f3;
+  --muted: #a3abb2;
+  --line: #34393e;
+  --accent: #e5484d;
   --accent-ink: #ffffff;
-  --panel: #ffffff;
-  --green: #067647;
+  --panel: #191c1f;
+  --panel-raised: #202428;
+  --control: #262b2f;
+  --green: #42c785;
 }
 * { box-sizing: border-box; }
 body {
@@ -587,13 +595,9 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 .topbar {
-  display: flex;
-  justify-content: space-between;
-  gap: 16px;
-  align-items: center;
   padding: 22px 28px;
   border-bottom: 1px solid var(--line);
-  background: #fff;
+  background: #16191b;
 }
 h1, h2, p { margin: 0; }
 h1 { font-size: 24px; font-weight: 760; }
@@ -602,7 +606,8 @@ button, input {
   font: inherit;
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: #fff;
+  color: var(--ink);
+  background: var(--control);
 }
 button {
   min-height: 40px;
@@ -612,7 +617,6 @@ button {
   border-color: var(--accent);
   cursor: pointer;
 }
-button:disabled { opacity: .65; cursor: wait; }
 main { padding: 22px 28px 32px; }
 .view-nav {
   display: inline-flex;
@@ -620,19 +624,20 @@ main { padding: 22px 28px 32px; }
   margin-bottom: 16px;
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: #fff;
+  background: var(--panel);
 }
 .view-toggle {
   min-height: 42px;
   padding: 0 20px;
   border: 0;
   border-radius: 0;
-  color: #3b424a;
-  background: #fff;
+  color: var(--muted);
+  background: var(--panel);
   font-weight: 700;
 }
 .view-toggle + .view-toggle { border-left: 1px solid var(--line); }
-.view-toggle.active { color: #fff; background: #2f3a45; }
+.view-toggle:hover { color: var(--ink); background: var(--panel-raised); }
+.view-toggle.active { color: #fff; background: var(--accent); }
 .tabs {
   display: flex;
   flex-wrap: wrap;
@@ -643,12 +648,13 @@ main { padding: 22px 28px 32px; }
   min-height: 38px;
   padding: 0 14px;
   color: var(--ink);
-  background: #fff;
+  background: var(--panel-raised);
 }
+.tab:hover { border-color: #626a72; }
 .tab.active {
   color: var(--accent-ink);
-  background: #2f3a45;
-  border-color: #2f3a45;
+  background: var(--accent);
+  border-color: var(--accent);
 }
 .panel {
   background: var(--panel);
@@ -674,40 +680,42 @@ main { padding: 22px 28px 32px; }
   overflow: hidden;
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: #fff;
+  background: var(--panel);
 }
 .mode-toggle {
   min-height: 38px;
   padding: 0 12px;
   border: 0;
   border-radius: 0;
-  color: #3b424a;
-  background: #fff;
+  color: var(--muted);
+  background: var(--panel);
 }
 .mode-toggle + .mode-toggle {
   border-left: 1px solid var(--line);
 }
 .mode-toggle.active {
   color: var(--accent-ink);
-  background: #2f3a45;
+  background: var(--accent);
 }
 .details-toggle {
   min-height: 38px;
   padding: 0 12px;
-  color: #3b424a;
-  background: #fff;
+  color: var(--muted);
+  background: var(--control);
   border-color: var(--line);
 }
 .details-toggle.active {
   color: #fff;
-  background: #52606d;
-  border-color: #52606d;
+  background: #4b535a;
+  border-color: #626a72;
 }
 #filter {
   width: min(300px, 45vw);
   min-height: 40px;
   padding: 0 12px;
 }
+#filter::placeholder { color: #7f878e; }
+#filter:focus { outline: 2px solid #e5484d66; border-color: var(--accent); }
 .table-wrap { overflow-x: auto; }
 table {
   width: 100%;
@@ -721,18 +729,20 @@ table.hide-price-details .optional-price {
   display: none;
 }
 table:not(.hot-view) .hot-only { display: none; }
-table.hot-view { min-width: 1860px; }
-table.hot-view.hide-price-details { min-width: 1560px; }
+table.hot-view { min-width: 1980px; }
+table.hot-view.hide-price-details { min-width: 1680px; }
 th, td {
   padding: 12px 14px;
   border-bottom: 1px solid var(--line);
   text-align: left;
   white-space: nowrap;
 }
+tbody tr:nth-child(even) { background: #1c2023; }
+tbody tr:hover { background: #282d31; }
 th {
-  color: #4c535a;
+  color: #c6cbd0;
   font-size: 13px;
-  background: #fafaf8;
+  background: #22262a;
 }
 .sort-head {
   min-height: auto;
@@ -748,7 +758,7 @@ th {
   content: "↕";
   display: inline-block;
   margin-left: 5px;
-  color: #9aa1a8;
+  color: #737b82;
   font-size: 11px;
 }
 .sort-head.active.asc::after { content: "↑"; color: var(--accent); }
@@ -761,8 +771,8 @@ th {
   align-items: center;
   justify-content: center;
   border-radius: 999px;
-  background: #eef1f4;
-  color: #2f3a45;
+  background: #30363b;
+  color: #e5e8e9;
   font-size: 12px;
   font-weight: 700;
 }
@@ -772,10 +782,10 @@ th {
   min-height: 24px;
   align-items: center;
   padding: 2px 8px;
-  border: 1px solid #ccd3d8;
+  border: 1px solid #515960;
   border-radius: 999px;
-  color: #3b424a;
-  background: #f4f6f7;
+  color: #e2e5e7;
+  background: #2b3034;
   font-size: 12px;
 }
 .gain { color: var(--accent); font-weight: 700; }
@@ -802,14 +812,12 @@ let activeView = "limit_up";
 let metricMode = "shares";
 let priceDetailsVisible = true;
 
-const fmt = new Intl.NumberFormat("zh-TW");
 const tabs = document.querySelector("#tabs");
 const rows = document.querySelector("#rows");
 const meta = document.querySelector("#meta");
 const pageDate = document.querySelector("#page-date");
 const pageCount = document.querySelector("#page-count");
 const filter = document.querySelector("#filter");
-const refresh = document.querySelector("#refresh");
 const staticMode = Boolean(window.TW_EQUITY_STATIC);
 const stockTable = document.querySelector("#stock-table");
 const tradeHeading = document.querySelector("#trade-heading");
@@ -837,11 +845,12 @@ function percentCell(value) {
   return value == null ? "-" : `${Number(value).toFixed(2)}%`;
 }
 
-function signedCell(value) {
-  const number = Number(value || 0);
+function dailyChangeCell(value) {
+  if (value == null) return "-";
+  const number = Number(value);
   const cls = number >= 0 ? "gain" : "loss";
   const sign = number > 0 ? "+" : "";
-  return `<span class="${cls}">${sign}${fmt.format(number)}</span>`;
+  return `<span class="${cls}">${sign}${number.toFixed(1)}%</span>`;
 }
 
 function decimalText(value) {
@@ -976,7 +985,7 @@ function renderRows() {
   }).sort(compareStocks);
   if (!filtered.length) {
     const label = activeView === "hot" ? "熱門股票" : "漲停股票";
-    rows.innerHTML = `<tr><td colspan="20" class="empty">沒有符合條件的${label}</td></tr>`;
+    rows.innerHTML = `<tr><td colspan="21" class="empty">沒有符合條件的${label}</td></tr>`;
     return;
   }
   rows.innerHTML = filtered.map((stock) => `
@@ -985,9 +994,10 @@ function renderRows() {
       <td><span class="badge">${stock.market}</span></td>
       <td>${stock.name}</td>
       ${activeView === "hot" ? `
+        <td class="num hot-only">${dailyChangeCell(stock.change_pct)}</td>
         <td class="hot-only">${hotReasonCell(stock)}</td>
         <td class="num hot-only">${stock.amount_rank}</td>
-        <td class="num hot-only">${stock.volume_multiple_5d == null ? "-" : `${stock.volume_multiple_5d.toFixed(2)}x`}</td>
+        <td class="num hot-only">${stock.volume_multiple_10d == null ? "-" : `${stock.volume_multiple_10d.toFixed(2)}x`}</td>
       ` : ""}
       <td class="num">${tradeCell(stock)}</td>
       <td class="num">${percentCell(stock.margin_usage_rate)}</td>
@@ -1013,7 +1023,7 @@ function render() {
   meta.textContent = `${report.source}，更新時間 ${report.generated_at}`;
   pageDate.textContent = page.date;
   pageCount.textContent = activeView === "hot"
-    ? `共 ${page.count} 檔熱門股（成交金額前30名或成交量達5日均量2倍）`
+    ? `共 ${page.count} 檔熱門股（成交金額前30名或成交量達10日均量3倍）`
     : `共 ${page.count} 檔上市上櫃普通股漲停`;
   renderTabs();
   updateView();
@@ -1023,22 +1033,18 @@ function render() {
   renderRows();
 }
 
-async function loadReport(force = false) {
-  refresh.disabled = true;
-  refresh.textContent = force ? (staticMode ? "重新載入中..." : "更新中...") : "載入中...";
+async function loadReport() {
   const reportUrl = staticMode
-    ? `./data/report.json${force ? `?t=${Date.now()}` : ""}`
-    : `/api/report${force ? "?refresh=1" : ""}`;
+    ? "./data/report.json"
+    : "/api/report";
   const response = await fetch(reportUrl);
   if (!response.ok) throw new Error(await response.text());
   report = await response.json();
-  if (!Array.isArray(report.hot_pages)) {
-    throw new Error("資料版本過舊，請執行每日更新後再重新載入");
+  if (report.report_version !== 2 || !Array.isArray(report.hot_pages)) {
+    throw new Error("資料版本過舊，請執行每日更新後再重新整理頁面");
   }
   activeIndex = Math.max(0, report.pages.length - 1);
   render();
-  refresh.disabled = false;
-  refresh.textContent = staticMode ? "重新載入" : "更新資料";
 }
 
 filter.addEventListener("input", renderRows);
@@ -1076,16 +1082,8 @@ priceDetailsToggle.addEventListener("click", () => {
   priceDetailsVisible = !priceDetailsVisible;
   updatePriceDetails();
 });
-refresh.addEventListener("click", () => loadReport(true).catch((error) => {
-  refresh.disabled = false;
-  refresh.textContent = staticMode ? "重新載入" : "更新資料";
-  alert(error.message);
-}));
-
-loadReport(false).catch((error) => {
+loadReport().catch((error) => {
   meta.textContent = `載入失敗：${error.message}`;
-  refresh.disabled = false;
-  refresh.textContent = staticMode ? "重新載入" : "更新資料";
 });
 """
 
@@ -1118,7 +1116,11 @@ class Handler(BaseHTTPRequestHandler):
             params = parse_qs(parsed.query)
             try:
                 cached = read_cached_report()
-                needs_refresh = params.get("refresh") == ["1"] or not cached or "hot_pages" not in cached
+                needs_refresh = (
+                    params.get("refresh") == ["1"]
+                    or not cached
+                    or cached.get("report_version") != 2
+                )
                 report = build_report() if needs_refresh else cached
                 self.send_body(json.dumps(report, ensure_ascii=False).encode("utf-8"), "application/json; charset=utf-8")
             except Exception as exc:
