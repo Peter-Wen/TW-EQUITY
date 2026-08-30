@@ -541,6 +541,7 @@ INDEX_HTML = """<!doctype html>
               <th><button class="sort-head" data-sort="code" type="button">代號</button></th>
               <th><button class="sort-head" data-sort="market" type="button">市場</button></th>
               <th><button class="sort-head" data-sort="name" type="button">名稱</button></th>
+              <th class="num"><button class="sort-head" data-sort="close" type="button">收盤</button></th>
               <th class="num hot-only"><button class="sort-head" data-sort="change_pct" type="button">漲跌幅</button></th>
               <th class="hot-only"><button class="sort-head" data-sort="hot_reasons" type="button">入選原因</button></th>
               <th class="num hot-only"><button class="sort-head" data-sort="amount_rank" type="button">成交額排名</button></th>
@@ -550,7 +551,6 @@ INDEX_HTML = """<!doctype html>
               <th class="num optional-price"><button class="sort-head" data-sort="average" type="button">均價</button></th>
               <th class="num optional-price"><button class="sort-head" data-sort="open" type="button">開盤</button></th>
               <th class="num optional-price"><button class="sort-head" data-sort="low" type="button">最低</button></th>
-              <th class="num"><button class="sort-head" data-sort="close" type="button">收盤</button></th>
               <th class="num"><button class="sort-head" data-sort="foreign_net" type="button"><span data-inst-heading="foreign_net">外資(張)</span></button></th>
               <th class="num"><button class="sort-head" data-sort="investment_trust_net" type="button"><span data-inst-heading="investment_trust_net">投信(張)</span></button></th>
               <th class="num"><button class="sort-head" data-sort="dealer_net" type="button"><span data-inst-heading="dealer_net">自營商(張)</span></button></th>
@@ -993,6 +993,7 @@ function renderRows() {
       <td><strong>${stock.code}</strong></td>
       <td><span class="badge">${stock.market}</span></td>
       <td>${stock.name}</td>
+      <td class="num">${priceCell(stock.close)}</td>
       ${activeView === "hot" ? `
         <td class="num hot-only">${dailyChangeCell(stock.change_pct)}</td>
         <td class="hot-only">${hotReasonCell(stock)}</td>
@@ -1004,7 +1005,6 @@ function renderRows() {
       <td class="num optional-price">${priceCell(stock.average)}</td>
       <td class="num optional-price">${priceCell(stock.open)}</td>
       <td class="num optional-price">${priceCell(stock.low)}</td>
-      <td class="num">${priceCell(stock.close)}</td>
       <td class="num">${institutionalCell(stock, "foreign_net")}</td>
       <td class="num">${institutionalCell(stock, "investment_trust_net")}</td>
       <td class="num">${institutionalCell(stock, "dealer_net")}</td>
