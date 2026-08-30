@@ -567,6 +567,23 @@ INDEX_HTML = """<!doctype html>
     </section>
   </main>
 
+  <div id="chart-modal" class="chart-modal" role="dialog" aria-modal="true" aria-labelledby="chart-title" hidden>
+    <section class="chart-dialog">
+      <header class="chart-dialog-head">
+        <div>
+          <p class="chart-eyebrow">個股走勢</p>
+          <h2 id="chart-title"></h2>
+        </div>
+        <button id="chart-close" class="chart-close" type="button" aria-label="關閉走勢圖" title="關閉">&times;</button>
+      </header>
+      <div id="chart-host" class="chart-host" aria-label="TradingView 互動式走勢圖"></div>
+      <p class="chart-fallback">
+        圖表無法顯示？
+        <a id="yahoo-link" href="#" target="_blank" rel="noopener noreferrer">前往 Yahoo 股市查看</a>
+      </p>
+    </section>
+  </div>
+
   <script src="/app.js"></script>
 </body>
 </html>
@@ -588,12 +605,14 @@ STYLE_CSS = """
   --green: #42c785;
 }
 * { box-sizing: border-box; }
+[hidden] { display: none !important; }
 body {
   margin: 0;
   background: var(--bg);
   color: var(--ink);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
+body.modal-open { overflow: hidden; }
 .topbar {
   padding: 22px 28px;
   border-bottom: 1px solid var(--line);
@@ -739,6 +758,20 @@ th, td {
 }
 tbody tr:nth-child(even) { background: #1c2023; }
 tbody tr:hover { background: #282d31; }
+.stock-name-button {
+  min-height: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  color: #f4f6f5;
+  background: transparent;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: #737b82;
+  text-underline-offset: 3px;
+}
+.stock-name-button:hover { color: #ff777b; text-decoration-color: currentColor; }
+.stock-name-button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 th {
   color: #c6cbd0;
   font-size: 13px;
@@ -796,10 +829,80 @@ th {
   text-align: center;
   color: var(--muted);
 }
+.chart-modal {
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: #050607d9;
+}
+.chart-dialog {
+  width: min(1100px, 100%);
+  max-height: calc(100vh - 48px);
+  overflow: hidden;
+  border: 1px solid #444b51;
+  border-radius: 8px;
+  background: #171a1d;
+  box-shadow: 0 24px 80px #00000099;
+}
+.chart-dialog-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 18px;
+  border-bottom: 1px solid var(--line);
+}
+.chart-eyebrow {
+  margin-bottom: 4px;
+  color: var(--muted);
+  font-size: 12px;
+}
+.chart-close {
+  width: 40px;
+  min-width: 40px;
+  height: 40px;
+  padding: 0;
+  border-color: var(--line);
+  color: var(--ink);
+  background: var(--control);
+  font-size: 28px;
+  line-height: 1;
+}
+.chart-close:hover { border-color: #747d84; background: #343a3f; }
+.chart-host {
+  width: 100%;
+  height: 500px;
+  background: #101214;
+}
+.tradingview-widget-container,
+.tradingview-widget-container__widget { width: 100%; height: 100%; }
+.chart-error {
+  display: grid;
+  height: 100%;
+  place-items: center;
+  color: var(--muted);
+}
+.chart-fallback {
+  padding: 11px 18px 13px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 13px;
+  text-align: right;
+}
+.chart-fallback a { color: #ff777b; font-weight: 700; }
 @media (max-width: 720px) {
   .topbar, .panel-head, .panel-actions { align-items: stretch; flex-direction: column; }
   main, .topbar { padding-left: 16px; padding-right: 16px; }
   #filter { width: 100%; }
+  .chart-modal { align-items: flex-start; padding: 12px; }
+  .chart-dialog { max-height: calc(100vh - 24px); margin-top: 0; }
+  .chart-dialog-head { padding: 12px 14px; }
+  .chart-host { height: clamp(220px, 58vh, 420px); }
+  .chart-fallback { padding: 10px 14px 12px; text-align: left; }
 }
 """
 
@@ -811,6 +914,8 @@ let sortState = { key: "consecutive_limit_days", direction: "desc" };
 let activeView = "limit_up";
 let metricMode = "shares";
 let priceDetailsVisible = true;
+let chartLoadId = 0;
+let chartTrigger = null;
 
 const tabs = document.querySelector("#tabs");
 const rows = document.querySelector("#rows");
@@ -822,6 +927,11 @@ const staticMode = Boolean(window.TW_EQUITY_STATIC);
 const stockTable = document.querySelector("#stock-table");
 const tradeHeading = document.querySelector("#trade-heading");
 const priceDetailsToggle = document.querySelector("#price-details-toggle");
+const chartModal = document.querySelector("#chart-modal");
+const chartTitle = document.querySelector("#chart-title");
+const chartClose = document.querySelector("#chart-close");
+const chartHost = document.querySelector("#chart-host");
+const yahooLink = document.querySelector("#yahoo-link");
 const institutionalKeys = ["foreign_net", "investment_trust_net", "dealer_net", "institutional_net"];
 const institutionalLabels = {
   foreign_net: "外資",
@@ -895,6 +1005,77 @@ function currentPages() {
 
 function hotReasonCell(stock) {
   return `<div class="reason-list">${stock.hot_reasons.map((reason) => `<span class="reason">${reason}</span>`).join("")}</div>`;
+}
+
+function tradingViewSymbol(stock) {
+  const exchange = stock.market === "上櫃" ? "TPEX" : "TWSE";
+  return `${exchange}:${stock.code}`;
+}
+
+function yahooQuoteUrl(stock) {
+  const suffix = stock.market === "上櫃" ? "TWO" : "TW";
+  return `https://tw.stock.yahoo.com/quote/${stock.code}.${suffix}`;
+}
+
+function clearChart() {
+  chartLoadId += 1;
+  chartHost.replaceChildren();
+}
+
+function loadTradingViewChart(stock) {
+  clearChart();
+  const loadId = chartLoadId;
+  const container = document.createElement("div");
+  container.className = "tradingview-widget-container";
+
+  const widget = document.createElement("div");
+  widget.className = "tradingview-widget-container__widget";
+
+  const script = document.createElement("script");
+  script.type = "text/javascript";
+  script.src = "https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js";
+  script.async = true;
+  script.textContent = JSON.stringify({
+    autosize: true,
+    symbol: tradingViewSymbol(stock),
+    interval: "D",
+    timezone: "Asia/Taipei",
+    theme: "dark",
+    style: "1",
+    locale: "zh_TW",
+    allow_symbol_change: false,
+    calendar: false,
+    support_host: "https://www.tradingview.com",
+  });
+  script.addEventListener("error", () => {
+    if (loadId !== chartLoadId) return;
+    const error = document.createElement("div");
+    error.className = "chart-error";
+    error.textContent = "TradingView 圖表暫時無法載入";
+    chartHost.replaceChildren(error);
+  });
+
+  container.append(widget, script);
+  chartHost.appendChild(container);
+}
+
+function openChart(stock, trigger) {
+  chartTrigger = trigger;
+  chartTitle.textContent = `${stock.name} (${stock.code})`;
+  yahooLink.href = yahooQuoteUrl(stock);
+  chartModal.hidden = false;
+  document.body.classList.add("modal-open");
+  loadTradingViewChart(stock);
+  requestAnimationFrame(() => chartClose.focus());
+}
+
+function closeChart() {
+  if (chartModal.hidden) return;
+  clearChart();
+  chartModal.hidden = true;
+  document.body.classList.remove("modal-open");
+  if (chartTrigger && document.contains(chartTrigger)) chartTrigger.focus();
+  chartTrigger = null;
 }
 
 function sortValue(stock, key) {
@@ -992,7 +1173,7 @@ function renderRows() {
     <tr>
       <td><strong>${stock.code}</strong></td>
       <td><span class="badge">${stock.market}</span></td>
-      <td>${stock.name}</td>
+      <td><button class="stock-name-button" type="button" data-code="${stock.code}" data-market="${stock.market}">${stock.name}</button></td>
       <td class="num">${priceCell(stock.close)}</td>
       ${activeView === "hot" ? `
         <td class="num hot-only">${dailyChangeCell(stock.change_pct)}</td>
@@ -1048,6 +1229,21 @@ async function loadReport() {
 }
 
 filter.addEventListener("input", renderRows);
+rows.addEventListener("click", (event) => {
+  const trigger = event.target.closest(".stock-name-button");
+  if (!trigger) return;
+  const stock = currentPages()[activeIndex].stocks.find((item) => {
+    return item.code === trigger.dataset.code && item.market === trigger.dataset.market;
+  });
+  if (stock) openChart(stock, trigger);
+});
+chartClose.addEventListener("click", closeChart);
+chartModal.addEventListener("click", (event) => {
+  if (event.target === chartModal) closeChart();
+});
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && !chartModal.hidden) closeChart();
+});
 document.querySelectorAll(".sort-head").forEach((button) => {
   button.addEventListener("click", () => {
     const key = button.dataset.sort;
