@@ -415,6 +415,40 @@ def ten_day_volume_multiple(
     return round(current["volume"] / average_volume, 2)
 
 
+def build_chart_data(
+    indexed: Dict[str, Dict[str, Dict[str, Any]]],
+    days: List[str],
+    pages: List[Dict[str, Any]],
+    hot_pages: List[Dict[str, Any]],
+) -> Dict[str, List[Dict[str, Any]]]:
+    selected = {
+        (stock["market"], stock["code"])
+        for page in pages + hot_pages
+        for stock in page["stocks"]
+    }
+    result: Dict[str, List[Dict[str, Any]]] = {}
+    for market, code in sorted(selected):
+        key = f"{'TWSE' if market == '上市' else 'TPEX'}:{code}"
+        points = []
+        for day in days:
+            row = indexed[day].get(key)
+            if not row or any(row.get(field) is None for field in ("open", "high", "low", "close")):
+                continue
+            points.append(
+                {
+                    "time": display_date(day),
+                    "open": round(row["open"], 2),
+                    "high": round(row["high"], 2),
+                    "low": round(row["low"], 2),
+                    "close": round(row["close"], 2),
+                    "volume": row["volume"],
+                }
+            )
+        if points:
+            result[key] = points
+    return result
+
+
 def build_report(today: Optional[dt.date] = None) -> Dict[str, Any]:
     today = today or dt.date.today()
     market = collect_market(today)
@@ -478,13 +512,14 @@ def build_report(today: Optional[dt.date] = None) -> Dict[str, Any]:
         hot_pages.append({"date": display_date(day), "count": len(hot_stocks), "stocks": hot_stocks})
 
     report = {
-        "report_version": 2,
+        "report_version": 3,
         "source": "TWSE 台灣證券交易所 + TPEx 櫃買中心官方公開資料",
         "source_urls": [TWSE_QUOTES_URL, TPEX_QUOTES_URL, TWSE_INST_URL, TPEX_INST_URL, TWSE_MARGIN_URL, TPEX_MARGIN_URL],
         "generated_at": dt.datetime.now().isoformat(timespec="seconds"),
         "trading_days": [display_date(day) for day in recent_days],
         "pages": pages,
         "hot_pages": hot_pages,
+        "chart_data": build_chart_data(indexed, days, pages, hot_pages),
     }
     DATA_DIR.mkdir(exist_ok=True)
     CACHE_FILE.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
@@ -571,16 +606,22 @@ INDEX_HTML = """<!doctype html>
     <section class="chart-dialog">
       <header class="chart-dialog-head">
         <div>
-          <p class="chart-eyebrow">個股走勢</p>
+          <p id="chart-source" class="chart-eyebrow">個股走勢</p>
           <h2 id="chart-title"></h2>
         </div>
         <button id="chart-close" class="chart-close" type="button" aria-label="關閉走勢圖" title="關閉">&times;</button>
       </header>
-      <div id="chart-host" class="chart-host" aria-label="TradingView 互動式走勢圖"></div>
-      <p class="chart-fallback">
-        圖表無法顯示？
-        <a id="yahoo-link" href="#" target="_blank" rel="noopener noreferrer">前往 Yahoo 股市查看</a>
-      </p>
+      <div id="chart-host" class="chart-host" aria-label="個股互動式走勢圖"></div>
+      <footer class="chart-footer">
+        <p id="chart-attribution" class="chart-attribution" hidden>
+          <a href="https://www.tradingview.com/" target="_blank" rel="noopener noreferrer">TradingView Lightweight Charts&trade;</a>
+          Copyright &copy; 2025 TradingView, Inc.
+        </p>
+        <p class="chart-fallback">
+          圖表無法顯示？
+          <a id="yahoo-link" href="#" target="_blank" rel="noopener noreferrer">前往 Yahoo 股市查看</a>
+        </p>
+      </footer>
     </section>
   </div>
 
@@ -880,19 +921,29 @@ th {
 }
 .tradingview-widget-container,
 .tradingview-widget-container__widget { width: 100%; height: 100%; }
-.chart-error {
+.local-chart { width: 100%; height: 100%; }
+.chart-error,
+.chart-loading {
   display: grid;
   height: 100%;
   place-items: center;
   color: var(--muted);
 }
-.chart-fallback {
-  padding: 11px 18px 13px;
+.chart-footer {
+  display: flex;
+  min-height: 46px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 18px 12px;
   border-top: 1px solid var(--line);
-  color: var(--muted);
-  font-size: 13px;
-  text-align: right;
 }
+.chart-attribution,
+.chart-fallback {
+  color: var(--muted);
+  font-size: 12px;
+}
+.chart-attribution a,
 .chart-fallback a { color: #ff777b; font-weight: 700; }
 @media (max-width: 720px) {
   .topbar, .panel-head, .panel-actions { align-items: stretch; flex-direction: column; }
@@ -902,7 +953,7 @@ th {
   .chart-dialog { max-height: calc(100vh - 24px); margin-top: 0; }
   .chart-dialog-head { padding: 12px 14px; }
   .chart-host { height: clamp(220px, 58vh, 420px); }
-  .chart-fallback { padding: 10px 14px 12px; text-align: left; }
+  .chart-footer { align-items: flex-start; flex-direction: column; gap: 5px; padding: 9px 14px 11px; }
 }
 """
 
@@ -916,6 +967,9 @@ let metricMode = "shares";
 let priceDetailsVisible = true;
 let chartLoadId = 0;
 let chartTrigger = null;
+let localChart = null;
+let chartResizeObserver = null;
+let lightweightChartsPromise = null;
 
 const tabs = document.querySelector("#tabs");
 const rows = document.querySelector("#rows");
@@ -929,8 +983,10 @@ const tradeHeading = document.querySelector("#trade-heading");
 const priceDetailsToggle = document.querySelector("#price-details-toggle");
 const chartModal = document.querySelector("#chart-modal");
 const chartTitle = document.querySelector("#chart-title");
+const chartSource = document.querySelector("#chart-source");
 const chartClose = document.querySelector("#chart-close");
 const chartHost = document.querySelector("#chart-host");
+const chartAttribution = document.querySelector("#chart-attribution");
 const yahooLink = document.querySelector("#yahoo-link");
 const institutionalKeys = ["foreign_net", "investment_trust_net", "dealer_net", "institutional_net"];
 const institutionalLabels = {
@@ -1008,6 +1064,10 @@ function hotReasonCell(stock) {
 }
 
 function tradingViewSymbol(stock) {
+  return `TPEX:${stock.code}`;
+}
+
+function chartDataKey(stock) {
   const exchange = stock.market === "上櫃" ? "TPEX" : "TWSE";
   return `${exchange}:${stock.code}`;
 }
@@ -1019,7 +1079,94 @@ function yahooQuoteUrl(stock) {
 
 function clearChart() {
   chartLoadId += 1;
+  if (chartResizeObserver) {
+    chartResizeObserver.disconnect();
+    chartResizeObserver = null;
+  }
+  if (localChart) {
+    localChart.remove();
+    localChart = null;
+  }
   chartHost.replaceChildren();
+}
+
+function loadLightweightCharts() {
+  if (window.LightweightCharts) return Promise.resolve(window.LightweightCharts);
+  if (lightweightChartsPromise) return lightweightChartsPromise;
+  lightweightChartsPromise = new Promise((resolve, reject) => {
+    const script = document.createElement("script");
+    script.src = "https://unpkg.com/lightweight-charts@5.2.1/dist/lightweight-charts.standalone.production.js";
+    script.async = true;
+    script.addEventListener("load", () => resolve(window.LightweightCharts));
+    script.addEventListener("error", () => {
+      lightweightChartsPromise = null;
+      reject(new Error("無法載入互動圖表元件"));
+    });
+    document.head.appendChild(script);
+  });
+  return lightweightChartsPromise;
+}
+
+function showChartError(message) {
+  const error = document.createElement("div");
+  error.className = "chart-error";
+  error.textContent = message;
+  chartHost.replaceChildren(error);
+}
+
+async function loadOfficialChart(stock) {
+  clearChart();
+  const loadId = chartLoadId;
+  const data = report.chart_data?.[chartDataKey(stock)] || [];
+  if (!data.length) {
+    showChartError("目前沒有足夠的官方日行情資料");
+    return;
+  }
+
+  const loading = document.createElement("div");
+  loading.className = "chart-loading";
+  loading.textContent = "載入官方行情走勢中...";
+  chartHost.appendChild(loading);
+
+  try {
+    const charts = await loadLightweightCharts();
+    if (loadId !== chartLoadId || chartModal.hidden) return;
+    const container = document.createElement("div");
+    container.className = "local-chart";
+    chartHost.replaceChildren(container);
+    localChart = charts.createChart(container, {
+      width: chartHost.clientWidth,
+      height: chartHost.clientHeight,
+      layout: {
+        background: { type: "solid", color: "#101214" },
+        textColor: "#c6cbd0",
+      },
+      grid: {
+        vertLines: { color: "#24282c" },
+        horzLines: { color: "#24282c" },
+      },
+      rightPriceScale: { borderColor: "#444b51" },
+      timeScale: { borderColor: "#444b51", timeVisible: false },
+      localization: { locale: "zh-TW" },
+    });
+    const series = localChart.addSeries(charts.CandlestickSeries, {
+      upColor: "#e5484d",
+      downColor: "#42c785",
+      borderVisible: false,
+      wickUpColor: "#e5484d",
+      wickDownColor: "#42c785",
+    });
+    series.setData(data);
+    localChart.timeScale().fitContent();
+    chartResizeObserver = new ResizeObserver((entries) => {
+      if (!localChart || !entries.length) return;
+      const { width, height } = entries[0].contentRect;
+      localChart.applyOptions({ width, height });
+    });
+    chartResizeObserver.observe(chartHost);
+  } catch (error) {
+    if (loadId === chartLoadId) showChartError(error.message);
+  }
 }
 
 function loadTradingViewChart(stock) {
@@ -1062,10 +1209,15 @@ function loadTradingViewChart(stock) {
 function openChart(stock, trigger) {
   chartTrigger = trigger;
   chartTitle.textContent = `${stock.name} (${stock.code})`;
+  chartSource.textContent = stock.market === "上市"
+    ? "證交所官方日行情・近20個交易日"
+    : "TradingView 互動圖表";
+  chartAttribution.hidden = stock.market !== "上市";
   yahooLink.href = yahooQuoteUrl(stock);
   chartModal.hidden = false;
   document.body.classList.add("modal-open");
-  loadTradingViewChart(stock);
+  if (stock.market === "上市") loadOfficialChart(stock);
+  else loadTradingViewChart(stock);
   requestAnimationFrame(() => chartClose.focus());
 }
 
@@ -1221,7 +1373,7 @@ async function loadReport() {
   const response = await fetch(reportUrl);
   if (!response.ok) throw new Error(await response.text());
   report = await response.json();
-  if (report.report_version !== 2 || !Array.isArray(report.hot_pages)) {
+  if (report.report_version !== 3 || !Array.isArray(report.hot_pages) || !report.chart_data) {
     throw new Error("資料版本過舊，請執行每日更新後再重新整理頁面");
   }
   activeIndex = Math.max(0, report.pages.length - 1);
@@ -1315,7 +1467,7 @@ class Handler(BaseHTTPRequestHandler):
                 needs_refresh = (
                     params.get("refresh") == ["1"]
                     or not cached
-                    or cached.get("report_version") != 2
+                    or cached.get("report_version") != 3
                 )
                 report = build_report() if needs_refresh else cached
                 self.send_body(json.dumps(report, ensure_ascii=False).encode("utf-8"), "application/json; charset=utf-8")
